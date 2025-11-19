@@ -31,10 +31,9 @@ jobs:
         working-directory: ./ballknower
 
       - name: Build
-        run: npm run build
+        run: CI=false npm run build
         working-directory: ./ballknower
 
-      # 👉 If your build folder is "build" (Create React App):
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
