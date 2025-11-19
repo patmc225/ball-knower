@@ -1,0 +1,374 @@
+{
+  "nba_ATL": {
+    "id": "nba_ATL",
+    "league": "NBA",
+    "logo": "",
+    "name": "Atlanta Hawks"
+  },
+  "nba_BOS": {
+    "id": "nba_BOS",
+    "league": "NBA",
+    "logo": "",
+    "name": "Boston Celtics"
+  },
+  "nba_CHA": {
+    "id": "nba_CHA",
+    "league": "NBA",
+    "logo": "",
+    "name": "Charlotte Hornets"
+  },
+  "nba_CHI": {
+    "id": "nba_CHI",
+    "league": "NBA",
+    "logo": "",
+    "name": "Chicago Bulls"
+  },
+  "nba_CLE": {
+    "id": "nba_CLE",
+    "league": "NBA",
+    "logo": "",
+    "name": "Cleveland Cavaliers"
+  },
+  "nba_DAL": {
+    "id": "nba_DAL",
+    "league": "NBA",
+    "logo": "",
+    "name": "Dallas Mavericks"
+  },
+  "nba_DEN": {
+    "id": "nba_DEN",
+    "league": "NBA",
+    "logo": "",
+    "name": "Denver Nuggets"
+  },
+  "nba_DET": {
+    "id": "nba_DET",
+    "league": "NBA",
+    "logo": "",
+    "name": "Detroit Pistons"
+  },
+  "nba_GSW": {
+    "id": "nba_GSW",
+    "league": "NBA",
+    "logo": "",
+    "name": "Golden State Warriors"
+  },
+  "nba_HOU": {
+    "id": "nba_HOU",
+    "league": "NBA",
+    "logo": "",
+    "name": "Houston Rockets"
+  },
+  "nba_IND": {
+    "id": "nba_IND",
+    "league": "NBA",
+    "logo": "",
+    "name": "Indiana Pacers"
+  },
+  "nba_LAC": {
+    "id": "nba_LAC",
+    "league": "NBA",
+    "logo": "",
+    "name": "Los Angeles Clippers"
+  },
+  "nba_LAL": {
+    "id": "nba_LAL",
+    "league": "NBA",
+    "logo": "",
+    "name": "Los Angeles Lakers"
+  },
+  "nba_MEM": {
+    "id": "nba_MEM",
+    "league": "NBA",
+    "logo": "",
+    "name": "Memphis Grizzlies"
+  },
+  "nba_MIA": {
+    "id": "nba_MIA",
+    "league": "NBA",
+    "logo": "",
+    "name": "Miami Heat"
+  },
+  "nba_MIL": {
+    "id": "nba_MIL",
+    "league": "NBA",
+    "logo": "",
+    "name": "Milwaukee Bucks"
+  },
+  "nba_MIN": {
+    "id": "nba_MIN",
+    "league": "NBA",
+    "logo": "",
+    "name": "Minnesota Timberwolves"
+  },
+  "nba_NJN": {
+    "id": "nba_NJN",
+    "league": "NBA",
+    "logo": "",
+    "name": "Brooklyn Nets"
+  },
+  "nba_NOH": {
+    "id": "nba_NOH",
+    "league": "NBA",
+    "logo": "",
+    "name": "New Orleans Pelicans"
+  },
+  "nba_NYK": {
+    "id": "nba_NYK",
+    "league": "NBA",
+    "logo": "",
+    "name": "New York Knicks"
+  },
+  "nba_OKC": {
+    "id": "nba_OKC",
+    "league": "NBA",
+    "logo": "",
+    "name": "Oklahoma City Thunder"
+  },
+  "nba_ORL": {
+    "id": "nba_ORL",
+    "league": "NBA",
+    "logo": "",
+    "name": "Orlando Magic"
+  },
+  "nba_PHI": {
+    "id": "nba_PHI",
+    "league": "NBA",
+    "logo": "",
+    "name": "Philadelphia 76ers"
+  },
+  "nba_PHO": {
+    "id": "nba_PHO",
+    "league": "NBA",
+    "logo": "",
+    "name": "Phoenix Suns"
+  },
+  "nba_POR": {
+    "id": "nba_POR",
+    "league": "NBA",
+    "logo": "",
+    "name": "Portland Trail Blazers"
+  },
+  "nba_SAC": {
+    "id": "nba_SAC",
+    "league": "NBA",
+    "logo": "",
+    "name": "Sacramento Kings"
+  },
+  "nba_SAS": {
+    "id": "nba_SAS",
+    "league": "NBA",
+    "logo": "",
+    "name": "San Antonio Spurs"
+  },
+  "nba_TOR": {
+    "id": "nba_TOR",
+    "league": "NBA",
+    "logo": "",
+    "name": "Toronto Raptors"
+  },
+  "nba_UTA": {
+    "id": "nba_UTA",
+    "league": "NBA",
+    "logo": "",
+    "name": "Utah Jazz"
+  },
+  "nba_WAS": {
+    "id": "nba_WAS",
+    "league": "NBA",
+    "logo": "",
+    "name": "Washington Wizards"
+  },
+  "nfl_ATL": {
+    "id": "nfl_ATL",
+    "league": "NFL",
+    "logo": "",
+    "name": "Atlanta Falcons"
+  },
+  "nfl_BUF": {
+    "id": "nfl_BUF",
+    "league": "NFL",
+    "logo": "",
+    "name": "Buffalo Bills"
+  },
+  "nfl_CAR": {
+    "id": "nfl_CAR",
+    "league": "NFL",
+    "logo": "",
+    "name": "Carolina Panthers"
+  },
+  "nfl_CHI": {
+    "id": "nfl_CHI",
+    "league": "NFL",
+    "logo": "",
+    "name": "Chicago Bears"
+  },
+  "nfl_CIN": {
+    "id": "nfl_CIN",
+    "league": "NFL",
+    "logo": "",
+    "name": "Cincinnati Bengals"
+  },
+  "nfl_CLE": {
+    "id": "nfl_CLE",
+    "league": "NFL",
+    "logo": "",
+    "name": "Cleveland Browns"
+  },
+  "nfl_CLT": {
+    "id": "nfl_CLT",
+    "league": "NFL",
+    "logo": "",
+    "name": "Indianapolis Colts"
+  },
+  "nfl_CRD": {
+    "id": "nfl_CRD",
+    "league": "NFL",
+    "logo": "",
+    "name": "Arizona Cardinals"
+  },
+  "nfl_DAL": {
+    "id": "nfl_DAL",
+    "league": "NFL",
+    "logo": "",
+    "name": "Dallas Cowboys"
+  },
+  "nfl_DEN": {
+    "id": "nfl_DEN",
+    "league": "NFL",
+    "logo": "",
+    "name": "Denver Broncos"
+  },
+  "nfl_DET": {
+    "id": "nfl_DET",
+    "league": "NFL",
+    "logo": "",
+    "name": "Detroit Lions"
+  },
+  "nfl_GNB": {
+    "id": "nfl_GNB",
+    "league": "NFL",
+    "logo": "",
+    "name": "Green Bay Packers"
+  },
+  "nfl_HTX": {
+    "id": "nfl_HTX",
+    "league": "NFL",
+    "logo": "",
+    "name": "Houston Texans"
+  },
+  "nfl_JAX": {
+    "id": "nfl_JAX",
+    "league": "NFL",
+    "logo": "",
+    "name": "Jacksonville Jaguars"
+  },
+  "nfl_KAN": {
+    "id": "nfl_KAN",
+    "league": "NFL",
+    "logo": "",
+    "name": "Kansas City Chiefs"
+  },
+  "nfl_MIA": {
+    "id": "nfl_MIA",
+    "league": "NFL",
+    "logo": "",
+    "name": "Miami Dolphins"
+  },
+  "nfl_MIN": {
+    "id": "nfl_MIN",
+    "league": "NFL",
+    "logo": "",
+    "name": "Minnesota Vikings"
+  },
+  "nfl_NOR": {
+    "id": "nfl_NOR",
+    "league": "NFL",
+    "logo": "",
+    "name": "New Orleans Saints"
+  },
+  "nfl_NWE": {
+    "id": "nfl_NWE",
+    "league": "NFL",
+    "logo": "",
+    "name": "New England Patriots"
+  },
+  "nfl_NYG": {
+    "id": "nfl_NYG",
+    "league": "NFL",
+    "logo": "",
+    "name": "New York Giants"
+  },
+  "nfl_NYJ": {
+    "id": "nfl_NYJ",
+    "league": "NFL",
+    "logo": "",
+    "name": "New York Jets"
+  },
+  "nfl_OTI": {
+    "id": "nfl_OTI",
+    "league": "NFL",
+    "logo": "",
+    "name": "Tennessee Titans"
+  },
+  "nfl_PHI": {
+    "id": "nfl_PHI",
+    "league": "NFL",
+    "logo": "",
+    "name": "Philadelphia Eagles"
+  },
+  "nfl_PIT": {
+    "id": "nfl_PIT",
+    "league": "NFL",
+    "logo": "",
+    "name": "Pittsburgh Steelers"
+  },
+  "nfl_RAI": {
+    "id": "nfl_RAI",
+    "league": "NFL",
+    "logo": "",
+    "name": "Las Vegas Raiders"
+  },
+  "nfl_RAM": {
+    "id": "nfl_RAM",
+    "league": "NFL",
+    "logo": "",
+    "name": "Los Angeles Rams"
+  },
+  "nfl_RAV": {
+    "id": "nfl_RAV",
+    "league": "NFL",
+    "logo": "",
+    "name": "Baltimore Ravens"
+  },
+  "nfl_SDG": {
+    "id": "nfl_SDG",
+    "league": "NFL",
+    "logo": "",
+    "name": "Los Angeles Chargers"
+  },
+  "nfl_SEA": {
+    "id": "nfl_SEA",
+    "league": "NFL",
+    "logo": "",
+    "name": "Seattle Seahawks"
+  },
+  "nfl_SFO": {
+    "id": "nfl_SFO",
+    "league": "NFL",
+    "logo": "",
+    "name": "San Francisco 49ers"
+  },
+  "nfl_TAM": {
+    "id": "nfl_TAM",
+    "league": "NFL",
+    "logo": "",
+    "name": "Tampa Bay Buccaneers"
+  },
+  "nfl_WAS": {
+    "id": "nfl_WAS",
+    "league": "NFL",
+    "logo": "",
+    "name": "Washington Commanders"
+  }
+}

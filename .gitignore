@@ -1,0 +1,67 @@
+# Root .gitignore for ball-knower project
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Firebase
+.firebase/
+.firebaserc
+**/serviceAccountKey.json
+**/*serviceAccountKey*.json
+
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Build outputs
+build/
+dist/
+**/build/
+**/dist/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+
+# Generated/intermediate scraper files
+scraper/players_nfl.json
+scraper/players_nba.json
+scraper/players_db_nfl.json
+scraper/players_db_nba.json
+
+# Misc
+*.bak
+*.tmp
+*.cache
+.cache/
+

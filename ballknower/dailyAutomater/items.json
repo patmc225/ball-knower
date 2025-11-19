@@ -1,0 +1,1137 @@
+[
+  {
+    "id": "jordami01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "jamesle01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "bryanko01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "johnsma02",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "birdla01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "abdulka01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "russebi01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "chambwi01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "onealsh01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "duncati01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "nowitdi01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "roberos01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "ervinju01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "olajuha01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "garneke01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "barklch01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "malonka01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "pippesc01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "wadedw01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "iversal01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "nashst01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "stockjo01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "thomais01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "bayloel01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "ewingpa01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "rodmade01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "millere01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "robinda01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "gasolpa01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "hillgr01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "allenra02",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "piercpa01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "mcgratr01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "cartevi01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "mingya01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "kiddja01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "westje01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "cousybo01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "cowenda01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "cunnibi01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "fraziwa01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "gervige01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "barryri01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "parisro01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "worthja01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "wilkido01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "gilmoar01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "mikange01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "pettibo01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "lucasje01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "dantlad01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "englial01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "waltobi01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "architi01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "malonmo01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "unselwe01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "mcadobo01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "dumarjo01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "cheekma01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "mutomdi01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "mullich01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "kingbe01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "mournal01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "mchalke01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "havlijo01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "curryst01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "duranke01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "antetgi01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "embiijo01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "tatumja01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "willizi01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "moranja01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "youngtr01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "bookede01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "mitchdo01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "leonaka01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "irvinky01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "butleji01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "georgpa01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "greendr01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "gilgesh01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "townska01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "adebaba01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "goberru01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "foxde01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "middlkh01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "siakapa01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "randlju01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "ingrabr01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "mccolcj01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "vanvlfr01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "derozde01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "ballla01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "lavinza01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "conlemi01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "hardeja01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "westbru01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "thompkl01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "brownja02",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "halibty01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "murrade01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "edwaran01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "barrerj01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "kuzmaky01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "portemi01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "ibakase01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "lopezbr01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "jacksja02",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "capelca01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "grantje01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "collijo01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "wiggian01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "brogdma01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "simmobe01",
+    "league": "NBA",
+    "type": "player"
+  },
+  {
+    "id": "HockTJ00",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "WattT.00",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "GarrMy00",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "MahoPa00",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "DonaAa00",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "HerbJu00",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "BurrJo01",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "MurrKy00",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "PresDa01",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "WilsRu00",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "McCaCh01",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "HenrDe00",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "KamaAl00",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "TaylJo02",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "CookDa01",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "BarkSa00",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "ChubNi00",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "EkelAu00",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "JacoJo01",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "ElliEz00",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "HarrNa00",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "PollTo00",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "SwifDA00",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "AdamDa01",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "HillTy00",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "DiggSt00",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "JeffJu00",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "KuppCo00",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "HopkDe00",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "BrowAJ00",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "LambCe00",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "AlleKe00",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "McLaTe00",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "CoopAm00",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "BrowMa04",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "RidlCa00",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "RobiAl02",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "KelcTr00",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "KittGe00",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "WallDa01",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "AndrMa00",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "FitzMi00",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "JameDe00",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "WagnBo00",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "WarnFr00",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "GilmSt00",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "RamsJa00",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "ParsMi00",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "BosaNi00",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "BosaJo00",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "JoneCh02",
+    "league": "NFL",
+    "type": "player"
+  },
+  {
+    "id": "nba_ATL",
+    "league": "NBA",
+    "type": "team"
+  },
+  {
+    "id": "nba_BOS",
+    "league": "NBA",
+    "type": "team"
+  },
+  {
+    "id": "nba_CHA",
+    "league": "NBA",
+    "type": "team"
+  },
+  {
+    "id": "nba_CHI",
+    "league": "NBA",
+    "type": "team"
+  },
+  {
+    "id": "nba_CLE",
+    "league": "NBA",
+    "type": "team"
+  },
+  {
+    "id": "nba_DAL",
+    "league": "NBA",
+    "type": "team"
+  },
+  {
+    "id": "nba_DEN",
+    "league": "NBA",
+    "type": "team"
+  },
+  {
+    "id": "nba_DET",
+    "league": "NBA",
+    "type": "team"
+  },
+  {
+    "id": "nba_GSW",
+    "league": "NBA",
+    "type": "team"
+  },
+  {
+    "id": "nba_HOU",
+    "league": "NBA",
+    "type": "team"
+  },
+  {
+    "id": "nba_IND",
+    "league": "NBA",
+    "type": "team"
+  },
+  {
+    "id": "nba_LAC",
+    "league": "NBA",
+    "type": "team"
+  },
+  {
+    "id": "nba_LAL",
+    "league": "NBA",
+    "type": "team"
+  },
+  {
+    "id": "nba_MEM",
+    "league": "NBA",
+    "type": "team"
+  },
+  {
+    "id": "nba_MIA",
+    "league": "NBA",
+    "type": "team"
+  },
+  {
+    "id": "nba_MIL",
+    "league": "NBA",
+    "type": "team"
+  },
+  {
+    "id": "nba_MIN",
+    "league": "NBA",
+    "type": "team"
+  },
+  {
+    "id": "nba_NJN",
+    "league": "NBA",
+    "type": "team"
+  },
+  {
+    "id": "nba_NOH",
+    "league": "NBA",
+    "type": "team"
+  },
+  {
+    "id": "nba_NYK",
+    "league": "NBA",
+    "type": "team"
+  },
+  {
+    "id": "nba_OKC",
+    "league": "NBA",
+    "type": "team"
+  },
+  {
+    "id": "nba_ORL",
+    "league": "NBA",
+    "type": "team"
+  },
+  {
+    "id": "nba_PHI",
+    "league": "NBA",
+    "type": "team"
+  },
+  {
+    "id": "nba_PHO",
+    "league": "NBA",
+    "type": "team"
+  },
+  {
+    "id": "nba_POR",
+    "league": "NBA",
+    "type": "team"
+  },
+  {
+    "id": "nba_SAC",
+    "league": "NBA",
+    "type": "team"
+  },
+  {
+    "id": "nba_SAS",
+    "league": "NBA",
+    "type": "team"
+  },
+  {
+    "id": "nba_TOR",
+    "league": "NBA",
+    "type": "team"
+  },
+  {
+    "id": "nba_UTA",
+    "league": "NBA",
+    "type": "team"
+  },
+  {
+    "id": "nba_WAS",
+    "league": "NBA",
+    "type": "team"
+  },
+  {
+    "id": "nfl_ATL",
+    "league": "NFL",
+    "type": "team"
+  },
+  {
+    "id": "nfl_BUF",
+    "league": "NFL",
+    "type": "team"
+  },
+  {
+    "id": "nfl_CAR",
+    "league": "NFL",
+    "type": "team"
+  },
+  {
+    "id": "nfl_CHI",
+    "league": "NFL",
+    "type": "team"
+  },
+  {
+    "id": "nfl_CIN",
+    "league": "NFL",
+    "type": "team"
+  },
+  {
+    "id": "nfl_CLE",
+    "league": "NFL",
+    "type": "team"
+  },
+  {
+    "id": "nfl_CLT",
+    "league": "NFL",
+    "type": "team"
+  },
+  {
+    "id": "nfl_CRD",
+    "league": "NFL",
+    "type": "team"
+  },
+  {
+    "id": "nfl_DAL",
+    "league": "NFL",
+    "type": "team"
+  },
+  {
+    "id": "nfl_DEN",
+    "league": "NFL",
+    "type": "team"
+  },
+  {
+    "id": "nfl_DET",
+    "league": "NFL",
+    "type": "team"
+  },
+  {
+    "id": "nfl_GNB",
+    "league": "NFL",
+    "type": "team"
+  },
+  {
+    "id": "nfl_HTX",
+    "league": "NFL",
+    "type": "team"
+  },
+  {
+    "id": "nfl_JAX",
+    "league": "NFL",
+    "type": "team"
+  },
+  {
+    "id": "nfl_KAN",
+    "league": "NFL",
+    "type": "team"
+  },
+  {
+    "id": "nfl_MIA",
+    "league": "NFL",
+    "type": "team"
+  },
+  {
+    "id": "nfl_MIN",
+    "league": "NFL",
+    "type": "team"
+  },
+  {
+    "id": "nfl_NOR",
+    "league": "NFL",
+    "type": "team"
+  },
+  {
+    "id": "nfl_NWE",
+    "league": "NFL",
+    "type": "team"
+  },
+  {
+    "id": "nfl_NYG",
+    "league": "NFL",
+    "type": "team"
+  },
+  {
+    "id": "nfl_NYJ",
+    "league": "NFL",
+    "type": "team"
+  },
+  {
+    "id": "nfl_OTI",
+    "league": "NFL",
+    "type": "team"
+  },
+  {
+    "id": "nfl_PHI",
+    "league": "NFL",
+    "type": "team"
+  },
+  {
+    "id": "nfl_PIT",
+    "league": "NFL",
+    "type": "team"
+  },
+  {
+    "id": "nfl_RAI",
+    "league": "NFL",
+    "type": "team"
+  },
+  {
+    "id": "nfl_RAM",
+    "league": "NFL",
+    "type": "team"
+  },
+  {
+    "id": "nfl_RAV",
+    "league": "NFL",
+    "type": "team"
+  },
+  {
+    "id": "nfl_SDG",
+    "league": "NFL",
+    "type": "team"
+  },
+  {
+    "id": "nfl_SEA",
+    "league": "NFL",
+    "type": "team"
+  },
+  {
+    "id": "nfl_SFO",
+    "league": "NFL",
+    "type": "team"
+  },
+  {
+    "id": "nfl_TAM",
+    "league": "NFL",
+    "type": "team"
+  },
+  {
+    "id": "nfl_WAS",
+    "league": "NFL",
+    "type": "team"
+  }
+]

@@ -1,0 +1,17 @@
+# Add generated files to .gitignore
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Generated data files (intermediate)
+players_nfl.json
+players_nba.json
+players_db_nfl.json
+players_db_nba.json
+
+# Old/temporary data files
+*.json.bak
+*.json.tmp
+

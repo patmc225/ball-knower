@@ -1,0 +1,12 @@
+{
+  "name": "daily-automater",
+  "version": "1.0.0",
+  "description": "Script to automate daily Firestore document creation",
+  "main": "script.js",
+  "dependencies": {
+    "firebase-admin": "^11.11.0"
+  },
+  "scripts": {
+    "start": "node script.js"
+  }
+} 
