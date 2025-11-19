@@ -28,17 +28,17 @@ jobs:
 
       - name: Install dependencies
         run: npm ci || npm install
-        working-directory: ./ball-knower
+        working-directory: ./ballknower
 
       - name: Build
         run: npm run build
-        working-directory: ./ball-knower
+        working-directory: ./ballknower
 
       # 👉 If your build folder is "build" (Create React App):
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./ball-knower/build
+          path: ./ballknower/build
 
   deploy:
     needs: build
