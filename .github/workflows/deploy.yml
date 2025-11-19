@@ -27,8 +27,8 @@ jobs:
           node-version: 20   # or 18, just match your project
 
       - name: Install dependencies
-        run: npm ci || npm install
-        working-directory: ./ballknower
+        run: npm install --legacy-peer-deps
+        working-directory: ./ball-knower
 
       - name: Build
         run: npm run build
