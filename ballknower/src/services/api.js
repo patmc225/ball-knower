@@ -38,13 +38,16 @@ let teams = [];
 // Function to load and initialize all data
 export const initializeData = async () => {
   try {
+    // Get the base URL for assets (uses PUBLIC_URL environment variable set by CRA)
+    const baseUrl = process.env.PUBLIC_URL || '';
+    
     // Load Players (New File and Format)
-    const playersRes = await fetch('/backend/players_new.json');
+    const playersRes = await fetch(`${baseUrl}/backend/players_new.json`);
     if (!playersRes.ok) throw new Error(`HTTP error loading players! status: ${playersRes.status}`);
     const playersData = await playersRes.json();
     players = Object.values(playersData); // Convert object to array
     // Load Teams
-    const teamsRes = await fetch('/backend/teams.json');
+    const teamsRes = await fetch(`${baseUrl}/backend/teams.json`);
     if (!teamsRes.ok) throw new Error(`HTTP error loading teams! status: ${teamsRes.status}`);
     internalTeamsData = await teamsRes.json(); // Keep as object keyed by ID
     teams = Object.values(internalTeamsData);

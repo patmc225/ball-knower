@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { doc, onSnapshot, updateDoc, serverTimestamp, getDoc } from 'firebase/firestore';
 import { db, auth, ensureAnonymousUser } from '../firebaseConfig';
 import { useGame } from '../context/GameContext';
+import { getAssetPath } from '../config/basePath';
 import {
     calculateSubmitAnswerUpdate,
     calculateInitiateChallengeUpdate,
@@ -94,7 +95,7 @@ const WaitingScreen = ({ gameId }) => {
                 <div className="mb-8 relative flex justify-center">
                     <div className="w-24 h-24 border-4 border-brand-blue border-t-transparent rounded-full animate-spin"></div>
                     <div className="absolute inset-0 flex items-center justify-center">
-                        <img src="/ballknower.png" className="w-10 h-10 opacity-50" alt="" />
+                        <img src={getAssetPath('ballknower.png')} className="w-10 h-10 opacity-50" alt="" />
                     </div>
                 </div>
                 <h2 className="text-5xl font-heading text-white mb-2 text-glow-blue">WAITING FOR OPPONENT</h2>

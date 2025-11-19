@@ -219,6 +219,38 @@ npm run build
 firebase deploy
 ```
 
+### Deploy to GitHub Pages
+The app is configured for deployment to GitHub Pages at `patmc225.github.io/ball-knower`.
+
+**Setup:**
+1. The `homepage` field in `package.json` is set to: `https://patmc225.github.io/ball-knower`
+2. The base path configuration is centralized in `src/config/basePath.js`
+3. React Router uses the base path automatically
+4. Static assets use `%PUBLIC_URL%` prefix
+
+**Deploy to GitHub Pages:**
+```bash
+# Install gh-pages package if not already installed
+npm install --save-dev gh-pages
+
+# Add deployment scripts to package.json
+# "predeploy": "npm run build"
+# "deploy": "gh-pages -d build"
+
+# Deploy
+npm run deploy
+```
+
+**Base Path Configuration:**
+The app uses a centralized base path configuration that makes it easy to deploy to any subdirectory or domain:
+
+- **Configuration File**: `src/config/basePath.js`
+- **React Router**: Automatically uses `BASE_PATH` from config
+- **Static Assets**: Use `%PUBLIC_URL%` in HTML or `getAssetPath()` helper in React
+- **API Calls**: Use `process.env.PUBLIC_URL` for backend data files
+
+To change the deployment path, simply update the `homepage` field in `package.json`.
+
 ### Environment Setup
 1. Set environment variables in Firebase Hosting
 2. Deploy Firestore security rules

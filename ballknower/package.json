@@ -39,12 +39,17 @@
     "tailwindcss": "^3.4.1",
     "web-vitals": "^2.1.4"
   },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+  },
   "scripts": {
     "start": "node copy-backend.js && react-scripts start",
     "build": "node copy-backend.js && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "copy-backend": "node copy-backend.js"
+    "copy-backend": "node copy-backend.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [

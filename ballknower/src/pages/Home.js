@@ -5,6 +5,7 @@ import { auth, ensureAnonymousUser } from '../firebaseConfig';
 import { doc, setDoc, serverTimestamp, getDoc, collection, query, where, getDocs, updateDoc, onSnapshot, limit, orderBy, deleteDoc, getCountFromServer, runTransaction } from 'firebase/firestore';
 import { db } from '../firebaseConfig';
 import { Line } from 'react-chartjs-2';
+import { getAssetPath } from '../config/basePath';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -553,9 +554,9 @@ const Home = () => {
                 </h1>
                 <div className="text-slate-400 text-[10px] sm:text-sm tracking-widest uppercase font-bold ml-1 flex items-center gap-1 sm:gap-2 mt-0.5 sm:mt-1 overflow-x-auto scrollbar-hide">
                   <span className="whitespace-nowrap">THE ULTIMATE</span>
-                  <img src="/nba.png" alt="NBA" className="h-3 sm:h-4 w-auto flex-shrink-0" />
+                  <img src={getAssetPath('nba.png')} alt="NBA" className="h-3 sm:h-4 w-auto flex-shrink-0" />
                   <span className="flex-shrink-0">+</span>
-                  <img src="/nfl.png" alt="NFL" className="h-3 sm:h-4 w-auto flex-shrink-0" />
+                  <img src={getAssetPath('nfl.png')} alt="NFL" className="h-3 sm:h-4 w-auto flex-shrink-0" />
                   <span className="whitespace-nowrap">TRIVIA CHALLENGE</span>
                 </div>
         </div>

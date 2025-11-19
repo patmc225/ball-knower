@@ -9,6 +9,7 @@ import DailyGame from './components/DailyGame';
 import DailyResult from './pages/DailyResult';
 import PastDailyChallenges from './pages/PastDailyChallenges';
 import { trackPageView } from './utils/analytics';
+import { BASE_PATH } from './config/basePath';
 import './App.css';
 
 // Analytics wrapper component to track page views
@@ -54,7 +55,7 @@ const AppRoutes = () => {
 function App() {
   return (
     <GameProvider>
-      <Router>
+      <Router basename={BASE_PATH}>
         <div className="min-h-screen bg-gray-100">
           <AppRoutes />
         </div>
