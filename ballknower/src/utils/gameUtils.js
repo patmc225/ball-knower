@@ -888,12 +888,13 @@ export const calculateSubmitAnswerUpdate = (currentGameData, currentPlayerRole, 
         updatedAt: serverTimestamp()
       };
       
-      // Calculate and update player stats in background
-      try {
-        updatePlayerStats(currentGameData.players[winner].id, currentGameData.players[currentPlayerRole].id);
-      } catch (error) {
-        console.error("Failed to update player stats on incorrect answer:", error);
-      }
+      // Calculate and update player stats in background - REMOVED SIDE EFFECT
+      // The component/caller must handle this based on the returned update object
+      // try {
+      //   updatePlayerStats(currentGameData.players[winner].id, currentGameData.players[currentPlayerRole].id);
+      // } catch (error) {
+      //   console.error("Failed to update player stats on incorrect answer:", error);
+      // }
 
       return { success: true, update: updateObject };
   }
@@ -935,13 +936,14 @@ export const calculateSubmitAnswerUpdate = (currentGameData, currentPlayerRole, 
       timestamp: new Date().toISOString()
     });
     
-    // Update player stats in background
-    try {
-      updatePlayerStats(currentGameData.players[winner].id, currentGameData.players[currentPlayerRole].id);
-    } catch (error) {
-      console.error("Failed to update player stats on turn limit:", error);
-      // Continue with game update even if stats update fails
-    }
+    // Update player stats in background - REMOVED SIDE EFFECT
+    // The component/caller must handle this based on the returned update object
+    // try {
+    //   updatePlayerStats(currentGameData.players[winner].id, currentGameData.players[currentPlayerRole].id);
+    // } catch (error) {
+    //   console.error("Failed to update player stats on turn limit:", error);
+    //   // Continue with game update even if stats update fails
+    // }
   } else {
     // Normal turn update
     updateObject.turn = turn === "A" ? "B" : "A";
@@ -1245,7 +1247,7 @@ export const calculateReverseUpdateWithInput = (gameData, myRole, submittedValue
  * @param {string} winnerId - ID of the winning player
  * @param {string} loserId - ID of the losing player 
  */
-const updatePlayerStats = async (winnerId, loserId) => {
+export const updatePlayerStats = async (winnerId, loserId) => {
   try {
     // Skip stats update for temporary IDs
     if (winnerId.startsWith('temp_') && loserId.startsWith('temp_')) {

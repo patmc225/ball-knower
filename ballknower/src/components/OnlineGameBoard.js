@@ -11,7 +11,8 @@ import {
     calculateGiveUpUpdate,
     validateMoveForReversal,
     calculateReverseUpdateWithInput,
-    trackSubmission
+    trackSubmission,
+    updatePlayerStats
 } from '../utils/gameUtils';
 import AutocompleteInput from './AutocompleteInput';
 import { ArcadeButton, ArcadeCard } from './ArcadeUI';
@@ -250,6 +251,15 @@ const OnlineGameBoard = () => {
                 status: 'finished', winner, updatedAt: serverTimestamp(),
                 history: [...gameData.history, { player: gameData.turn, type: 'game_end_timeout', value: 'Time ran out', timestamp: new Date().toISOString() }]
             });
+            
+            // Update Stats
+            const winnerRole = winner;
+            const loserRole = myRole; // I timed out
+            const winnerId = gameData.players[winnerRole]?.id;
+            const loserId = gameData.players[loserRole]?.id;
+            if (winnerId && loserId) {
+                updatePlayerStats(winnerId, loserId).catch(console.error);
+            }
         } catch (e) { console.error(e); }
       }
   };
@@ -304,6 +314,18 @@ const OnlineGameBoard = () => {
               
               // Track submission stats
               if(gameData.nextInputType === 'player') trackSubmission(answer, 'player');
+              
+              // Update Stats if Game Over
+              if (result.update.status === 'finished' && result.update.winner) {
+                 const winnerRole = result.update.winner;
+                 const loserRole = winnerRole === 'A' ? 'B' : 'A';
+                 // Use updated data or current gameData? gameData should have players.
+                 const winnerId = gameData.players[winnerRole]?.id;
+                 const loserId = gameData.players[loserRole]?.id;
+                 if (winnerId && loserId) {
+                     updatePlayerStats(winnerId, loserId).catch(console.error);
+                 }
+              }
           } catch (e) { console.error(e); setError("Network error."); }
       } else {
           setError(result.error);
@@ -315,6 +337,17 @@ const OnlineGameBoard = () => {
       const result = calculateGiveUpUpdate(gameData, myRole);
       if(result.success) {
           await updateDoc(doc(db, "games", gameId), result.update);
+          
+          // Update Stats
+          if (result.update.status === 'finished' && result.update.winner) {
+             const winnerRole = result.update.winner;
+             const loserRole = winnerRole === 'A' ? 'B' : 'A';
+             const winnerId = gameData.players[winnerRole]?.id;
+             const loserId = gameData.players[loserRole]?.id;
+             if (winnerId && loserId) {
+                 updatePlayerStats(winnerId, loserId).catch(console.error);
+             }
+          }
       }
       setShowConfirmGiveUp(false);
   };
@@ -355,6 +388,17 @@ const OnlineGameBoard = () => {
       
       if(result.success) {
           await updateDoc(doc(db, "games", gameId), result.update);
+          
+          // Update Stats
+          if (result.update.status === 'finished' && result.update.winner) {
+             const winnerRole = result.update.winner;
+             const loserRole = winnerRole === 'A' ? 'B' : 'A';
+             const winnerId = gameData.players[winnerRole]?.id;
+             const loserId = gameData.players[loserRole]?.id;
+             if (winnerId && loserId) {
+                 updatePlayerStats(winnerId, loserId).catch(console.error);
+             }
+          }
       } else { setError(result.error); }
   };
   
@@ -453,9 +497,6 @@ const OnlineGameBoard = () => {
               <header className="flex-none bg-card-bg/50 backdrop-blur border-b border-slate-800 p-2 md:p-4 flex justify-between items-center z-20">
                  <div className="flex items-center gap-3 cursor-pointer" onClick={() => navigate('/')}>
                     <span className="font-heading text-2xl tracking-wider hidden md:inline">BALL KNOWER</span>
-                 </div>
-                 <div className="flex items-center gap-2 md:gap-4">
-                    <ArcadeButton onClick={() => navigate('/')}>EXIT</ArcadeButton>
                  </div>
               </header>
 
