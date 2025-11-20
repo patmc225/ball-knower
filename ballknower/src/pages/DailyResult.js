@@ -4,6 +4,7 @@ import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../firebaseConfig';
 import { useGame } from '../context/GameContext';
 import { ArcadeButton, ArcadeCard } from '../components/ArcadeUI';
+import Footer from '../components/Footer';
 
 const DailyResult = () => {
   const navigate = useNavigate();
@@ -160,26 +161,27 @@ const DailyResult = () => {
   }
   
   return (
-    <div className="min-h-screen bg-dark-bg text-arcade-text font-sans pb-12 flex flex-col items-center justify-center">
-      <div className="max-w-xl w-full px-4">
+    <div className="min-h-screen bg-dark-bg text-arcade-text font-sans pb-4 flex flex-col">
+      <div className="flex-grow flex items-center justify-center">
+        <div className="max-w-xl w-full px-6 pt-4 sm:pt-8">
         
         <ArcadeCard glow="pink" className="w-full text-center">
-          <div className="mb-8">
-              <h1 className="font-heading text-5xl md:text-6xl text-white mb-2 tracking-wide text-glow-pink">
+          <div className="mb-4 sm:mb-8">
+              <h1 className="font-heading text-3xl md:text-6xl text-white mb-2 tracking-wide text-glow-pink">
                 COMPLETED
               </h1>
-              <p className="text-slate-400 text-sm uppercase tracking-widest font-mono">
+              <p className="text-slate-400 text-xs sm:text-sm uppercase tracking-widest font-mono">
                 {formatDate(date)}
               </p>
           </div>
           
           {/* Main Stats */}
-          <div className="bg-gradient-to-b from-brand-pink/20 to-transparent p-6 rounded-xl border border-brand-pink/30 mb-8">
-            <div className="text-slate-300 text-sm uppercase tracking-widest mb-2">Your Path</div>
-            <div className="text-6xl md:text-8xl font-heading text-white leading-none mb-2">
+          <div className="bg-gradient-to-b from-brand-pink/20 to-transparent p-4 sm:p-6 rounded-xl border border-brand-pink/30 mb-4 sm:mb-8">
+            <div className="text-slate-300 text-xs sm:text-sm uppercase tracking-widest mb-2">Your Path</div>
+            <div className="text-4xl md:text-8xl font-heading text-white leading-none mb-2">
               {userMoves}
             </div>
-            <div className="text-brand-pink font-bold text-lg">MOVES</div>
+            <div className="text-brand-pink font-bold text-sm sm:text-lg">MOVES</div>
             
             <div className="mt-4 pt-4 border-t border-white/10 text-sm text-slate-400">
               {userMoves === dailyData?.shortestPath 
@@ -209,7 +211,7 @@ const DailyResult = () => {
             
             <button
               onClick={() => navigate('/')}
-              className="w-full py-4 rounded-lg border border-slate-700 text-slate-400 hover:text-white hover:bg-slate-800 font-heading text-xl transition-colors"
+              className="w-full py-3 sm:py-4 rounded-lg border border-slate-700 text-slate-400 hover:text-white hover:bg-slate-800 font-heading text-lg sm:text-xl transition-colors"
             >
               BACK TO HOME
             </button>
@@ -221,6 +223,8 @@ const DailyResult = () => {
         </ArcadeCard>
      
       </div>
+      </div>
+      <Footer />
     </div>
   );
 };

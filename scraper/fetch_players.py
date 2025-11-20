@@ -15,7 +15,7 @@ from pathlib import Path
 import time
 import argparse
 import re
-from utils import fetch_with_retry, save_json
+from utils import fetch_with_retry, save_json, load_json
 from config import NFL_BASE_URL, NBA_BASE_URL, NFL_LETTERS, NBA_LETTERS
 
 def extract_years(text):
@@ -116,7 +116,7 @@ def get_players_for_letter(base_url, letter, session, league):
     print(f"No player list found for {url}")
     return []
 
-def fetch_players(league):
+def fetch_players(league, output_path=None):
     session = requests.Session()
     session.headers.update({
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
@@ -131,7 +131,14 @@ def fetch_players(league):
     else:
         raise ValueError("League must be NFL or NBA")
 
-    all_players = []
+    if output_path is None:
+        output_path = f'players_db_{league.lower()}.json'
+
+    # Load existing DB to resume or start fresh
+    all_players_db = load_json(output_path)
+    if not isinstance(all_players_db, dict):
+        all_players_db = {}
+        
     print(f"Starting scrape for {league} players...")
     
     total_requests = len(letters)
@@ -139,8 +146,34 @@ def fetch_players(league):
     
     for idx, letter in enumerate(letters, 1):
         print(f"Fetching players for letter: {letter}")
-        new_players = get_players_for_letter(base_url, letter, session, league)
-        all_players.extend(new_players)
+        new_players_list = get_players_for_letter(base_url, letter, session, league)
+        
+        # Process list into DB format
+        for p in new_players_list:
+            url = p['url']
+            pid = Path(url).stem
+            
+            if pid not in all_players_db:
+                all_players_db[pid] = {}
+                
+            # Update fields
+            all_players_db[pid]['name'] = p['name']
+            all_players_db[pid]['url'] = p['url']
+            all_players_db[pid]['start_year'] = p.get('start_year')
+            all_players_db[pid]['end_year'] = p.get('end_year')
+            all_players_db[pid]['league'] = league.upper()
+            all_players_db[pid]['id'] = pid
+            
+            # Initialize lists if not present
+            all_players_db[pid].setdefault('teams', [])
+            all_players_db[pid].setdefault('numbers', [])
+            all_players_db[pid].setdefault('colleges', [])
+            
+            # Add colleges from list if present (for NBA - scraped in Step 1)
+            if 'colleges' in p and p['colleges']:
+                 for c in p['colleges']:
+                     if c not in all_players_db[pid]['colleges']:
+                         all_players_db[pid]['colleges'].append(c)
         
         # Calculate progress
         elapsed = time.time() - start_time
@@ -152,13 +185,13 @@ def fetch_players(league):
         mins_remaining = int(estimated_time_remaining // 60)
         secs_remaining = int(estimated_time_remaining % 60)
         
-        print(f"Found {len(new_players)} players (Total: {len(all_players)})")
+        print(f"Processed {len(new_players_list)} players. Total in DB: {len(all_players_db)}")
         print(f"Progress: {idx}/{total_requests} ({percent_complete:.1f}%) - Est. {mins_remaining}m {secs_remaining}s remaining")
         
         # Save incrementally
-        save_json(all_players, f'players_{league.lower()}.json')
+        save_json(all_players_db, output_path)
 
-    print(f"Completed. Saved {len(all_players)} players to players_{league.lower()}.json")
+    print(f"Completed. Saved {len(all_players_db)} players to {output_path}")
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Scrape players list from Reference sites")

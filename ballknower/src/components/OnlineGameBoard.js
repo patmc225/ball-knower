@@ -15,6 +15,7 @@ import {
 } from '../utils/gameUtils';
 import AutocompleteInput from './AutocompleteInput';
 import { ArcadeButton, ArcadeCard } from './ArcadeUI';
+import RulesModal from './RulesModal';
 
 // --- Helpers ---
 const getAttributeLabel = (attribute) => {
@@ -33,48 +34,6 @@ const formatTeamName = (teamId, getTeam) => {
 };
 
 // --- Sub-Components ---
-
-const RulesPopup = ({ onClose }) => (
-  <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex justify-center items-center z-50 p-4 animate-fade-in">
-    <div className="bg-card-bg border border-slate-700 rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] flex flex-col text-white relative">
-      <div className="p-6 border-b border-slate-700 flex justify-between items-center">
-        <h2 className="text-4xl font-heading tracking-wide text-brand-blue">GAME RULES</h2>
-        <button onClick={onClose} className="p-2 hover:bg-slate-700 rounded-full transition-colors">
-          <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
-        </button>
-      </div>
-      <div className="p-6 overflow-y-auto space-y-8 custom-scrollbar">
-        <section>
-            <h3 className="text-2xl font-heading text-slate-300 mb-2">How to Play</h3>
-            <ul className="list-disc pl-5 space-y-3 text-slate-400">
-              <li>Take turns naming NFL/NBA players and their connections (Team, Number, College).</li>
-              <li>Player 1 starts with <span className="text-white font-bold">ANY</span> player.</li>
-              <li>Player 2 must link that player to a <span className="text-brand-blue font-bold">Team</span>, <span className="text-brand-blue font-bold">Number</span>, or <span className="text-brand-blue font-bold">College</span>.</li>
-              <li>Player 1 then names a <span className="text-brand-pink font-bold">NEW player</span> who shares that connection.</li>
-              <li>Chain continues: Player → Attribute → Player → Attribute...</li>
-              <li>60 second timer per turn.</li>
-            </ul>
-        </section>
-        <section>
-            <h3 className="text-2xl font-heading text-slate-300 mb-4">Special Moves</h3>
-            <div className="grid gap-4 md:grid-cols-2">
-                <div className="bg-slate-800/50 p-4 rounded-xl border border-slate-700">
-                    <h4 className="font-heading text-xl text-brand-pink mb-2">CHALLENGE</h4>
-                    <p className="text-sm text-slate-400">Think your opponent is wrong or stuck? Challenge them! If they can't prove their link (or name another attribute), you win.</p>
-                </div>
-                <div className="bg-slate-800/50 p-4 rounded-xl border border-slate-700">
-                    <h4 className="font-heading text-xl text-brand-blue mb-2">REVERSE</h4>
-                    <p className="text-sm text-slate-400">Know another answer for the current prompt? Hit "Reverse" to flip the turn back to your opponent. Can't reverse twice in a row.</p>
-                </div>
-            </div>
-        </section>
-      </div>
-      <div className="p-6 border-t border-slate-700">
-        <ArcadeButton onClick={onClose} className="w-full" size="lg">GOT IT</ArcadeButton>
-      </div>
-    </div>
-  </div>
-);
 
 const WaitingScreen = ({ gameId }) => {
     const [copied, setCopied] = useState(false);
@@ -501,7 +460,7 @@ const OnlineGameBoard = () => {
               </header>
 
               <div className="flex-grow overflow-y-auto custom-scrollbar relative">
-                  <div className="min-h-full flex flex-col p-4 md:p-6 items-center pb-20">
+                  <div className="min-h-full flex flex-col p-6 items-center pb-20">
                       <ArcadeCard className="max-w-2xl w-full text-center mb-8" glow={iWon ? 'blue' : 'pink'}>
                           <h1 className={`font-heading text-6xl mb-2 ${iWon ? 'text-brand-blue text-glow-blue' : 'text-brand-pink text-glow-pink'}`}>
                               {iWon ? 'VICTORY' : 'DEFEAT'}
@@ -577,7 +536,7 @@ const OnlineGameBoard = () => {
 
   return (
     <div className="h-screen bg-dark-bg text-white font-sans overflow-hidden flex flex-col">
-      {showRules && <RulesPopup onClose={() => setShowRules(false)} />}
+      {showRules && <RulesModal onClose={() => setShowRules(false)} />}
       
       {/* Top Bar */}
       <header className="flex-none bg-card-bg/50 backdrop-blur border-b border-slate-800 p-2 md:p-4 flex justify-between items-center z-20">
@@ -592,7 +551,7 @@ const OnlineGameBoard = () => {
 
       <div className="flex-grow overflow-y-auto custom-scrollbar relative bg-dark-bg">
           
-          <div className="min-h-full flex flex-col p-4 md:p-6 max-w-4xl mx-auto w-full">
+          <div className="min-h-full flex flex-col p-6 max-w-4xl mx-auto w-full">
               
               {/* Player Cards */}
               <div className="grid grid-cols-2 gap-4 mb-8 w-full">

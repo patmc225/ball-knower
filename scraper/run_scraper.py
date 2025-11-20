@@ -38,15 +38,38 @@ Author: Patrick McKeever
 
 import argparse
 from pathlib import Path
+import json
+from datetime import datetime
+
+SCRAPER_DIR = Path(__file__).parent
 
 # Import scraper modules
 from fetch_players import fetch_players
-from init_db import init_db
 from fetch_teams import fetch_teams
 from fetch_numbers import fetch_numbers
 from fetch_colleges import fetch_colleges
 from merge_final import merge_final
 from college_normalizer import run_normalization
+
+def update_metadata():
+    """Update the metadata.json file with the current date."""
+    metadata_path = SCRAPER_DIR / "metadata.json"
+    current_date = datetime.now().strftime("%B %d, %Y")
+    
+    try:
+        with open(metadata_path, 'w', encoding='utf-8') as f:
+            json.dump({"last_updated": current_date}, f, indent=2)
+        print(f"Updated metadata with date: {current_date}")
+        
+        # Also copy/write to the public backend folder if possible
+        public_metadata = Path("../ballknower/public/backend/metadata.json")
+        if public_metadata.parent.exists():
+             with open(public_metadata, 'w', encoding='utf-8') as f:
+                json.dump({"last_updated": current_date}, f, indent=2)
+             print(f"Synced metadata to: {public_metadata}")
+             
+    except Exception as e:
+        print(f"Error updating metadata: {e}")
 
 def run_pipeline(leagues, steps, output_file):
     """
@@ -58,8 +81,7 @@ def run_pipeline(leagues, steps, output_file):
         output_file: Path for final merged output
         
     Steps:
-        1. Fetch Players List - Scrape A-Z player index
-        2. Initialize DB - Convert list to dictionary format
+        1. Fetch Players & Init DB - Scrape A-Z player index and convert to DB format
         3. Fetch Teams - Get team affiliations (NFL also gets numbers)
         4. Fetch Colleges/Numbers - NFL colleges, NBA numbers
         5. Merge & Normalize - Combine leagues and normalize college names
@@ -67,23 +89,19 @@ def run_pipeline(leagues, steps, output_file):
     
     for league in leagues:
         league_lower = league.lower()
-        list_file = f"players_{league_lower}.json"
-        db_file = f"players_db_{league_lower}.json"
+        db_file = SCRAPER_DIR / f"players_db_{league_lower}.json"
         
         print(f"\n{'='*60}")
         print(f"Processing {league}")
         print(f"{'='*60}\n")
         
         if 1 in steps:
-            print(f"--- Step 1: Fetch Players List ---")
-            fetch_players(league)
+            print(f"--- Step 1: Fetch Players List & Init DB ---")
+            fetch_players(league, db_file)
             
         if 2 in steps:
-            print(f"\n--- Step 2: Initialize Database ---")
-            if not Path(list_file).exists():
-                print(f"Error: {list_file} not found. Run Step 1 first.")
-                continue
-            init_db(league, list_file, db_file)
+            print(f"\n--- Step 2: Deprecated (Merged into Step 1) ---")
+            print("Skipping... (Logic now handled in Step 1)")
             
         if 3 in steps:
             print(f"\n--- Step 3: Fetch Teams & Numbers ---")
@@ -116,8 +134,8 @@ def run_pipeline(leagues, steps, output_file):
         print(f"Step 5: Merge & Normalize")
         print(f"{'='*60}\n")
         
-        nfl_db = "players_db_nfl.json"
-        nba_db = "players_db_nba.json"
+        nfl_db = SCRAPER_DIR / "players_db_nfl.json"
+        nba_db = SCRAPER_DIR / "players_db_nba.json"
         
         if not Path(nfl_db).exists():
             print(f"Warning: {nfl_db} missing. Merging only available data.")
@@ -131,6 +149,9 @@ def run_pipeline(leagues, steps, output_file):
             run_normalization(output_file)
         else:
             print(f"Error: Output file {output_file} not found. Cannot normalize.")
+        
+        # Update metadata after successful completion
+        update_metadata()
         
         print(f"\n{'='*60}")
         print(f"Pipeline Complete!")
@@ -176,8 +197,8 @@ Steps:
     
     parser.add_argument(
         "--output",
-        default="../namegame/public/backend/players_new.json",
-        help="Output file path (default: ../namegame/public/backend/players_new.json)"
+        default="../ballknower/public/backend/players_new.json",
+        help="Output file path (default: ../ballknower/public/backend/players_new.json)"
     )
     
     args = parser.parse_args()

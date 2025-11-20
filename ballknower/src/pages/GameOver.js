@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { doc, getDoc } from 'firebase/firestore';
 import { db, auth } from '../firebaseConfig';
 import { useGame } from '../context/GameContext';
+import Footer from '../components/Footer';
 
 const GameOver = () => {
   const navigate = useNavigate();
@@ -684,7 +685,7 @@ const GameOver = () => {
   };
   
   return (
-    <div className="max-w-3xl mx-auto p-4 pb-16 min-h-screen">
+    <div className="max-w-3xl mx-auto p-6 pb-4 min-h-screen">
       <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
         {/* Game Result Header */}
         <div className="text-center mb-8">
@@ -1035,6 +1036,7 @@ const GameOver = () => {
           </button>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

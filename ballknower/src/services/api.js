@@ -90,6 +90,10 @@ export const searchPlayers = (attribute, query) => {
   const lowerCaseQuery = query.toLowerCase();
   return players.filter(player => {
     if (attribute === 'name') {
+      if(player.name === undefined) {
+        console.log(player);
+        return false;
+      }
       return player.name.toLowerCase().includes(lowerCaseQuery);
     } else if (attribute === 'team' || attribute === 'college' || attribute === 'number') {
       // Handle array attributes

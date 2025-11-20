@@ -5,6 +5,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { doc, getDoc, updateDoc, collection, getDocs } from 'firebase/firestore';
 import { db, linkAnonymousWithCredential } from '../firebaseConfig';
 import { ArcadeButton, ArcadeCard } from '../components/ArcadeUI';
+import Footer from '../components/Footer';
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -209,8 +210,8 @@ const Profile = () => {
   }
 
   return (
-    <div className="min-h-screen bg-dark-bg text-arcade-text font-sans pb-12">
-      <div className="max-w-2xl mx-auto px-4 pt-8">
+    <div className="min-h-screen bg-dark-bg text-arcade-text font-sans pb-4">
+      <div className="max-w-2xl mx-auto px-6 sm:px-8 pt-4 sm:pt-8">
         <div className="flex justify-between items-center mb-10 border-b border-slate-800 pb-6">
           <h1 className="font-heading text-4xl text-white tracking-wide">PROFILE</h1>
           <button
@@ -479,6 +480,7 @@ const Profile = () => {
           </div>
         )}
       </div>
+      <Footer />
     </div>
   );
 };

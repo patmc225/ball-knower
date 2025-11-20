@@ -253,13 +253,13 @@ const DailyGame = () => {
   if (loading) return <div className="min-h-screen bg-dark-bg flex items-center justify-center"><div className="w-16 h-16 border-4 border-brand-pink border-t-transparent rounded-full animate-spin"></div></div>;
   
   return (
-    <div className="min-h-screen bg-dark-bg text-white font-sans p-4 flex flex-col items-center">
+    <div className="min-h-screen bg-dark-bg text-white font-sans p-4 pb-24 sm:pb-4 flex flex-col items-center">
       
       {/* Header */}
       <header className="w-full max-w-2xl flex items-center justify-between mb-8">
           <div className="flex items-center gap-3 cursor-pointer" onClick={() => navigate('/')}>
             <div>
-                <h1 className="font-heading text-2xl leading-none tracking-wide">DAILY CHALLENGE</h1>
+                <h1 className="font-heading text-xl sm:text-2xl leading-none tracking-wide">DAILY CHALLENGE</h1>
                 <p className="text-xs text-slate-500 font-mono">{dailyDocId}</p>
             </div>
          </div>
@@ -271,14 +271,14 @@ const DailyGame = () => {
         <ArcadeCard className="relative overflow-hidden border-brand-pink/30" glow="pink">
              <div className="flex flex-col md:flex-row items-center justify-center text-center gap-4 md:gap-8 relative z-10">
                  <div>
-                     <div className="text-xs text-slate-500 uppercase tracking-widest mb-1">START</div>
-                     <div className="font-heading text-3xl text-white">{startElement?.name}</div>
+                     <div className="text-[10px] sm:text-xs text-slate-500 uppercase tracking-widest mb-1">START</div>
+                     <div className="font-heading text-2xl sm:text-3xl text-white">{startElement?.name}</div>
                  </div>
                  <div className="hidden md:block w-16 h-1 bg-slate-700 rounded-full"></div>
                  <div className="md:hidden h-8 w-1 bg-slate-700 rounded-full"></div>
                  <div>
-                     <div className="text-xs text-slate-500 uppercase tracking-widest mb-1">TARGET</div>
-                     <div className="font-heading text-3xl text-brand-pink text-glow-pink">{endElement?.name}</div>
+                     <div className="text-[10px] sm:text-xs text-slate-500 uppercase tracking-widest mb-1">TARGET</div>
+                     <div className="font-heading text-2xl sm:text-3xl text-brand-pink text-glow-pink">{endElement?.name}</div>
                  </div>
              </div>
         </ArcadeCard>
@@ -311,10 +311,10 @@ const DailyGame = () => {
           </div>
 
           {/* Input Area */}
-          <div className="mt-auto bg-card-bg border border-slate-700 rounded-2xl p-6 shadow-2xl relative z-20">
+          <div className="mt-auto bg-card-bg border border-slate-700 rounded-2xl p-4 sm:p-6 shadow-2xl relative z-20 mb-8 sm:mb-0">
               <div className="text-center mb-4">
                   <div className="text-xs text-slate-400 uppercase tracking-widest mb-1">Current Step: {moveCount + 1}</div>
-                  <h2 className="font-heading text-3xl text-white">
+                  <h2 className="font-heading text-xl sm:text-3xl text-white">
                       {nextInputType === 'player' ? 
                         `Name a player who matches...` : 
                         `How does ${getPlayer(lastPlayerId)?.name.split(' ')[0]} connect?`
@@ -328,7 +328,7 @@ const DailyGame = () => {
                   {nextInputType === 'attribute' && (
                        <div className="flex p-1 bg-slate-900/80 rounded-xl border border-slate-700">
                            {['number', 'team', 'college'].map(type => (
-                               <button key={type} onClick={() => setSelectedAttributeType(type)} className={`flex-1 py-2 rounded-lg font-heading text-lg transition-all ${selectedAttributeType === type ? 'bg-brand-pink text-white shadow-lg' : 'text-slate-400 hover:text-white'}`}>{type}</button>
+                               <button key={type} onClick={() => setSelectedAttributeType(type)} className={`flex-1 py-2 rounded-lg font-heading text-sm sm:text-lg transition-all ${selectedAttributeType === type ? 'bg-brand-pink text-white shadow-lg' : 'text-slate-400 hover:text-white'}`}>{type}</button>
                            ))}
                        </div>
                   )}
@@ -342,11 +342,11 @@ const DailyGame = () => {
                        displayAttribute="name" valueAttribute="id"
                        placeholder={nextInputType === 'player' ? "Search Player..." : "Enter Answer..."}
                        disabled={isSubmitting}
-                       className="text-center font-heading text-2xl"
+                       className="text-center font-heading text-xl sm:text-2xl"
                        autoFocus
                   />
                   
-                  <ArcadeButton onClick={handleSubmit} disabled={!inputValue || isSubmitting} className="w-full" variant="secondary" size="lg">
+                  <ArcadeButton onClick={handleSubmit} disabled={!inputValue || isSubmitting} className="w-full text-lg sm:text-xl" variant="secondary" size="lg">
                       SUBMIT
                   </ArcadeButton>
               </div>

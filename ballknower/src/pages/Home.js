@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useGame } from '../context/GameContext';
@@ -7,6 +8,7 @@ import { db } from '../firebaseConfig';
 import { Line } from 'react-chartjs-2';
 import { getAssetPath } from '../config/basePath';
 import ProfileTab from '../components/ProfileTab';
+import Footer from '../components/Footer';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -27,6 +29,32 @@ ChartJS.register(
   Title,
   Tooltip,
   Legend
+);
+
+// Icon Components for Navigation
+const PlayIcon = () => (
+  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+  </svg>
+);
+
+const StatsIcon = () => (
+  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+  </svg>
+);
+
+const LeaderboardIcon = () => (
+  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6m12 0h1.5a2.5 2.5 0 0 1 0 5H18m-2 13H8m2-7.34V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22m7-7.34V17c0 .55.47.98.97 1.21.83.54 1.68 2.03 1.68 3.79M18 2H6v7a6 6 0 0 0 12 0V2Z" />
+  </svg>
+);
+
+const ProfileIcon = () => (
+  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+  </svg>
 );
 
 const Home = () => {
@@ -543,8 +571,8 @@ const Home = () => {
   
   // --- RENDER ---
   return (
-    <div className="min-h-screen bg-dark-bg text-arcade-text font-sans pb-12">
-      <div className="max-w-4xl mx-auto px-4 pt-8">
+    <div className="min-h-screen bg-dark-bg text-arcade-text font-sans pb-4">
+      <div className="max-w-4xl mx-auto px-6 sm:px-8 pt-4 sm:pt-8">
         
       {/* Header */}
         <header className="mb-6 sm:mb-10">
@@ -571,8 +599,8 @@ const Home = () => {
            </div>
         </header>
         
-        {/* Navigation Tabs */}
-        <nav className="flex w-full mb-8 border-b border-slate-800 pb-1">
+        {/* Navigation Tabs - Desktop (Hidden on Mobile) */}
+        <nav className="hidden sm:flex w-full mb-8 border-b border-slate-800 pb-1">
            {['play', 'stats', 'leaderboard', 'profile'].map((tab) => (
                   <button
                key={tab}
@@ -587,9 +615,32 @@ const Home = () => {
                 </button>
            ))}
         </nav>
+
+        {/* Navigation Tabs - Mobile (Fixed Bottom) */}
+        <nav className="sm:hidden fixed bottom-0 left-0 w-full bg-slate-900/95 backdrop-blur border-t border-slate-800 pb-safe-area z-50 flex justify-around items-center px-2 py-3">
+            {[
+                { id: 'play', icon: PlayIcon, label: 'Play' },
+                { id: 'stats', icon: StatsIcon, label: 'Stats' },
+                { id: 'leaderboard', icon: LeaderboardIcon, label: 'Rank' },
+                { id: 'profile', icon: ProfileIcon, label: 'Profile' }
+            ].map((item) => {
+                const Icon = item.icon;
+                const isActive = activeView === item.id;
+                return (
+                    <button
+                        key={item.id}
+                        onClick={() => setActiveView(item.id)}
+                        className={`flex flex-col items-center justify-center w-full space-y-1 ${isActive ? 'text-brand-pink' : 'text-slate-500 hover:text-slate-400'}`}
+                    >
+                        <Icon />
+                        <span className="text-[10px] font-heading tracking-widest uppercase">{item.label}</span>
+                    </button>
+                );
+            })}
+        </nav>
         
         {/* Main Content */}
-        <main className="animate-fade-in">
+        <main className="animate-fade-in pb-7 sm:pb-0">
           
           {/* PLAY VIEW */}
           {activeView === 'play' && (
@@ -601,8 +652,8 @@ const Home = () => {
                 <div className="p-6 h-full flex flex-col relative z-10">
                   <div className="flex justify-between items-start mb-6">
                      <div>
-                       <h2 className="font-heading text-4xl text-white mb-1">COMPETITIVE</h2>
-                       <p className="text-slate-400 text-sm">Matchmake against players worldwide.</p>
+                       <h2 className="font-heading text-2xl sm:text-4xl text-white mb-1">COMPETITIVE</h2>
+                       <p className="text-slate-400 text-xs sm:text-sm">Matchmake against players worldwide.</p>
             </div>
             <div className="bg-slate-800 p-2 rounded-lg">
                  <svg className="w-6 h-6 text-brand-blue animate-pulse-slow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -634,7 +685,7 @@ const Home = () => {
           <button
                           onClick={startMatchmaking}
                           disabled={isLoading}
-                          className="w-full group relative bg-brand-blue hover:bg-blue-500 text-white font-heading text-3xl py-4 rounded-lg shadow-[0_0_20px_rgba(59,130,246,0.3)] hover:shadow-[0_0_30px_rgba(59,130,246,0.5)] transition-all transform hover:-translate-y-1"
+                          className="w-full group relative bg-brand-blue hover:bg-blue-500 text-white font-heading text-xl sm:text-3xl py-3 sm:py-4 rounded-lg shadow-[0_0_20px_rgba(59,130,246,0.3)] hover:shadow-[0_0_30px_rgba(59,130,246,0.5)] transition-all transform hover:-translate-y-1"
                         >
                           <span className="relative z-10">FIND MATCH</span>
           </button>
@@ -655,8 +706,8 @@ const Home = () => {
                  <div className="p-6 h-full flex flex-col">
                     <div className="flex justify-between items-start mb-6">
                           <div>
-                         <h2 className="font-heading text-4xl text-white mb-1">DAILY CHALLENGE</h2>
-                         <p className="text-slate-400 text-sm">New puzzle every 24 hours.</p>
+                         <h2 className="font-heading text-2xl sm:text-4xl text-white mb-1">DAILY CHALLENGE</h2>
+                         <p className="text-slate-400 text-xs sm:text-sm">New puzzle every 24 hours.</p>
                             </div>
                        <div className="bg-slate-800 p-2 rounded-lg">
                          <svg className="w-6 h-6 text-brand-pink" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -679,7 +730,7 @@ const Home = () => {
                                     </div>
                             <button 
                            onClick={() => navigate('/daily')}
-                           className="w-full bg-brand-pink hover:bg-pink-500 text-white font-heading text-3xl py-3 rounded-lg shadow-[0_0_20px_rgba(236,72,153,0.3)] hover:shadow-[0_0_30px_rgba(236,72,153,0.5)] transition-all"
+                           className="w-full bg-brand-pink hover:bg-pink-500 text-white font-heading text-xl sm:text-3xl py-3 rounded-lg shadow-[0_0_20px_rgba(236,72,153,0.3)] hover:shadow-[0_0_30px_rgba(236,72,153,0.5)] transition-all"
                             >
                            PLAY DAILY
                             </button>
@@ -698,29 +749,29 @@ const Home = () => {
           {/* LEADERBOARD VIEW */}
           {activeView === 'leaderboard' && (
             <div className="bg-card-bg rounded-xl shadow-lg border border-slate-700 overflow-hidden">
-              <div className="p-6 border-b border-slate-700">
-                 <h2 className="font-heading text-3xl text-white">GLOBAL RANKINGS</h2>
+              <div className="p-4 sm:p-6 border-b border-slate-700">
+                 <h2 className="font-heading text-2xl sm:text-3xl text-white">GLOBAL RANKINGS</h2>
           </div>
               {isLeaderboardLoading ? (
                  <div className="p-12 text-center"><div className="inline-block w-8 h-8 border-4 border-white border-t-transparent rounded-full animate-spin"></div></div>
         ) : (
           <div className="overflow-x-auto">
                    <table className="w-full text-left">
-                     <thead className="bg-slate-900/50 text-slate-400 text-xs uppercase tracking-wider">
+                     <thead className="bg-slate-900/50 text-slate-400 text-[8px] sm:text-xs uppercase tracking-wider">
                        <tr>
-                         <th className="p-4 font-medium">Rank</th>
-                         <th className="p-4 font-medium">Player</th>
-                         <th className="p-4 font-medium">Rating</th>
-                         <th className="p-4 font-medium">Record</th>
+                         <th className="p-1 sm:p-4 font-medium">Rank</th>
+                         <th className="p-1 sm:p-4 font-medium">Player</th>
+                         <th className="p-1 sm:p-4 font-medium">Rating</th>
+                         <th className="p-1 sm:p-4 font-medium">Record</th>
                 </tr>
               </thead>
-                     <tbody className="divide-y divide-slate-700/50 text-sm">
+                     <tbody className="divide-y divide-slate-700/50 text-[10px] sm:text-sm">
                        {leaderboardData.slice(0, 50).map((player, i) => (
                          <tr key={player.uid} className={`hover:bg-slate-800/50 transition-colors ${userProfile && player.uid === userProfile.uid ? 'bg-brand-blue/10 border-l-2 border-brand-blue' : ''}`}>
-                           <td className="p-4 font-heading text-xl text-slate-300">#{i + 1}</td>
-                           <td className="p-4 font-bold text-white">{player.displayName}</td>
-                           <td className="p-4 font-mono text-brand-blue">{player.eloRating}</td>
-                           <td className="p-4 text-slate-400">{player.wins} - {player.losses}</td>
+                           <td className="p-1 sm:p-4 font-heading text-sm sm:text-xl text-slate-300">#{i + 1}</td>
+                           <td className="p-1 sm:p-4 font-bold text-white max-w-[80px] truncate sm:max-w-none">{player.displayName}</td>
+                           <td className="p-1 sm:p-4 font-mono text-brand-blue">{player.eloRating}</td>
+                           <td className="p-1 sm:p-4 text-slate-400">{player.wins} - {player.losses}</td>
                   </tr>
                 ))}
               </tbody>
@@ -837,15 +888,7 @@ const Home = () => {
           
         </main>
       
-      {/* Footer */}
-        <footer className="mt-12 text-center text-slate-600 text-xs space-y-2">
-           <p>BALL KNOWER &copy; 2025</p>
-           <p>NFL & NBA Data last updated: November 19, 2025</p>
-           <div className="flex justify-center gap-4">
-              <a href="mailto:BallKnower.co@gmail.com" className="hover:text-brand-blue">Contact</a>
-              <a href="https://x.com/BallKnowerGame" target="_blank" rel="noreferrer" className="hover:text-brand-blue">Twitter / X</a>
-           </div>
-        </footer>
+      <Footer withTabBar={true} />
       </div>
     </div>
   );

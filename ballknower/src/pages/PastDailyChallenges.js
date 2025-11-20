@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useGame } from '../context/GameContext';
 import { collection, query, orderBy, getDocs } from 'firebase/firestore';
 import { db } from '../firebaseConfig';
+import Footer from '../components/Footer';
 
 const PastDailyChallenges = () => {
   const navigate = useNavigate();
@@ -114,8 +115,8 @@ const PastDailyChallenges = () => {
   }, []);
   
   return (
-    <div className="min-h-screen bg-dark-bg text-arcade-text font-sans pb-12">
-      <div className="max-w-4xl mx-auto px-2 sm:px-4 pt-4 sm:pt-8">
+    <div className="min-h-screen bg-dark-bg text-arcade-text font-sans pb-4">
+      <div className="max-w-4xl mx-auto px-6 sm:px-8 pt-4 sm:pt-8">
       {/* Header */}
       <div className="flex items-center mb-4 sm:mb-8 border-b border-slate-800 pb-3 sm:pb-6">
           <button
@@ -185,6 +186,7 @@ const PastDailyChallenges = () => {
         )}
       </div>
       </div>
+      <Footer />
     </div>
   );
 };
