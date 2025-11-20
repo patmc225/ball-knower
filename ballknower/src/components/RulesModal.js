@@ -20,6 +20,7 @@ const RulesModal = ({ onClose }) => (
               <li>Player 1 then names a <span className="text-brand-pink font-bold">NEW player</span> who shares that connection.</li>
               <li>Chain continues: Player → Attribute → Player → Attribute...</li>
               <li>60 second timer per turn.</li>
+              <li>Any incorrect response will result in a loss.</li>
             </ul>
         </section>
         <section>
@@ -27,7 +28,7 @@ const RulesModal = ({ onClose }) => (
             <div className="grid gap-4 md:grid-cols-2">
                 <div className="bg-slate-800/50 p-4 rounded-xl border border-slate-700">
                     <h4 className="font-heading text-xl text-brand-pink mb-2">CHALLENGE</h4>
-                    <p className="text-sm text-slate-400">Think your opponent is wrong or stuck? Challenge them! If they can't prove their link (or name another attribute), you win.</p>
+                    <p className="text-sm text-slate-400">Think your opponent is stuck? Challenge them! If they can't prove their link by naming another attribute, you win.</p>
                 </div>
                 <div className="bg-slate-800/50 p-4 rounded-xl border border-slate-700">
                     <h4 className="font-heading text-xl text-brand-blue mb-2">REVERSE</h4>
@@ -38,10 +39,10 @@ const RulesModal = ({ onClose }) => (
 
         <section className="mt-6 pt-6 border-t border-slate-700">
             <h3 className="text-2xl font-heading text-brand-pink mb-2">Daily Challenge</h3>
-            <p className="text-slate-400 mb-3">Connect two specific entities (Players, Teams, Numbers) in as few moves as possible.</p>
+            <p className="text-slate-400 mb-3">Connect two specific players or teams in as few moves as possible.</p>
             <ul className="list-disc pl-5 space-y-2 text-slate-400">
               <li>A new start and end point is given every day.</li>
-              <li>Global leaderboard for the shortest path.</li>
+              <li>Try to use as few moves as possible.</li>
               <li>Use the same connection rules as competitive play.</li>
             </ul>
         </section>

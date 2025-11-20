@@ -3,8 +3,8 @@
  * 
  * This file centralizes the base path configuration for the application.
  * 
- * For GitHub Pages deployment at patmc225.github.io/ball-knower:
- * - The homepage field in package.json is set to: "https://patmc225.github.io/ball-knower"
+ * For deployment at ballknower.co:
+ * - The homepage field in package.json is set to: "https://ballknower.co"
  * - Create React App automatically uses this for building assets
  * 
  * For local development:
@@ -18,7 +18,9 @@
 
 // Base path for React Router
 // In production, CRA will use the homepage field from package.json
-// In development, this will be empty
+// Since the new homepage is the root of the domain, BASE_PATH should be empty.
+// Previously for github pages at /ball-knower, it was /ball-knower (implicitly handled by PUBLIC_URL often, but we explicity use it).
+// Now it's root, so PUBLIC_URL will likely be empty string or /.
 export const BASE_PATH = process.env.PUBLIC_URL || '';
 
 /**
@@ -29,7 +31,8 @@ export const BASE_PATH = process.env.PUBLIC_URL || '';
 export const getAssetPath = (path) => {
   // Remove leading slash if present to avoid double slashes
   const cleanPath = path.startsWith('/') ? path.slice(1) : path;
-  return `${BASE_PATH}/${cleanPath}`;
+  // If BASE_PATH is empty, just return /path, otherwise /base/path
+  return BASE_PATH ? `${BASE_PATH}/${cleanPath}` : `/${cleanPath}`;
 };
 
 /**
@@ -39,4 +42,3 @@ export const getAssetPath = (path) => {
 export const getPublicUrl = () => {
   return BASE_PATH;
 };
-

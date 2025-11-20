@@ -5,10 +5,10 @@
   "private": true,
   "author": "Patrick McKeever",
   "license": "MIT",
-  "homepage": "https://patmc225.github.io/ball-knower",
+  "homepage": "https://ballknower.co",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/ball-knower.git"
+    "url": "https://github.com/patmc225/ball-knower.git"
   },
   "keywords": [
     "sports",
