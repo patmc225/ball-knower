@@ -578,9 +578,6 @@ const OnlineGameBoard = () => {
                 </div>
             ) : (
                 <>
-                            <div className="inline-block bg-slate-800/80 border border-slate-700 px-4 py-1 rounded-full text-slate-400 text-sm font-mono uppercase tracking-widest mb-2">
-                                Current Turn
-                            </div>
                             <h2 className="font-heading text-4xl md:text-6xl leading-tight text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-400 drop-shadow-2xl px-4">
                         {promptText}
                     </h2>
