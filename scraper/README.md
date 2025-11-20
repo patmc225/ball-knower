@@ -10,7 +10,7 @@ This scraper collects comprehensive player data including names, teams, jersey n
 
 ```bash
 # Install dependencies
-pip install requests beautifulsoup4
+pip install -r requirements.txt
 
 # Run the complete pipeline
 cd scraper
