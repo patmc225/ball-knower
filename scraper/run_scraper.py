@@ -160,8 +160,8 @@ Steps:
     parser.add_argument(
         "--leagues", 
         nargs="+", 
-        choices=["NFL", "NBA"], 
-        default=["NFL", "NBA"],
+        choices=["NBA", "NFL"], 
+        default=["NBA", "NFL"],
         help="Leagues to scrape (default: both)"
     )
     
