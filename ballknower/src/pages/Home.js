@@ -6,6 +6,7 @@ import { doc, setDoc, serverTimestamp, getDoc, collection, query, where, getDocs
 import { db } from '../firebaseConfig';
 import { Line } from 'react-chartjs-2';
 import { getAssetPath } from '../config/basePath';
+import ProfileTab from '../components/ProfileTab';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -546,39 +547,37 @@ const Home = () => {
       <div className="max-w-4xl mx-auto px-4 pt-8">
         
       {/* Header */}
-        <header className="flex flex-row justify-between items-center mb-6 sm:mb-10 gap-2 sm:gap-4">
-           <div className="flex items-center space-x-2 sm:space-x-4 cursor-pointer min-w-0 flex-1 overflow-hidden" onClick={() => setActiveView('play')}>
-              <div className="min-w-0 flex-1">
-                <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-none tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 whitespace-nowrap">
-                  BALL KNOWER
-                </h1>
-                <div className="text-slate-400 text-[10px] sm:text-sm tracking-widest uppercase font-bold ml-1 flex items-center gap-1 sm:gap-2 mt-0.5 sm:mt-1 overflow-x-auto scrollbar-hide">
-                  <span className="whitespace-nowrap">THE ULTIMATE</span>
-                  <img src={getAssetPath('nba.png')} alt="NBA" className="h-3 sm:h-4 w-auto flex-shrink-0" />
-                  <span className="flex-shrink-0">+</span>
-                  <img src={getAssetPath('nfl.png')} alt="NFL" className="h-3 sm:h-4 w-auto flex-shrink-0" />
-                  <span className="whitespace-nowrap">TRIVIA CHALLENGE</span>
-                </div>
-        </div>
-      </div>
+        <header className="mb-6 sm:mb-10">
+           <div className="flex justify-between items-center">
+              <h1 
+                className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-none tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 whitespace-nowrap cursor-pointer"
+                onClick={() => setActiveView('play')}
+              >
+                BALL KNOWER
+              </h1>
 
-           <div className="flex flex-col space-y-1.5 sm:space-y-2 flex-shrink-0">
-                <button
-                onClick={() => navigate('/profile')}
-                className="flex items-center justify-center space-x-1 sm:space-x-2 bg-brand-blue hover:bg-blue-600 text-white px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 rounded-lg font-heading text-sm sm:text-base md:text-xl transition-all shadow-[0_2px_0_rgb(29,78,216)] sm:shadow-[0_4px_0_rgb(29,78,216)] active:shadow-none active:translate-y-[2px] sm:active:translate-y-[4px] whitespace-nowrap"
-                >
-                <span className="truncate max-w-[100px] sm:max-w-none">{userProfile?.displayName || 'PROFILE'}</span>
-                </button>
-                </div>
+              <div className="flex items-center justify-end space-x-1 sm:space-x-2 bg-slate-800/50 px-3 py-1.5 rounded-full border border-slate-700">
+                  <div className={`w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full ${activeUsersCount > 0 ? 'bg-neon-green animate-pulse' : 'bg-slate-500'}`}></div>
+                  <span className="text-[0.65rem] sm:text-xs font-medium text-slate-300 whitespace-nowrap">{activeUsersCount} ONLINE</span>
+              </div>
+           </div>
+           
+           <div className="text-slate-400 text-[10px] sm:text-sm tracking-widest uppercase font-bold flex items-center gap-1 sm:gap-2 mt-1 sm:mt-2 overflow-x-auto scrollbar-hide">
+              <span className="whitespace-nowrap">THE ULTIMATE</span>
+              <img src={getAssetPath('nba.png')} alt="NBA" className="h-3 sm:h-4 w-auto flex-shrink-0" />
+              <span className="flex-shrink-0">+</span>
+              <img src={getAssetPath('nfl.png')} alt="NFL" className="h-3 sm:h-4 w-auto flex-shrink-0" />
+              <span className="whitespace-nowrap">TRIVIA CHALLENGE</span>
+           </div>
         </header>
         
         {/* Navigation Tabs */}
-        <nav className="flex space-x-2 mb-8 border-b border-slate-800 pb-1 overflow-x-auto">
-           {['play', 'stats', 'leaderboard'].map((tab) => (
+        <nav className="flex w-full mb-8 border-b border-slate-800 pb-1">
+           {['play', 'stats', 'leaderboard', 'profile'].map((tab) => (
                   <button
                key={tab}
                onClick={() => setActiveView(tab)}
-               className={`px-6 py-3 font-heading text-2xl uppercase tracking-wider transition-all border-b-4 ${
+               className={`flex-1 px-1 sm:px-6 py-2 sm:py-3 font-heading text-sm sm:text-2xl uppercase tracking-wider transition-all border-b-4 ${
                  activeView === tab 
                  ? 'border-brand-pink text-white' 
                  : 'border-transparent text-slate-500 hover:text-slate-300'
@@ -605,10 +604,11 @@ const Home = () => {
                        <h2 className="font-heading text-4xl text-white mb-1">COMPETITIVE</h2>
                        <p className="text-slate-400 text-sm">Matchmake against players worldwide.</p>
             </div>
-            <div className="flex items-center justify-end space-x-1 sm:space-x-2 bg-card-bg px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 rounded-full border border-slate-700">
-                  <div className={`w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full ${activeUsersCount > 0 ? 'bg-neon-green animate-pulse' : 'bg-slate-500'}`}></div>
-                  <span className="text-[0.65rem] sm:text-xs font-medium text-slate-300 whitespace-nowrap">{activeUsersCount} ONLINE</span>
-                </div>
+            <div className="bg-slate-800 p-2 rounded-lg">
+                 <svg className="w-6 h-6 text-brand-blue animate-pulse-slow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                 </svg>
+            </div>
                   </div>
                   
                   {error && <div className="bg-red-900/30 border border-red-500/50 text-red-200 p-3 rounded mb-4 text-sm">{error}</div>}
@@ -828,6 +828,11 @@ const Home = () => {
               </div>
             </div>
           </div>
+      )}
+
+      {/* PROFILE VIEW */}
+      {activeView === 'profile' && (
+        <ProfileTab onProfileUpdate={(updatedProfile) => setUserProfile(prev => ({ ...prev, ...updatedProfile }))} />
       )}
           
         </main>
