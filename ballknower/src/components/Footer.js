@@ -37,9 +37,9 @@ const Footer = ({ withTabBar = false }) => {
                <img src={getAssetPath('nba.png')} alt="NBA" className="h-3 sm:h-4 w-auto opacity-70" />
                <span className="opacity-50">+</span>
                <img src={getAssetPath('nfl.png')} alt="NFL" className="h-3 sm:h-4 w-auto opacity-70" />
-               <span className="mx-1 opacity-50">DATA VIA</span>
+               <span className="mx-1 opacity-50">data via</span>
                <a href="https://www.sports-reference.com/" target="_blank" rel="noreferrer" className="hover:opacity-100 transition-opacity opacity-70">
-                 <img src={getAssetPath('Sports_Reference_Logo.svg')} alt="Sports Reference" className="h-3 w-auto" style={{ filter: 'grayscale(100%) brightness(1.5)' }} />
+                 <img src={getAssetPath('Sports_Reference_Logo.svg')} alt="Sports Reference" className="h-3 w-auto" />
                </a>
            </div>
 
@@ -48,7 +48,7 @@ const Footer = ({ withTabBar = false }) => {
            
            {lastUpdatedDate && (
              <div>
-                 <span className="opacity-50">UPDATED {lastUpdatedDate}</span>
+                 <span className="opacity-50">Last updated: {lastUpdatedDate}</span>
              </div>
            )}
         </div>
