@@ -21,7 +21,7 @@ const getCurrentDate = () => {
 const DailyGame = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { getPlayer, getTeam, searchPlayersByName, searchTeams, collegesList } = useGame();
+  const { getPlayer, getTeam, searchPlayersByName, searchTeams, collegesList, loading: dataLoading } = useGame();
   
   // Get date from URL query or use current date
   const queryParams = new URLSearchParams(location.search);
@@ -53,6 +53,8 @@ const DailyGame = () => {
   
   // Load the daily challenge when component mounts
   useEffect(() => {
+    if (dataLoading) return;
+
     const loadDailyChallenge = async () => {
       try {
         setLoading(true);
@@ -122,7 +124,7 @@ const DailyGame = () => {
     };
     
     loadDailyChallenge();
-  }, [dateParam, getPlayer, getTeam, navigate]);
+  }, [dateParam, getPlayer, getTeam, navigate, dataLoading]);
   
   // Input Handlers
   const handleInputChange = (value) => {
@@ -267,18 +269,22 @@ const DailyGame = () => {
       </header>
 
       {/* Goal Card */}
-      <div className="w-full max-w-2xl mb-8">
+      <div className="w-full max-w-2xl mb-6 sm:mb-8">
         <ArcadeCard className="relative overflow-hidden border-brand-pink/30" glow="pink">
-             <div className="flex flex-col md:flex-row items-center justify-center text-center gap-4 md:gap-8 relative z-10">
-                 <div>
-                     <div className="text-[10px] sm:text-xs text-slate-500 uppercase tracking-widest mb-1">START</div>
-                     <div className="font-heading text-2xl sm:text-3xl text-white">{startElement?.name}</div>
+             <div className="flex flex-row items-center justify-between text-center gap-2 sm:gap-8 relative z-10">
+                 <div className="flex-1 min-w-0">
+                     <div className="text-[9px] sm:text-xs text-slate-500 uppercase tracking-widest mb-0.5">START</div>
+                     <div className="font-heading text-lg sm:text-3xl text-white truncate px-1">{startElement?.name}</div>
                  </div>
-                 <div className="hidden md:block w-16 h-1 bg-slate-700 rounded-full"></div>
-                 <div className="md:hidden h-8 w-1 bg-slate-700 rounded-full"></div>
-                 <div>
-                     <div className="text-[10px] sm:text-xs text-slate-500 uppercase tracking-widest mb-1">TARGET</div>
-                     <div className="font-heading text-2xl sm:text-3xl text-brand-pink text-glow-pink">{endElement?.name}</div>
+                 
+                 <div className="flex-shrink-0 flex flex-col items-center px-2 border-x border-slate-800/50">
+                    <div className="text-[8px] sm:text-[10px] text-slate-500 uppercase tracking-widest mb-0.5">BEST</div>
+                    <div className="font-heading text-base sm:text-xl text-neon-green whitespace-nowrap">{dailyData?.shortestPath || '?'}</div>
+                 </div>
+
+                 <div className="flex-1 min-w-0">
+                     <div className="text-[9px] sm:text-xs text-slate-500 uppercase tracking-widest mb-0.5">TARGET</div>
+                     <div className="font-heading text-lg sm:text-3xl text-brand-pink text-glow-pink truncate px-1">{endElement?.name}</div>
                  </div>
              </div>
         </ArcadeCard>
@@ -286,35 +292,12 @@ const DailyGame = () => {
 
       {/* Game Board */}
       <div className="w-full max-w-xl flex-grow flex flex-col">
-          
-          {/* History Chain */}
-          <div className="space-y-2 mb-6">
-              {/* Start Node */}
-              <div className="flex items-center justify-center">
-                  <div className="bg-slate-800 border border-slate-600 px-4 py-2 rounded-full text-slate-400 text-sm font-mono">
-                      {startElement?.name}
-                  </div>
-              </div>
-              <div className="flex justify-center"><div className="h-4 w-0.5 bg-slate-700"></div></div>
-              
-              {/* Moves */}
-              {gameHistory.map((move, i) => (
-                  <React.Fragment key={i}>
-                    <div className="flex items-center justify-center animate-scale-in">
-                        <div className={`px-6 py-3 rounded-xl border text-lg font-bold shadow-lg ${move.type === 'player' ? 'bg-slate-800 border-brand-blue text-white' : 'bg-slate-900 border-slate-700 text-brand-pink'}`}>
-                            {move.display}
-                        </div>
-                    </div>
-                    <div className="flex justify-center"><div className="h-4 w-0.5 bg-slate-700"></div></div>
-                  </React.Fragment>
-              ))}
-          </div>
 
-          {/* Input Area */}
-          <div className="mt-auto bg-card-bg border border-slate-700 rounded-2xl p-4 sm:p-6 shadow-2xl relative z-20 mb-8 sm:mb-0">
-              <div className="text-center mb-4">
-                  <div className="text-xs text-slate-400 uppercase tracking-widest mb-1">Current Step: {moveCount + 1}</div>
-                  <h2 className="font-heading text-xl sm:text-3xl text-white">
+          {/* Input Area - Moved to Top */}
+          <div className="bg-card-bg border border-slate-700 rounded-2xl p-4 shadow-2xl relative z-20 mb-6">
+              <div className="text-center mb-3">
+                  <div className="text-xs text-slate-400 uppercase tracking-widest mb-1">Move {moveCount + 1}</div>
+                  <h2 className="font-heading text-lg sm:text-xl text-white">
                       {nextInputType === 'player' ? 
                         `Name a player who matches...` : 
                         `How does ${getPlayer(lastPlayerId)?.name.split(' ')[0]} connect?`
@@ -322,13 +305,13 @@ const DailyGame = () => {
                   </h2>
               </div>
 
-              {error && <div className="text-red-500 text-center text-sm mb-4 font-bold animate-pulse">{error}</div>}
+              {error && <div className="text-red-500 text-center text-xs mb-3 font-bold animate-pulse">{error}</div>}
 
-              <div className="space-y-3">
+              <div className="space-y-2">
                   {nextInputType === 'attribute' && (
                        <div className="flex p-1 bg-slate-900/80 rounded-xl border border-slate-700">
                            {['number', 'team', 'college'].map(type => (
-                               <button key={type} onClick={() => setSelectedAttributeType(type)} className={`flex-1 py-2 rounded-lg font-heading text-sm sm:text-lg transition-all ${selectedAttributeType === type ? 'bg-brand-pink text-white shadow-lg' : 'text-slate-400 hover:text-white'}`}>{type}</button>
+                               <button key={type} onClick={() => setSelectedAttributeType(type)} className={`flex-1 py-1.5 rounded-lg font-heading text-sm sm:text-sm transition-all ${selectedAttributeType === type ? 'bg-brand-pink text-white shadow-lg' : 'text-slate-400 hover:text-white'}`}>{type}</button>
                            ))}
                        </div>
                   )}
@@ -342,14 +325,37 @@ const DailyGame = () => {
                        displayAttribute="name" valueAttribute="id"
                        placeholder={nextInputType === 'player' ? "Search Player..." : "Enter Answer..."}
                        disabled={isSubmitting}
-                       className="text-center font-heading text-xl sm:text-2xl"
+                       className="text-center font-heading text-base text-sm sm:text-md"
                        autoFocus
                   />
                   
-                  <ArcadeButton onClick={handleSubmit} disabled={!inputValue || isSubmitting} className="w-full text-lg sm:text-xl" variant="secondary" size="lg">
+                  <ArcadeButton onClick={handleSubmit} disabled={!inputValue || isSubmitting} className="w-full text-base" variant="secondary" size="md">
                       SUBMIT
                   </ArcadeButton>
               </div>
+          </div>
+          
+          {/* History Chain */}
+          <div className="space-y-2 mb-6 flex-grow">
+              {/* Start Node */}
+              <div className="flex items-center justify-center">
+                  <div className="bg-slate-800 border border-slate-600 px-4 py-2 rounded-full text-slate-400 text-xs sm:text-sm font-mono">
+                      {startElement?.name}
+                  </div>
+              </div>
+              <div className="flex justify-center"><div className="h-4 w-0.5 bg-slate-700"></div></div>
+              
+              {/* Moves */}
+              {gameHistory.map((move, i) => (
+                  <React.Fragment key={i}>
+                    <div className="flex items-center justify-center animate-scale-in">
+                        <div className={`px-4 py-2 sm:px-6 sm:py-3 rounded-xl border text-sm sm:text-lg font-bold shadow-lg ${move.type === 'player' ? 'bg-slate-800 border-brand-blue text-white' : 'bg-slate-900 border-slate-700 text-brand-pink'}`}>
+                            {move.display}
+                        </div>
+                    </div>
+                    <div className="flex justify-center"><div className="h-4 w-0.5 bg-slate-700"></div></div>
+                  </React.Fragment>
+              ))}
           </div>
       </div>
 

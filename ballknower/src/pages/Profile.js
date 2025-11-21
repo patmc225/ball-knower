@@ -382,12 +382,6 @@ const Profile = () => {
                 </div>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                    <label className="block text-xs uppercase text-slate-500 mb-1">Account Type</label>
-                    <div className="w-full bg-slate-900/50 border border-slate-800 rounded-lg p-3 text-slate-400 font-mono text-sm">
-                        {user.isAnonymous ? 'Temporary (Anonymous)' : 'Permanent'}
-                    </div>
-                    </div>
                     
                     <div>
                     <label className="block text-xs uppercase text-slate-500 mb-1">Email</label>

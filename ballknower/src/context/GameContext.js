@@ -193,29 +193,29 @@ export const GameProvider = ({ children }) => {
   };
 
   // Search players by attribute
-  const searchPlayersByAttribute = (attribute, query) => {
+  const searchPlayersByAttribute = useCallback((attribute, query) => {
     return api.searchPlayers(attribute, query);
-  };
+  }, []);
 
   // Search players by name
-  const searchPlayersByName = (query) => {
+  const searchPlayersByName = useCallback((query) => {
     return api.searchPlayers('name', query);
-  };
+  }, []);
 
   // Search teams
-  const searchTeams = (query) => {
+  const searchTeams = useCallback((query) => {
     return api.searchTeams(query);
-  };
+  }, []);
 
   // Get a player by ID
-  const getPlayer = (playerId) => {
+  const getPlayer = useCallback((playerId) => {
     return api.getPlayerById(playerId);
-  };
+  }, []);
 
   // Get a team by ID (New helper)
-  const getTeam = (teamId) => {
+  const getTeam = useCallback((teamId) => {
     return api.getTeamById(teamId);
-  };
+  }, []);
 
   // --- Challenge Functions ---
   const initiateChallenge = async (gameId, challengingPlayerId) => {

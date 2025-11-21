@@ -59,7 +59,7 @@ const ProfileIcon = () => (
 
 const Home = () => {
   const navigate = useNavigate();
-  const { startNewGame, getTeam, getPlayer } = useGame();
+  const { startNewGame, getTeam, getPlayer, loading: dataLoading } = useGame();
   
   // State
   const [activeView, setActiveView] = useState('play'); // 'play', 'stats', 'leaderboard'
@@ -116,13 +116,43 @@ const Home = () => {
     initUser();
     fetchWaitingPlayersCount();
     startWaitingPlayersCounter();
-    fetchDailyChallenge();
     
     return () => {
       if (waitingPlayersTimerRef.current) clearInterval(waitingPlayersTimerRef.current);
       if (presenceTimerRef.current) clearInterval(presenceTimerRef.current);
     };
   }, []);
+
+  // Fetch daily challenge once data is loaded
+  useEffect(() => {
+    if (dataLoading) return;
+
+    const fetchDailyChallenge = async () => {
+      try {
+        setIsDailyLoading(true);
+        const options = { timeZone: 'America/New_York', year: 'numeric', month: 'long', day: 'numeric' };
+        const today = new Date().toLocaleDateString('en-US', options);
+        const snap = await getDoc(doc(db, "daily", today));
+        
+        if (snap.exists()) {
+            const data = snap.data();
+            // Resolve names logic...
+            let startName = data.startId, endName = data.endId;
+            if (data.startType === 'player') { const p = getPlayer(data.startId); startName = p ? p.name : data.startId; }
+            else if (data.startType === 'team') { const t = getTeam(data.startId); startName = `${t ? t.name : data.startId}`; }
+            else if (data.startType === 'number') startName = `#${data.startId}`;
+            
+            if (data.endType === 'player') { const p = getPlayer(data.endId); endName = p ? p.name : data.endId; }
+            else if (data.endType === 'team') { const t = getTeam(data.endId); endName = `${t ? t.name : data.endId}`; }
+            else if (data.endType === 'number') endName = `#${data.endId}`;
+            
+            setDailyChallenge({ ...data, startName, endName });
+        }
+      } catch (e) { console.error(e); } finally { setIsDailyLoading(false); }
+    };
+
+    fetchDailyChallenge();
+  }, [dataLoading, getPlayer, getTeam]);
 
   useEffect(() => {
     if ((activeView === 'stats' || activeView === 'leaderboard') && !statsLoaded) {
@@ -540,30 +570,6 @@ const Home = () => {
       } catch (e) { console.error(e); setError(e.message); setIsLoading(false); }
   };
 
-  // Daily Challenge
-  const fetchDailyChallenge = async () => {
-    try {
-      setIsDailyLoading(true);
-          const options = { timeZone: 'America/New_York', year: 'numeric', month: 'long', day: 'numeric' };
-      const today = new Date().toLocaleDateString('en-US', options);
-          const snap = await getDoc(doc(db, "daily", today));
-          
-          if (snap.exists()) {
-              const data = snap.data();
-              // Resolve names logic...
-              let startName = data.startId, endName = data.endId;
-              if (data.startType === 'player') { const p = getPlayer(data.startId); startName = p ? p.name : data.startId; }
-              else if (data.startType === 'team') { const t = getTeam(data.startId); startName = `the ${t ? t.name : data.startId}`; }
-              else if (data.startType === 'number') startName = `#${data.startId}`;
-              
-              if (data.endType === 'player') { const p = getPlayer(data.endId); endName = p ? p.name : data.endId; }
-              else if (data.endType === 'team') { const t = getTeam(data.endId); endName = `the ${t ? t.name : data.endId}`; }
-              else if (data.endType === 'number') endName = `#${data.endId}`;
-              
-              setDailyChallenge({ ...data, startName, endName });
-          }
-      } catch (e) { console.error(e); } finally { setIsDailyLoading(false); }
-  };
   
   // Utils
   const getLatestElo = (elo) => Array.isArray(elo) ? (elo.length > 0 ? elo[elo.length-1] : 1000) : (elo || 1000);
@@ -750,7 +756,7 @@ const Home = () => {
           {activeView === 'leaderboard' && (
             <div className="bg-card-bg rounded-xl shadow-lg border border-slate-700 overflow-hidden">
               <div className="p-4 sm:p-6 border-b border-slate-700">
-                 <h2 className="font-heading text-2xl sm:text-3xl text-white">GLOBAL RANKINGS</h2>
+                 <h2 className="font-heading text-2xl sm:text-3xl text-white">TOP 25 BALL KNOWERS</h2>
           </div>
               {isLeaderboardLoading ? (
                  <div className="p-12 text-center"><div className="inline-block w-8 h-8 border-4 border-white border-t-transparent rounded-full animate-spin"></div></div>
@@ -766,7 +772,7 @@ const Home = () => {
                 </tr>
               </thead>
                      <tbody className="divide-y divide-slate-700/50 text-[10px] sm:text-sm">
-                       {leaderboardData.slice(0, 50).map((player, i) => (
+                       {leaderboardData.slice(0, 25).map((player, i) => (
                          <tr key={player.uid} className={`hover:bg-slate-800/50 transition-colors ${userProfile && player.uid === userProfile.uid ? 'bg-brand-blue/10 border-l-2 border-brand-blue' : ''}`}>
                            <td className="p-1 sm:p-4 font-heading text-sm sm:text-xl text-slate-300">#{i + 1}</td>
                            <td className="p-1 sm:p-4 font-bold text-white max-w-[80px] truncate sm:max-w-none">{player.displayName}</td>

@@ -565,13 +565,13 @@ const OnlineGameBoard = () => {
   let promptText = "Start the game!";
   if (lastMove && gameData.status === 'playing') {
       if (gameData.nextInputType === 'attribute') {
-          promptText = `Name a fact about ${promptPlayer?.name || 'this player'}`;
+          promptText = `Name something that matches ${promptPlayer?.name || 'this player'}`;
       } else {
           const attrVal = promptAttribute.value;
           const attrType = promptAttribute.type;
-          if (attrType === 'team') promptText = `Who played for the ${formatTeamName(attrVal, getTeam)}?`;
-          else if (attrType === 'number') promptText = `Who wore #${attrVal}?`;
-          else if (attrType === 'college') promptText = `Who went to ${attrVal}?`;
+          if (attrType === 'team') promptText = `Name someone who played for the ${formatTeamName(attrVal, getTeam)}.`;
+          else if (attrType === 'number') promptText = `Name someone who wore #${attrVal}.`;
+          else if (attrType === 'college') promptText = `Name someone who went to ${attrVal}.`;
       }
   }
 
