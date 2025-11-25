@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { getAssetPath } from '../config/basePath';
 import RulesModal from './RulesModal';
+import { useModalTracking, useButtonTracking } from '../utils/analytics';
 
 const Footer = ({ withTabBar = false }) => {
   const [showRules, setShowRules] = useState(false);
   const [lastUpdatedDate, setLastUpdatedDate] = useState(null);
+
+  // Analytics tracking
+  const trackButton = useButtonTracking('footer');
+  const { trackOpen: trackRulesOpen, trackClose: trackRulesClose } = useModalTracking('rules_footer');
 
   useEffect(() => {
     fetch(`${process.env.PUBLIC_URL}/backend/metadata.json`)
@@ -15,14 +20,21 @@ const Footer = ({ withTabBar = false }) => {
 
   return (
     <>
-      {showRules && <RulesModal onClose={() => setShowRules(false)} />}
+      {showRules && <RulesModal onClose={() => {
+        trackRulesClose();
+        setShowRules(false);
+      }} />}
       
       <footer className={`mt-0 sm:mt-12 text-center text-slate-600 text-xs space-y-3 ${withTabBar ? 'mb-24' : 'mb-6'} sm:mb-8`}>
 
       {/* Explainer Button */}
       <div className="mb-2 mt-5">
-          <button 
-            onClick={() => setShowRules(true)}
+          <button
+            onClick={() => {
+              trackButton('how_to_play');
+              trackRulesOpen();
+              setShowRules(true);
+            }}
             className="text-slate-400 hover:text-white font-heading text-sm uppercase tracking-wider underline decoration-slate-600 underline-offset-4 hover:decoration-white transition-all"
           >
             HOW TO PLAY

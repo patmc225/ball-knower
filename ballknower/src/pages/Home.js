@@ -5,6 +5,7 @@ import { useGame } from '../context/GameContext';
 import { auth, ensureAnonymousUser } from '../firebaseConfig';
 import { doc, setDoc, serverTimestamp, getDoc, collection, query, where, getDocs, updateDoc, onSnapshot, orderBy, deleteDoc, getCountFromServer, runTransaction } from 'firebase/firestore';
 import { db } from '../firebaseConfig';
+import { useButtonTracking, useModalTracking, useNavigationTracking } from '../utils/analytics';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import RulesModal from '../components/RulesModal';
@@ -12,6 +13,11 @@ import RulesModal from '../components/RulesModal';
 const Home = () => {
   const navigate = useNavigate();
   const { getTeam, getPlayer, loading: dataLoading } = useGame();
+
+  // Analytics tracking
+  const trackButton = useButtonTracking('home');
+  const trackNav = useNavigationTracking('home');
+  const { trackOpen: trackRulesOpen, trackClose: trackRulesClose } = useModalTracking('rules');
   
   // State
   const [error, setError] = useState('');
@@ -51,6 +57,7 @@ const Home = () => {
         const hasSeenRules = localStorage.getItem('hasSeenRules');
         if (!hasSeenRules) {
           setShowRules(true);
+          trackRulesOpen({ trigger: 'first_visit' });
           localStorage.setItem('hasSeenRules', 'true');
         }
       } catch (error) {
@@ -152,6 +159,7 @@ const Home = () => {
 
   // Matchmaking Logic (Simplified for this rewrite)
   const startMatchmaking = async () => {
+    trackButton('find_match', { user_elo: getLatestElo(userProfile?.stats?.eloRating) });
     try {
       setMatchmakingTime(0);
       setIsMatchmaking(true);
@@ -282,6 +290,7 @@ const Home = () => {
   };
   
   const cancelMatchmaking = async () => {
+      trackButton('cancel_matchmaking', { matchmaking_time: matchmakingTime });
       cleanupMatchmaking();
       setMatchmakingTime(0);
       setMatchmakingTimedOut(false);
@@ -289,6 +298,7 @@ const Home = () => {
   };
   
   const handleStartOnlineGame = async () => {
+      trackButton('play_with_friend');
       // Create friendly game
       setIsLoading(true);
       try {
@@ -363,8 +373,14 @@ const Home = () => {
                        <div className="bg-slate-900/50 rounded-lg p-6 text-center border border-brand-pink/30">
                           <p className="text-brand-pink mb-4 font-bold">No opponent found.</p>
                           <div className="flex gap-3 justify-center">
-                             <button onClick={startMatchmaking} className="bg-brand-blue hover:bg-blue-600 text-white px-4 py-2 rounded font-heading text-lg">TRY AGAIN</button>
-                             <button onClick={() => setMatchmakingTimedOut(false)} className="bg-slate-700 hover:bg-slate-600 text-white px-4 py-2 rounded font-heading text-lg">BACK</button>
+                             <button onClick={() => {
+                               trackButton('try_again_timeout');
+                               startMatchmaking();
+                             }} className="bg-brand-blue hover:bg-blue-600 text-white px-4 py-2 rounded font-heading text-lg">TRY AGAIN</button>
+                             <button onClick={() => {
+                               trackButton('back_from_timeout');
+                               setMatchmakingTimedOut(false);
+                             }} className="bg-slate-700 hover:bg-slate-600 text-white px-4 py-2 rounded font-heading text-lg">BACK</button>
       </div>
       </div>
                     ) : (
@@ -415,14 +431,22 @@ const Home = () => {
                            <div className="text-brand-pink text-sm font-bold">TO</div>
                            <div className="font-heading text-2xl text-white leading-none mt-1">{dailyChallenge.endName}</div>
                                     </div>
-                            <button 
-                           onClick={() => navigate('/daily')}
+                            <button
+                           onClick={() => {
+                             trackButton('play_daily');
+                             trackNav('daily', 'button');
+                             navigate('/daily');
+                           }}
                            className="w-full bg-brand-pink hover:bg-pink-500 text-white font-heading text-xl sm:text-3xl py-3 rounded-lg shadow-[0_0_20px_rgba(236,72,153,0.3)] hover:shadow-[0_0_30px_rgba(236,72,153,0.5)] transition-all"
                             >
                            PLAY DAILY
                             </button>
                         <div className="text-center mt-3">
-                           <button onClick={() => navigate('/past-daily-challenges')} className="text-xs text-slate-500 hover:text-white">Play Past Challenges</button>
+                           <button onClick={() => {
+                             trackButton('past_daily_challenges');
+                             trackNav('past-daily-challenges', 'button');
+                             navigate('/past-daily-challenges');
+                           }} className="text-xs text-slate-500 hover:text-white">Play Past Challenges</button>
                           </div>
                         </div>
                     ) : (
@@ -436,7 +460,10 @@ const Home = () => {
       
       <Footer withTabBar={true} />
 
-      {showRules && <RulesModal onClose={() => setShowRules(false)} />}
+      {showRules && <RulesModal onClose={() => {
+        trackRulesClose();
+        setShowRules(false);
+      }} />}
       </div>
     </div>
   );

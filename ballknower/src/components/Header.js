@@ -1,12 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-
-// User Icon Component
-const UserIcon = () => (
-  <svg className="-mr-1 w-5 h-5 text-slate-300" fill="currentColor" viewBox="0 0 24 24">
-    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-  </svg>
-);
+import { useButtonTracking, useNavigationTracking } from '../utils/analytics';
 
 // Settings Icon Component
 const SettingsIcon = () => (
@@ -40,6 +34,25 @@ const Header = ({
 }) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const trackButton = useButtonTracking('header');
+  const trackNav = useNavigationTracking(location.pathname.substring(1) || 'home');
+
+  const handleNavigation = (path, buttonName) => {
+    trackButton(buttonName, { target_path: path });
+    trackNav(path.substring(1) || 'home', 'button');
+    navigate(path);
+  };
+
+  const handleLogoClick = () => {
+    trackButton('logo_click', { target_path: '/' });
+    trackNav('home', 'logo_click');
+    navigate('/');
+  };
+
+  const handleSettingsClick = () => {
+    trackButton('settings_click');
+    if (onSettingsClick) onSettingsClick();
+  };
 
   return (
     <>
@@ -48,7 +61,7 @@ const Header = ({
          <div className="flex justify-between items-center">
             <h1
               className="font-heading text-2xl sm:text-xl md:text-2xl lg:text-3xl leading-none tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 whitespace-nowrap cursor-pointer"
-              onClick={() => navigate('/')}
+              onClick={handleLogoClick}
             >
               BALL KNOWER
             </h1>
@@ -64,7 +77,7 @@ const Header = ({
                       return (
                          <button
                       key={tab.id}
-                      onClick={() => navigate(tab.path)}
+                      onClick={() => handleNavigation(tab.path, `nav_${tab.id}`)}
                       className={`flex items-center gap-2 px-3 py-2 transition-all rounded-lg ${
                         activeTab === tab.id
                         ? 'bg-brand-pink/20 text-brand-pink border border-brand-pink/30'
@@ -90,7 +103,7 @@ const Header = ({
                      </div>
                      {onSettingsClick && (
                        <button
-                         onClick={onSettingsClick}
+                         onClick={handleSettingsClick}
                          className="p-1 bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white rounded-lg transition-colors border border-slate-600 ml-auto"
                          title="Settings"
                        >
@@ -120,7 +133,7 @@ const Header = ({
               return (
                   <button
                       key={item.id}
-                      onClick={() => navigate(item.path)}
+                      onClick={() => handleNavigation(item.path, `mobile_nav_${item.id}`)}
                       className={`flex flex-col items-center justify-center w-full space-y-1 ${isActive ? 'text-brand-pink' : 'text-slate-500 hover:text-slate-400'}`}
                   >
                       <Icon />

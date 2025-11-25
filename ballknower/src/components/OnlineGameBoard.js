@@ -9,16 +9,15 @@ import {
     calculateInitiateChallengeUpdate,
     calculateResolveChallengeUpdate,
     calculateGiveUpUpdate,
-    validateMoveForReversal,
     calculateReverseUpdateWithInput,
     updateRarity,
-    updatePlayerStats,
-    getCollegeLogoUrl
+    updatePlayerStats
 } from '../utils/gameUtils';
 import AutocompleteInput from './AutocompleteInput';
 import { ArcadeButton, ArcadeCard } from './ArcadeUI';
 import RulesModal from './RulesModal';
 import RarityCard from './RarityCard';
+import { useButtonTracking, useModalTracking } from '../utils/analytics';
 
 // --- Helpers ---
 const getAttributeLabel = (attribute) => {
@@ -150,9 +149,10 @@ const RarityHistory = ({ history, rarityCache, getPlayer, getTeam, allPlayersDat
     );
 };
 
-const WaitingScreen = ({ gameId }) => {
+const WaitingScreen = ({ gameId, onCopyURL }) => {
     const [copied, setCopied] = useState(false);
     const copyURL = () => {
+        onCopyURL(gameId);
         navigator.clipboard.writeText(window.location.href);
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
@@ -219,7 +219,13 @@ const PlayerCard = ({ player, isTurn, isMe, timer }) => (
 const OnlineGameBoard = () => {
   const { gameId } = useParams();
   const navigate = useNavigate();
-  const { players: allPlayersData, teamsList, collegesList, getTeam, searchPlayersByName, searchTeams, getPlayer, popularityData } = useGame(); 
+  const { players: allPlayersData, teamsList, collegesList, getTeam, searchPlayersByName, searchTeams, getPlayer, popularityData } = useGame();
+
+  // Analytics tracking
+  const trackButton = useButtonTracking('game_board');
+  const { trackOpen: trackRulesOpen, trackClose: trackRulesClose } = useModalTracking('rules_game');
+  const { trackOpen: trackGiveUpOpen, trackClose: trackGiveUpClose, trackSubmit: trackGiveUpConfirm } = useModalTracking('give_up_confirm');
+  const { trackOpen: trackChallengeOpen, trackClose: trackChallengeClose, trackSubmit: trackChallengeConfirm } = useModalTracking('challenge_confirm'); 
   
   // Logic States
   const [gameData, setGameData] = useState(null);
@@ -520,6 +526,10 @@ const OnlineGameBoard = () => {
   };
 
   const handleChallengeResponse = async () => {
+      trackButton('prove_it_button', {
+        challenge_type: gameData?.challengeType,
+        response_attribute_type: challengeResponseAttributeType
+      });
       let value = challengeResponseFinalValue || challengeResponseInputValue;
       const result = calculateResolveChallengeUpdate(gameData, myRole, value, challengeResponseAttributeType, allPlayersData);
       
@@ -541,6 +551,7 @@ const OnlineGameBoard = () => {
   
   const handleReverse = async () => {
       if (isSubmitting) return;
+      trackButton('reverse_button');
       
       // Use current input values
       // If nextInputType is 'player', we expect a player input.
@@ -588,8 +599,11 @@ const OnlineGameBoard = () => {
 
   // --- Render Logic ---
   if (loading) return <div className="min-h-screen bg-dark-bg flex items-center justify-center"><div className="w-16 h-16 border-4 border-brand-blue border-t-transparent rounded-full animate-spin"></div></div>;
-  if (error && !gameData) return <div className="min-h-screen bg-dark-bg flex items-center justify-center text-white p-8 text-center"><div><h2 className="text-4xl font-heading mb-2 text-neon-red">ERROR</h2><p className="text-slate-400">{error}</p><ArcadeButton onClick={() => navigate('/')} className="mt-6">Home</ArcadeButton></div></div>;
-  if (gameData && gameData.status === 'waiting') return <WaitingScreen gameId={gameId} />;
+  if (error && !gameData) return <div className="min-h-screen bg-dark-bg flex items-center justify-center text-white p-8 text-center"><div><h2 className="text-4xl font-heading mb-2 text-neon-red">ERROR</h2><p className="text-slate-400">{error}</p><ArcadeButton onClick={() => {
+    trackButton('home_error_screen');
+    navigate('/');
+  }} className="mt-6">Home</ArcadeButton></div></div>;
+  if (gameData && gameData.status === 'waiting') return <WaitingScreen gameId={gameId} onCopyURL={(gameId) => trackButton('copy_url', { game_id: gameId })} />;
   if (gameData && (gameData.status === 'finished' || gameData.status === 'closed')) {
       // Simple Game Over Screen within the board
       const iWon = gameData.winner === myRole;
@@ -638,7 +652,10 @@ const OnlineGameBoard = () => {
           <div className="h-screen bg-dark-bg text-white font-sans overflow-hidden flex flex-col">
               {/* Header */}
               <header className="flex-none bg-card-bg/50 backdrop-blur border-b border-slate-800 p-2 md:p-4 flex justify-between items-center z-20">
-                 <div className="flex items-center gap-3 cursor-pointer" onClick={() => navigate('/')}>
+                 <div className="flex items-center gap-3 cursor-pointer" onClick={() => {
+                   trackButton('header_logo_click');
+                   navigate('/');
+                 }}>
                     <span className="font-heading text-2xl tracking-wider hidden md:inline">BALL KNOWER</span>
                  </div>
               </header>
@@ -704,7 +721,10 @@ const OnlineGameBoard = () => {
                       </div>
 
                       <div className="mt-6 w-full max-w-2xl">
-                          <ArcadeButton onClick={() => navigate('/')} className="w-full">RETURN HOME</ArcadeButton>
+                          <ArcadeButton onClick={() => {
+                            trackButton('return_home_game_over');
+                            navigate('/');
+                          }} className="w-full">RETURN HOME</ArcadeButton>
                       </div>
                   </div>
               </div>
@@ -732,16 +752,30 @@ const OnlineGameBoard = () => {
 
   return (
     <div className="h-screen bg-dark-bg text-white font-sans overflow-hidden flex flex-col">
-      {showRules && <RulesModal onClose={() => setShowRules(false)} />}
+      {showRules && <RulesModal onClose={() => {
+        trackRulesClose();
+        setShowRules(false);
+      }} />}
       
       {/* Top Bar */}
       <header className="flex-none bg-card-bg/50 backdrop-blur border-b border-slate-800 p-2 md:p-4 flex justify-between items-center z-20">
-         <div className="flex items-center gap-3 cursor-pointer" onClick={() => navigate('/')}>
+         <div className="flex items-center gap-3 cursor-pointer" onClick={() => {
+           trackButton('header_logo_click');
+           navigate('/');
+         }}>
             <span className="font-heading text-2xl tracking-wider hidden md:inline">BALL KNOWER</span>
          </div>
          <div className="flex items-center gap-2 md:gap-4">
-            <button onClick={() => setShowRules(true)} className="text-slate-400 hover:text-white px-3 py-1 rounded hover:bg-slate-800 transition-colors font-heading text-lg">RULES</button>
-            <button onClick={() => setShowConfirmGiveUp(true)} className="text-red-500 hover:text-red-400 px-3 py-1 rounded hover:bg-red-500/10 transition-colors font-heading text-lg">GIVE UP</button>
+            <button onClick={() => {
+              trackButton('rules_button');
+              trackRulesOpen();
+              setShowRules(true);
+            }} className="text-slate-400 hover:text-white px-3 py-1 rounded hover:bg-slate-800 transition-colors font-heading text-lg">RULES</button>
+            <button onClick={() => {
+              trackButton('give_up_button');
+              trackGiveUpOpen();
+              setShowConfirmGiveUp(true);
+            }} className="text-red-500 hover:text-red-400 px-3 py-1 rounded hover:bg-red-500/10 transition-colors font-heading text-lg">GIVE UP</button>
          </div>
       </header>
 
@@ -805,7 +839,10 @@ const OnlineGameBoard = () => {
                             {['number', 'team', 'college'].map(type => (
                                 <button
                                     key={type}
-                                            onClick={() => setSelectedAttributeType(type)}
+                                            onClick={() => {
+                                              trackButton('attribute_type_select', { attribute_type: type });
+                                              setSelectedAttributeType(type);
+                                            }}
                                             className={`flex-1 py-2 uppercase rounded-lg font-heading text-md transition-all ${selectedAttributeType === type ? 'bg-brand-blue text-white shadow-lg' : 'text-slate-400 hover:text-white'}`}
                                 >
                                             {type}
@@ -833,7 +870,11 @@ const OnlineGameBoard = () => {
                     {/* Action Row (Challenge/Reverse) */}
                             {gameData.history.length > 0 && (
                                 <div className="flex justify-center gap-4 pt-2">
-                                    <button onClick={() => setShowConfirmChallenge(true)} className="text-xs font-bold text-slate-500 hover:text-brand-pink uppercase tracking-wider transition-colors flex items-center">
+                                    <button onClick={() => {
+                                      trackButton('challenge_button');
+                                      trackChallengeOpen();
+                                      setShowConfirmChallenge(true);
+                                    }} className="text-xs font-bold text-slate-500 hover:text-brand-pink uppercase tracking-wider transition-colors flex items-center">
                                         <svg className="w-4 h-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
                                         Challenge
                                     </button>
@@ -849,7 +890,10 @@ const OnlineGameBoard = () => {
                     {gameData.challengeType === 'player' && (
                                 <div className="flex p-1 text-[5px] bg-slate-900/80 rounded-xl border border-slate-700">
                              {['number', 'team', 'college'].map(type => (
-                                        <button key={type} onClick={() => setChallengeResponseAttributeType(type)} className={`flex-1 py-2 uppercase rounded-lg font-heading text-xl ${challengeResponseAttributeType === type ? 'bg-brand-pink text-white' : 'text-slate-400'}`}>{type}</button>
+                                        <button key={type} onClick={() => {
+                                          trackButton('challenge_response_attribute', { attribute_type: type });
+                                          setChallengeResponseAttributeType(type);
+                                        }} className={`flex-1 py-2 uppercase rounded-lg font-heading text-xl ${challengeResponseAttributeType === type ? 'bg-brand-pink text-white' : 'text-slate-400'}`}>{type}</button>
                              ))}
                         </div>
                     )}
@@ -885,8 +929,14 @@ const OnlineGameBoard = () => {
                 <h3 className="text-4xl font-heading text-white mb-2">GIVE UP?</h3>
                 <p className="text-slate-400 mb-8">Surrendering will count as a loss and reduce your rating.</p>
                 <div className="flex gap-4">
-                    <ArcadeButton onClick={() => setShowConfirmGiveUp(false)} variant="ghost" className="flex-1">CANCEL</ArcadeButton>
-                    <ArcadeButton onClick={confirmGiveUp} variant="danger" className="flex-1">SURRENDER</ArcadeButton>
+                    <ArcadeButton onClick={() => {
+                      trackGiveUpClose();
+                      setShowConfirmGiveUp(false);
+                    }} variant="ghost" className="flex-1">CANCEL</ArcadeButton>
+                    <ArcadeButton onClick={() => {
+                      trackGiveUpConfirm();
+                      confirmGiveUp();
+                    }} variant="danger" className="flex-1">SURRENDER</ArcadeButton>
                 </div>
             </div>
         </div>
@@ -899,8 +949,14 @@ const OnlineGameBoard = () => {
                 <h3 className="text-4xl font-heading text-white mb-2">CHALLENGE?</h3>
                 <p className="text-slate-400 mb-8">If you challenge incorrectly, you will lose the game immediately.</p>
                 <div className="flex gap-4">
-                    <ArcadeButton onClick={() => setShowConfirmChallenge(false)} variant="ghost" className="flex-1">CANCEL</ArcadeButton>
-                    <ArcadeButton onClick={confirmChallenge} variant="secondary" className="flex-1">CHALLENGE</ArcadeButton>
+                    <ArcadeButton onClick={() => {
+                      trackChallengeClose();
+                      setShowConfirmChallenge(false);
+                    }} variant="ghost" className="flex-1">CANCEL</ArcadeButton>
+                    <ArcadeButton onClick={() => {
+                      trackChallengeConfirm();
+                      confirmChallenge();
+                    }} variant="secondary" className="flex-1">CHALLENGE</ArcadeButton>
                 </div>
             </div>
         </div>

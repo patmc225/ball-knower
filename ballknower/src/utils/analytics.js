@@ -3,6 +3,7 @@
  * Comprehensive event tracking for user behavior and game metrics
  */
 
+import { useCallback } from 'react';
 import { logAnalyticsEvent } from '../firebaseConfig';
 
 /**
@@ -221,4 +222,120 @@ export const trackLeaderboard = (action, params = {}) => {
     timestamp: new Date().toISOString(),
     ...params
   });
+};
+
+/**
+ * Track button clicks with consistent naming
+ * @param {string} buttonName - Name of the button (e.g., 'find_game', 'copy_url', 'rules')
+ * @param {string} location - Where the button appears (e.g., 'header', 'game_board', 'home')
+ * @param {Object} params - Additional parameters
+ */
+export const trackButtonClick = (buttonName, location, params = {}) => {
+  trackUserAction('button_click', {
+    button_name: buttonName,
+    button_location: location,
+    ...params
+  });
+};
+
+/**
+ * Track navigation events
+ * @param {string} fromPage - Source page
+ * @param {string} toPage - Destination page
+ * @param {string} method - Navigation method ('button', 'link', 'back', etc.)
+ * @param {Object} params - Additional parameters
+ */
+export const trackNavigation = (fromPage, toPage, method, params = {}) => {
+  logAnalyticsEvent('navigation', {
+    from_page: fromPage,
+    to_page: toPage,
+    navigation_method: method,
+    timestamp: new Date().toISOString(),
+    ...params
+  });
+};
+
+/**
+ * Track modal interactions
+ * @param {string} modalName - Name of the modal
+ * @param {string} action - Action performed ('open', 'close', 'submit', 'cancel')
+ * @param {Object} params - Additional parameters
+ */
+export const trackModalInteraction = (modalName, action, params = {}) => {
+  logAnalyticsEvent('modal_interaction', {
+    modal_name: modalName,
+    modal_action: action,
+    timestamp: new Date().toISOString(),
+    ...params
+  });
+};
+
+/**
+ * Track form submissions
+ * @param {string} formName - Name of the form
+ * @param {boolean} success - Whether submission was successful
+ * @param {Object} params - Additional parameters
+ */
+export const trackFormSubmission = (formName, success = true, params = {}) => {
+  logAnalyticsEvent('form_submission', {
+    form_name: formName,
+    submission_success: success,
+    timestamp: new Date().toISOString(),
+    ...params
+  });
+};
+
+/**
+ * Custom hook for tracking button clicks
+ * @param {string} location - Component/page where the button is located
+ * @param {Object} defaultParams - Default parameters to include with all button clicks from this component
+ * @returns {Function} trackButton - Function to track button clicks
+ */
+export const useButtonTracking = (location, defaultParams = {}) => {
+  const trackButton = useCallback((buttonName, additionalParams = {}) => {
+    trackButtonClick(buttonName, location, {
+      ...defaultParams,
+      ...additionalParams
+    });
+  }, [location, defaultParams]);
+
+  return trackButton;
+};
+
+/**
+ * Custom hook for tracking navigation
+ * @param {string} currentPage - Current page name
+ * @returns {Function} trackNav - Function to track navigation events
+ */
+export const useNavigationTracking = (currentPage) => {
+  const trackNav = useCallback((toPage, method, params = {}) => {
+    trackNavigation(currentPage, toPage, method, params);
+  }, [currentPage]);
+
+  return trackNav;
+};
+
+/**
+ * Custom hook for tracking modal interactions
+ * @param {string} modalName - Name of the modal
+ * @returns {Object} - Object with open, close, submit, and cancel tracking functions
+ */
+export const useModalTracking = (modalName) => {
+  const trackOpen = useCallback((params = {}) => {
+    trackModalInteraction(modalName, 'open', params);
+  }, [modalName]);
+
+  const trackClose = useCallback((params = {}) => {
+    trackModalInteraction(modalName, 'close', params);
+  }, [modalName]);
+
+  const trackSubmit = useCallback((params = {}) => {
+    trackModalInteraction(modalName, 'submit', params);
+  }, [modalName]);
+
+  const trackCancel = useCallback((params = {}) => {
+    trackModalInteraction(modalName, 'cancel', params);
+  }, [modalName]);
+
+  return { trackOpen, trackClose, trackSubmit, trackCancel };
 };

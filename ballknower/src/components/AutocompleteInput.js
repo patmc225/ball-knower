@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { getAssetPath } from '../config/basePath';
 import { getTeamLogoUrl, getCollegeLogoUrl } from '../utils/gameUtils';
+import { trackSearch } from '../utils/analytics';
 
 const AutocompleteInput = ({ 
   inputValue,
@@ -40,7 +41,7 @@ const AutocompleteInput = ({
   const handleSelectSuggestion = (suggestion) => {
     let displayValue = suggestion;
     let returnValue = suggestion;
-    
+
     if (typeof suggestion === 'object' && suggestion !== null) {
       if(type === "player") {
         displayValue = suggestion[displayAttribute] || '';
@@ -50,7 +51,16 @@ const AutocompleteInput = ({
         returnValue = suggestion[valueAttribute] || suggestion;
       }
     }
-    
+
+    // Track search selection
+    trackSearch({
+      term: inputValue,
+      type: type,
+      selected_index: selectedIndex >= 0 ? selectedIndex : undefined,
+      selection_method: selectedIndex >= 0 ? 'keyboard' : 'click',
+      results_count: suggestions?.length || 0
+    });
+
     onInputChange(displayValue);
     setShowSuggestions(false);
     onSelect(returnValue, displayValue);
@@ -103,7 +113,16 @@ const AutocompleteInput = ({
         value={inputValue}
         onChange={handleInputChangeInternal}
         onKeyDown={handleKeyDown}
-        onFocus={() => inputValue.trim() && suggestions && suggestions.length > 0 && setShowSuggestions(true)}
+        onFocus={() => {
+          // Track search intent when focusing on input
+          trackSearch({
+            term: inputValue,
+            type: type,
+            action: 'focus',
+            has_existing_value: !!inputValue.trim()
+          });
+          inputValue.trim() && suggestions && suggestions.length > 0 && setShowSuggestions(true);
+        }}
         onBlur={() => setTimeout(() => setShowSuggestions(false), 150)}
         placeholder={placeholder}
         disabled={disabled}
