@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { auth, ensureAnonymousUser } from '../firebaseConfig';
+import { useButtonTracking, useNavigationTracking } from '../utils/analytics';
 import { doc, getDoc, collection, query, where, getDocs, limit, orderBy, getCountFromServer } from 'firebase/firestore';
 import { db } from '../firebaseConfig';
 import { Line } from 'react-chartjs-2';
@@ -34,6 +35,10 @@ const Profile = () => {
   const navigate = useNavigate();
   const { userId } = useParams();
   const { getTeam, getPlayer, players, popularityData } = useGame();
+
+  // Analytics tracking
+  const trackButton = useButtonTracking('profile');
+  const trackNav = useNavigationTracking('profile');
   
   // State
   const [profileUser, setProfileUser] = useState(null);
@@ -267,7 +272,11 @@ const Profile = () => {
       return (
         <div className="min-h-screen bg-dark-bg text-white flex items-center justify-center flex-col p-4">
             <h2 className="font-heading text-3xl mb-4">User not found</h2>
-            <ArcadeButton onClick={() => navigate('/')}>Home</ArcadeButton>
+            <ArcadeButton onClick={() => {
+              trackButton('home_from_not_found');
+              trackNav('home', 'button');
+              navigate('/');
+            }}>Home</ArcadeButton>
         </div>
       );
   }
@@ -289,7 +298,11 @@ const Profile = () => {
       {!isMyProfile && (
         <div className="flex items-center gap-4 mb-8 border-b border-slate-800 pb-6">
             <button
-                onClick={() => navigate('/leaderboard')}
+                onClick={() => {
+                  trackButton('leaderboard_from_profile');
+                  trackNav('leaderboard', 'button');
+                  navigate('/leaderboard');
+                }}
                 className="text-slate-400 hover:text-white transition-colors"
             >
                 <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -309,7 +322,12 @@ const Profile = () => {
         <div className="mb-10">
             <div className="flex justify-between items-center mb-8 px-4">
                 <h3 className="font-heading text-md text-white">FAVORITES</h3>
-                <button onClick={() => navigate(userId ? `/collection/${userId}` : '/collection')} className=" Cre hover:text-brand-blue transition-colors text-xs text-slate-500">Full Collection &rarr;</button>
+                <button onClick={() => {
+                  const collectionPath = userId ? `/collection/${userId}` : '/collection';
+                  trackButton('full_collection', { target_user_id: userId });
+                  trackNav(collectionPath.substring(1), 'button');
+                  navigate(collectionPath);
+                }} className=" Cre hover:text-brand-blue transition-colors text-xs text-slate-500">Full Collection &rarr;</button>
             </div>
             {isGamesLoading ? (
                 <div className="flex items-center justify-center py-16">
@@ -375,8 +393,12 @@ const Profile = () => {
 
                     {/* See Rankings Button */}
                     <div className="flex justify-end">
-                        <button 
-                            onClick={() => navigate('/leaderboard')}
+                        <button
+                            onClick={() => {
+                              trackButton('leaderboard_from_stats');
+                              trackNav('leaderboard', 'button');
+                              navigate('/leaderboard');
+                            }}
                             className="text-brand-blue hover:text-white font-heading text-sm uppercase tracking-wider transition-colors flex items-center gap-2"
                         >
                             See Top 25 Rankings
@@ -430,7 +452,14 @@ const Profile = () => {
                             ) : (
                                 <div className="divide-y divide-slate-700/50">
                                     {(showAllGames ? userGames : userGames.slice(0, 5)).map((game) => (
-                                        <div key={game.id} className="p-4 hover:bg-slate-800/50 transition-colors flex items-center justify-between group cursor-pointer" onClick={() => setExpandedGameId(expandedGameId === game.id ? null : game.id)}>
+                                        <div key={game.id} className="p-4 hover:bg-slate-800/50 transition-colors flex items-center justify-between group cursor-pointer" onClick={() => {
+                                          const isExpanding = expandedGameId !== game.id;
+                                          trackButton(isExpanding ? 'expand_game_history' : 'collapse_game_history', {
+                                            game_id: game.id,
+                                            is_expanding: isExpanding
+                                          });
+                                          setExpandedGameId(expandedGameId === game.id ? null : game.id);
+                                        }}>
                                             <div className="flex items-center space-x-4">
                                                 <div className={`w-1 h-12 rounded-full ${game.userWon ? 'bg-neon-green' : 'bg-brand-pink'}`}></div>
                                                 <div>
@@ -445,7 +474,10 @@ const Profile = () => {
                                         </div>
                                     ))}
                                     {userGames.length > 5 && (
-                                        <button onClick={() => setShowAllGames(!showAllGames)} className="w-full py-3 text-sm text-brand-blue hover:text-white bg-slate-800/30 hover:bg-slate-800 transition-colors">
+                                        <button onClick={() => {
+                                          trackButton('toggle_all_games', { show_all: !showAllGames });
+                                          setShowAllGames(!showAllGames);
+                                        }} className="w-full py-3 text-sm text-brand-blue hover:text-white bg-slate-800/30 hover:bg-slate-800 transition-colors">
                                             {showAllGames ? 'SHOW LESS' : 'VIEW ALL HISTORY'}
                                         </button>
                                     )}

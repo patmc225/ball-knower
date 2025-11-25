@@ -6,7 +6,8 @@ import { doc, getDoc, updateDoc, increment, serverTimestamp } from 'firebase/fir
 import { db } from '../firebaseConfig';
 import AutocompleteInput from './AutocompleteInput';
 import { ArcadeCard } from './ArcadeUI';
-import { updateRarity, getTeamLogoUrl, getCollegeLogoUrl } from '../utils/gameUtils'; 
+import { updateRarity, getTeamLogoUrl, getCollegeLogoUrl } from '../utils/gameUtils';
+import { useButtonTracking, useNavigationTracking, trackGameEvent } from '../utils/analytics'; 
 
 // Helper function to get current date in "Month Day, Year" format (Eastern Time)
 const getCurrentDate = () => {
@@ -23,6 +24,10 @@ const DailyGame = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { getPlayer, getTeam, searchPlayersByName, searchTeams, collegesList, loading: dataLoading } = useGame();
+
+  // Analytics tracking
+  const trackButton = useButtonTracking('daily_game');
+  const trackNav = useNavigationTracking('daily_game');
   
   // Get date from URL query or use current date
   const queryParams = new URLSearchParams(location.search);
@@ -274,13 +279,21 @@ const DailyGame = () => {
       
       {/* Header */}
       <header className="w-full max-w-2xl flex items-center justify-between mb-8">
-          <div className="flex items-center gap-3 cursor-pointer" onClick={() => navigate('/')}>
+          <div className="flex items-center gap-3 cursor-pointer" onClick={() => {
+            trackButton('header_logo_click');
+            trackNav('home', 'button');
+            navigate('/');
+          }}>
             <div>
                 <h1 className="font-heading text-xl sm:text-2xl leading-none tracking-wide">DAILY CHALLENGE</h1>
                 <p className="text-xs text-slate-500 font-mono">{dailyDocId}</p>
             </div>
          </div>
-         <button onClick={() => navigate('/past-daily-challenges')} className="text-slate-400 hover:text-white text-sm font-bold uppercase">Archives</button>
+         <button onClick={() => {
+           trackButton('archives_button');
+           trackNav('past-daily-challenges', 'button');
+           navigate('/past-daily-challenges');
+         }} className="text-slate-400 hover:text-white text-sm font-bold uppercase">Archives</button>
       </header>
 
       {/* Goal Card */}
@@ -326,7 +339,10 @@ const DailyGame = () => {
                   {nextInputType === 'attribute' && (
                        <div className="flex p-1 bg-slate-900/80 rounded-xl border border-slate-700">
                            {['number', 'team', 'college'].map(type => (
-                               <button key={type} onClick={() => setSelectedAttributeType(type)} className={`flex-1 py-1.5 uppercase rounded-lg font-heading text-sm sm:text-sm transition-all ${selectedAttributeType === type ? 'bg-brand-pink text-white shadow-lg' : 'text-slate-400 hover:text-white'}`}>{type}</button>
+                               <button key={type} onClick={() => {
+                                 trackButton('attribute_type_select', { attribute_type: type });
+                                 setSelectedAttributeType(type);
+                               }} className={`flex-1 py-1.5 uppercase rounded-lg font-heading text-sm sm:text-sm transition-all ${selectedAttributeType === type ? 'bg-brand-pink text-white shadow-lg' : 'text-slate-400 hover:text-white'}`}>{type}</button>
                            ))}
                        </div>
                   )}

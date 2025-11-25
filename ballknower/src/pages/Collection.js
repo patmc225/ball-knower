@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useGame } from '../context/GameContext';
 import { ensureAnonymousUser } from '../firebaseConfig';
+import { useButtonTracking, useNavigationTracking } from '../utils/analytics';
 import { doc, getDoc, collection, query, where, getDocs, orderBy, limit, updateDoc } from 'firebase/firestore';
 import { db } from '../firebaseConfig';
 import RarityCard from '../components/RarityCard';
@@ -10,6 +11,10 @@ const Collection = () => {
   const navigate = useNavigate();
   const { userId } = useParams();
   const { getTeam, getPlayer, players, teamsList, collegesList, popularityData } = useGame();
+
+  // Analytics tracking
+  const trackButton = useButtonTracking('collection');
+  const trackNav = useNavigationTracking('collection');
   
   const [userProfile, setUserProfile] = useState(null);
   const [targetUserProfile, setTargetUserProfile] = useState(null);
@@ -214,9 +219,16 @@ const Collection = () => {
 
   const handleToggleShowcase = async (item) => {
       if (!userProfile) return;
-      
+
       const currentShowcase = userProfile.showcase || [];
       const isInShowcase = currentShowcase.some(i => i.type === item.type && i.value === item.value);
+
+      trackButton('toggle_card_showcase', {
+        card_type: item.type,
+        card_value: item.value,
+        action: isInShowcase ? 'remove' : 'add',
+        current_showcase_count: currentShowcase.length
+      });
       
       let newShowcase;
       
@@ -248,7 +260,12 @@ const Collection = () => {
                 <div className="flex justify-between items-center">
                     <div className="flex items-center gap-4">
                         <button
-                            onClick={() => navigate(isMyCollection ? '/profile' : userId ? `/profile/${userId}` : '/profile')}
+                            onClick={() => {
+                              const profilePath = isMyCollection ? '/profile' : userId ? `/profile/${userId}` : '/profile';
+                              trackButton('back_to_profile', { target_user_id: userId });
+                              trackNav(profilePath.substring(1), 'button');
+                              navigate(profilePath);
+                            }}
                             className="text-slate-400 hover:text-white transition-colors"
                         >
                             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -268,7 +285,14 @@ const Collection = () => {
                 <div className="relative">
                     <select
                         value={collectionFilter}
-                        onChange={(e) => setCollectionFilter(e.target.value)}
+                        onChange={(e) => {
+                          trackButton('filter_change', {
+                            filter_type: 'category',
+                            old_filter: collectionFilter,
+                            new_filter: e.target.value
+                          });
+                          setCollectionFilter(e.target.value);
+                        }}
                         className="appearance-none bg-slate-800 text-white text-xs font-heading uppercase tracking-wider pl-4 pr-8 py-2 rounded cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-blue"
                     >
                         <option value="all">All Cards</option>
@@ -286,7 +310,14 @@ const Collection = () => {
                 <div className="relative">
                      <select
                         value={collectionSort}
-                        onChange={(e) => setCollectionSort(e.target.value)}
+                        onChange={(e) => {
+                          trackButton('sort_change', {
+                            sort_type: 'collection',
+                            old_sort: collectionSort,
+                            new_sort: e.target.value
+                          });
+                          setCollectionSort(e.target.value);
+                        }}
                         className="appearance-none bg-slate-800 text-white text-xs font-heading uppercase tracking-wider pl-4 pr-8 py-2 rounded cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-blue"
                      >
                          <option value="recent">Recent</option>
@@ -302,7 +333,10 @@ const Collection = () => {
                 {/* Favorites Button - Only show for own collection */}
                 {isMyCollection && (
                     <button
-                        onClick={() => setIsSelectingShowcase(!isSelectingShowcase)}
+                        onClick={() => {
+                          trackButton('toggle_showcase_mode', { entering_showcase: !isSelectingShowcase });
+                          setIsSelectingShowcase(!isSelectingShowcase);
+                        }}
                         className={`ml-auto px-4 py-2 rounded-md text-xs font-heading uppercase tracking-wider transition-colors border ${isSelectingShowcase ? 'bg-yellow-500/20 border-yellow-500 text-yellow-500' : 'bg-slate-800 border-slate-700 text-slate-400 hover:text-white'}`}
                     >
                         {isSelectingShowcase ? 'Done' : 'Favorites'}

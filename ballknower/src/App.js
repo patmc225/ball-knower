@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import { GameProvider } from './context/GameContext';
 import Home from './pages/Home';
 import Collection from './pages/Collection';
@@ -18,17 +18,36 @@ import './App.css';
 // Analytics wrapper component to track page views
 const AnalyticsTracker = () => {
   const location = useLocation();
-  
+
   React.useEffect(() => {
     // Get the page name from the pathname
-    const pageName = location.pathname === '/' 
-      ? 'home' 
+    const pageName = location.pathname === '/'
+      ? 'home'
       : location.pathname.substring(1).replace(/\//g, '_');
-    
+
     // Track the page view
     trackPageView(pageName);
   }, [location]);
-  
+
+  return null;
+};
+
+// SPA Redirect handler - handles redirects from 404.html
+const SPARedirectHandler = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    // Check if we have a stored redirect path from 404.html
+    const redirectPath = window.__SPA_REDIRECT__;
+    if (redirectPath && location.pathname === '/') {
+      // Clean up the stored path
+      delete window.__SPA_REDIRECT__;
+      // Navigate to the intended route
+      navigate(redirectPath, { replace: true });
+    }
+  }, [navigate, location.pathname]);
+
   return null;
 };
 
@@ -37,6 +56,7 @@ const AppRoutes = () => {
   return (
     <>
       <AnalyticsTracker />
+      <SPARedirectHandler />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/collection" element={<Collection />} />
