@@ -5,11 +5,9 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { doc, getDoc, updateDoc, collection, getDocs } from 'firebase/firestore';
 import { db, linkAnonymousWithCredential } from '../firebaseConfig';
 import { ArcadeButton, ArcadeCard } from '../components/ArcadeUI';
-import { trackFormSubmission, trackAuthEvent, useButtonTracking } from '../utils/analytics';
 
 const EditAccount = () => {
   const navigate = useNavigate();
-  const trackButton = useButtonTracking('edit_account');
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -36,25 +34,9 @@ const EditAccount = () => {
     setSignInLoading(true);
     try {
       await signInWithEmailAndPassword(auth, signInEmail, signInPassword);
-
-      // Track successful sign-in
-      trackAuthEvent('sign_in', {
-        method: 'email_password',
-        context: 'edit_account'
-      });
-
-      trackFormSubmission('sign_in', true, {
-        method: 'email_password'
-      });
     } catch (err) {
       console.error('Sign-in failed:', err);
       setSignInError(err.message || 'Sign-in failed');
-
-      // Track failed sign-in
-      trackFormSubmission('sign_in', false, {
-        error: err.message,
-        method: 'email_password'
-      });
     } finally {
       setSignInLoading(false);
     }
@@ -166,21 +148,9 @@ const EditAccount = () => {
       
       setShowSuccess(true);
       setTimeout(() => setShowSuccess(false), 3000);
-
-      // Track successful profile update
-      trackFormSubmission('profile_update', true, {
-        old_username: userProfile?.displayName,
-        new_username: newUsername
-      });
     } catch (err) {
       console.error("Error updating profile:", err);
       setError("Failed to update profile");
-
-      // Track failed profile update
-      trackFormSubmission('profile_update', false, {
-        error: err.message,
-        attempted_username: newUsername
-      });
     } finally {
       setIsSaving(false);
     }
@@ -217,26 +187,9 @@ const EditAccount = () => {
         setEmail('');
         setPassword('');
         setConfirmPassword('');
-
-        // Track successful account linking
-        trackAuthEvent('account_linked', {
-          from_anonymous: true,
-          username: userProfile?.displayName
-        });
-
-        trackFormSubmission('account_linking', true, {
-          method: 'email_password'
-        });
-
         setTimeout(() => setShowSuccess(false), 3000);
       } else {
         setError(result.error || "Failed to link account");
-
-        // Track failed account linking
-        trackFormSubmission('account_linking', false, {
-          error: result.error,
-          method: 'email_password'
-        });
       }
     } catch (err) {
       console.error("Error linking account:", err);
@@ -333,11 +286,8 @@ const EditAccount = () => {
                     <p className="font-heading text-md text-yellow-400 mb-1">TEMPORARY ACCOUNT</p>
                     <p className="text-xs text-yellow-200/70">Create an account to save your progress across devices.</p>
                   </div>
-                  <ArcadeButton
-                    onClick={() => {
-                      trackButton('enter_link_mode');
-                      setLinkMode(true);
-                    }}
+                  <ArcadeButton 
+                    onClick={() => setLinkMode(true)}
                     variant="secondary"
                     size="sm"
                   >

@@ -4,16 +4,11 @@ import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../firebaseConfig';
 import { useGame } from '../context/GameContext';
 import { ArcadeButton, ArcadeCard } from '../components/ArcadeUI';
-import { useButtonTracking, useNavigationTracking } from '../utils/analytics';
 
 const DailyResult = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { getPlayer, getTeam } = useGame();
-
-  // Analytics tracking
-  const trackButton = useButtonTracking('daily_result');
-  const trackNav = useNavigationTracking('daily_result');
   
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -127,12 +122,6 @@ const DailyResult = () => {
   
   // Handle copy share message
   const handleCopyShareMessage = () => {
-    trackButton('share_result', {
-      moves_taken: userMoves,
-      date: date,
-      average_moves: averageMoves
-    });
-
     navigator.clipboard.writeText(shareMessage)
       .then(() => {
         setCopied(true);
@@ -162,11 +151,7 @@ const DailyResult = () => {
           </div>
           <h2 className="text-3xl font-heading text-white mb-2">ERROR</h2>
           <p className="text-slate-400 mb-6">{error}</p>
-          <ArcadeButton onClick={() => {
-            trackButton('return_home_error');
-            trackNav('home', 'button');
-            navigate('/');
-          }} className="w-full">
+          <ArcadeButton onClick={() => navigate('/')} className="w-full">
             RETURN HOME
           </ArcadeButton>
         </div>
@@ -224,11 +209,7 @@ const DailyResult = () => {
             </ArcadeButton>
             
             <button
-              onClick={() => {
-                trackButton('back_to_home');
-                trackNav('home', 'button');
-                navigate('/');
-              }}
+              onClick={() => navigate('/')}
               className="w-full py-3 sm:py-4 rounded-lg border border-slate-700 text-slate-400 hover:text-white hover:bg-slate-800 font-heading text-lg sm:text-xl transition-colors"
             >
               BACK TO HOME

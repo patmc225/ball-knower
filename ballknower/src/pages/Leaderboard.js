@@ -3,17 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import { collection, query, orderBy, getDocs } from 'firebase/firestore';
 import { db, ensureAnonymousUser } from '../firebaseConfig';
 import { doc, getDoc } from 'firebase/firestore';
-import { useButtonTracking, useNavigationTracking, trackLeaderboard } from '../utils/analytics';
 
 const Leaderboard = () => {
   const navigate = useNavigate();
   const [leaderboardData, setLeaderboardData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [userProfile, setUserProfile] = useState(null);
-
-  // Analytics tracking
-  const trackButton = useButtonTracking('leaderboard');
-  const trackNav = useNavigationTracking('leaderboard');
 
   const getLatestElo = (elo) => Array.isArray(elo) ? (elo.length > 0 ? elo[elo.length-1] : 1000) : (elo || 1000);
 
@@ -61,9 +56,6 @@ const Leaderboard = () => {
         leaderboard.sort((a, b) => b.eloRating - a.eloRating);
         setLeaderboardData(leaderboard);
         setLoading(false);
-
-        // Track leaderboard view
-        trackLeaderboard('view', { total_players: leaderboard.length });
       } catch (error) {
         console.error("Error fetching leaderboard:", error);
         setLoading(false);
@@ -79,11 +71,7 @@ const Leaderboard = () => {
         
         <div className="flex items-center gap-4 mb-8 border-b border-slate-800 pb-4">
             <button
-                onClick={() => {
-                  trackButton('back_to_profile');
-                  trackNav('profile', 'button');
-                  navigate('/profile');
-                }}
+                onClick={() => navigate('/profile')}
                 className="text-slate-400 hover:text-white transition-colors"
             >
                 <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -115,16 +103,8 @@ const Leaderboard = () => {
                                 <tr key={player.uid} className={`hover:bg-slate-800/50 transition-colors ${userProfile && player.uid === userProfile.uid ? 'bg-brand-blue/10 border-l-2 border-brand-blue' : ''}`}>
                                     <td className="p-3 sm:p-4 font-heading text-sm sm:text-xl text-slate-300">#{i + 1}</td>
                                     <td className="p-3 sm:p-4 text-white underline max-w-[120px] truncate sm:max-w-none">
-                                        <button
-                                            onClick={() => {
-                                              trackLeaderboard('view_player_profile', {
-                                                target_user_id: player.uid,
-                                                target_rank: i + 1,
-                                                target_elo: player.eloRating
-                                              });
-                                              trackNav(`profile/${player.uid}`, 'button');
-                                              navigate(`/profile/${player.uid}`);
-                                            }}
+                                        <button 
+                                            onClick={() => navigate(`/profile/${player.uid}`)}
                                             className="underline hover:text-brand-blue transition-all text-left"
                                         >
                                             {player.displayName}

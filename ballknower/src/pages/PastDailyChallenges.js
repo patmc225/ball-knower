@@ -3,15 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import { useGame } from '../context/GameContext';
 import { collection, query, orderBy, getDocs } from 'firebase/firestore';
 import { db } from '../firebaseConfig';
-import { useButtonTracking, useNavigationTracking } from '../utils/analytics';
 
 const PastDailyChallenges = () => {
   const navigate = useNavigate();
   const { getPlayer, getTeam } = useGame();
-
-  // Analytics tracking
-  const trackButton = useButtonTracking('past_daily_challenges');
-  const trackNav = useNavigationTracking('past_daily_challenges');
   
   const [challenges, setChallenges] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -40,8 +35,6 @@ const PastDailyChallenges = () => {
   
   // Handle click on a challenge to play it
   const handlePlayChallenge = (date) => {
-    trackButton('play_past_challenge', { challenge_date: date });
-    trackNav('daily', 'button');
     navigate(`/daily?date=${encodeURIComponent(date)}`);
   };
   
