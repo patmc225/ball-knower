@@ -11,12 +11,14 @@ import {
     calculateGiveUpUpdate,
     validateMoveForReversal,
     calculateReverseUpdateWithInput,
-    trackSubmission,
-    updatePlayerStats
+    updateRarity,
+    updatePlayerStats,
+    getCollegeLogoUrl
 } from '../utils/gameUtils';
 import AutocompleteInput from './AutocompleteInput';
 import { ArcadeButton, ArcadeCard } from './ArcadeUI';
 import RulesModal from './RulesModal';
+import RarityCard from './RarityCard';
 
 // --- Helpers ---
 const getAttributeLabel = (attribute) => {
@@ -28,6 +30,7 @@ const getAttributeLabel = (attribute) => {
       default: return attribute || 'N/A';
     }
 };
+
   
 const formatTeamName = (teamId, getTeam) => { 
     const team = getTeam(teamId);
@@ -35,6 +38,116 @@ const formatTeamName = (teamId, getTeam) => {
 };
 
 // --- Sub-Components ---
+
+
+const EventCard = ({ type, value, isMe }) => {
+    let title = "";
+    let icon = null;
+    let iconColor = "text-slate-400";
+
+    if (type === 'reverse_success') {
+        title = "REVERSE";
+        iconColor = "text-blue-400";
+        icon = (
+            <svg className={`w-12 h-12 ${iconColor}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+        );
+    } else if (type === 'challenge_initiated') {
+        title = "CHALLENGE";
+        iconColor = "text-yellow-400";
+        icon = (
+            <svg className={`w-12 h-12 ${iconColor}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+        );
+    } else if (type.includes('game_end')) {
+        title = "GAME OVER";
+        iconColor = "text-red-400";
+        icon = (
+             <svg className={`w-12 h-12 ${iconColor}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+             </svg>
+        );
+    }
+
+    return (
+        <div className="flex flex-col items-center justify-center">
+            <div className="flex-none w-32 h-60 flex flex-col items-center justify-center relative">
+                <div className="mb-2 animate-pulse-slow">
+                    {icon}
+                </div>
+                <div className={`font-heading text-lg tracking-wide text-center ${iconColor} drop-shadow-lg`}>{title}</div>
+            </div>
+             
+             {/* Owner Indicator - Moved below card */}
+             <div className={`mt-2 px-3 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider shadow-lg border border-white/20 ${isMe ? 'bg-brand-blue text-white' : 'bg-red-500 text-white'}`}>
+                 {isMe ? 'YOU' : 'OPP'}
+             </div>
+        </div>
+    );
+};
+
+const RarityHistory = ({ history, rarityCache, getPlayer, getTeam, allPlayersData, popularityData, myRole }) => {
+    const scrollRef = useRef(null);
+
+    useEffect(() => {
+        if (scrollRef.current) {
+            scrollRef.current.scrollLeft = scrollRef.current.scrollWidth;
+        }
+    }, [history]);
+
+    // Filter for moves to display (include special events now)
+    const displayMoves = history.filter(m => 
+        ['player', 'number', 'team', 'college', 'reverse_success', 'challenge_initiated'].includes(m.type) || m.type.startsWith('game_end')
+    );
+
+    return (
+        <div className="w-full flex flex-col mt-4">
+            <h3 className="font-heading text-sm text-slate-500 mb-2 px-4 uppercase tracking-widest">Match History</h3>
+            <div ref={scrollRef} className="flex overflow-x-auto custom-scrollbar gap-4 px-4 pb-6 items-center min-h-[270px] snap-x scroll-smooth">
+                {displayMoves.map((move, i) => {
+                     const isMe = move.player === myRole;
+                     
+                     // Render Event Card for special moves
+                     if (['reverse_success', 'challenge_initiated'].includes(move.type) || move.type.startsWith('game_end')) {
+                         return (
+                            <div key={i} className="snap-center">
+                                <EventCard type={move.type} value={move.value} isMe={isMe} />
+                            </div>
+                         );
+                     }
+
+                     // Render Rarity Card for standard moves
+                     const playerData = move.type === 'player' ? allPlayersData.find(p => p.id === move.value) : null;
+                     const cacheKey = `${move.type}_${move.value}`;
+                     const score = rarityCache[cacheKey];
+                     
+                     return (
+                        <div key={i} className="snap-center">
+                            <RarityCard 
+                                type={move.type} 
+                                value={move.value} 
+                                rarityScore={score} 
+                                playerData={playerData}
+                                getTeam={getTeam}
+                                isMe={isMe}
+                                allPlayersData={allPlayersData}
+                                popularityData={popularityData}
+                            />
+                        </div>
+                     );
+                })}
+                {displayMoves.length === 0 && (
+                    <div className="w-full h-60 border-2 border-dashed border-slate-700 rounded-xl flex flex-col items-center justify-center text-slate-600">
+                        <p className="font-heading text-lg mb-2">NO MOVES YET</p>
+                        <p className="text-xs opacity-70">Submit an answer to see cards!</p>
+                    </div>
+                )}
+            </div>
+        </div>
+    );
+};
 
 const WaitingScreen = ({ gameId }) => {
     const [copied, setCopied] = useState(false);
@@ -78,12 +191,12 @@ const PlayerCard = ({ player, isTurn, isMe, timer }) => (
         <div className="flex items-center gap-4 relative z-10">
             <div className="flex-grow">
                 <div className="flex items-center justify-between">
-                    <h3 className="font-heading text-2xl text-white leading-none tracking-wide">{player?.name || 'Waiting...'}</h3>
-                    {isMe && <span className="bg-slate-700 text-[10px] px-2 py-0.5 rounded text-slate-300 uppercase font-bold tracking-wider">You</span>}
+                    <h3 className="font-heading text-sm text-white leading-none tracking-wide">{player?.name || 'Waiting...'}</h3>
+                    {isMe && <span className="bg-slate-700 text-[8px] px-2 py-0.5 rounded text-slate-300 uppercase font-bold tracking-wider">You</span>}
                 </div>
                 <div className="flex justify-between items-end mt-1">
-                    <p className="text-xs text-slate-400 font-mono uppercase">Rating: {player?.elo || 1000}</p>
-                    {isTurn && <p className={`font-mono text-xl font-bold ${timer < 10 ? 'text-neon-red animate-pulse' : 'text-white'}`}>{timer}s</p>}
+                    <p className="text-xs text-slate-400 font-mono uppercase">{player?.elo || 1000}</p>
+                    {isTurn && <p className={`font-mono text-xs font-bold ${timer < 10 ? 'text-neon-red animate-pulse' : 'text-white'}`}>{timer}s</p>}
                 </div>
             </div>
         </div>
@@ -100,41 +213,12 @@ const PlayerCard = ({ player, isTurn, isMe, timer }) => (
     </div>
 );
 
-const GameLog = ({ history, myRole, getPlayer, getTeam, className = "" }) => (
-    <div className={`flex flex-col ${className}`}>
-        <h3 className="font-heading text-sm text-slate-500 mb-2 px-2 uppercase tracking-widest text-center">Match History</h3>
-        <div className="flex-grow overflow-y-auto custom-scrollbar space-y-2 pr-2 px-2 pb-2 flex flex-col-reverse min-h-0">
-            {[...history].reverse().map((move, i) => {
-                 const isMe = move.player === myRole;
-                 return (
-                    <div key={i} className={`p-2 rounded border text-xs relative ${isMe ? 'bg-blue-900/10 border-brand-blue/20 ml-8' : 'bg-slate-800/30 border-slate-700/50 mr-8'}`}>
-                        <div className={`absolute top-2 ${isMe ? 'right-2' : 'left-2'} w-1.5 h-1.5 rounded-full ${isMe ? 'bg-brand-blue' : 'bg-slate-600'}`}></div>
-                        <div className={`text-[10px] text-slate-500 mb-0.5 font-bold uppercase ${isMe ? 'text-right pr-3' : 'pl-3'}`}>
-                             {isMe ? 'You' : 'Opponent'} • {getAttributeLabel(move.type)}
-                        </div>
-                        <div className={`text-slate-300 font-medium ${isMe ? 'text-right' : ''}`}>
-                            {move.type === 'player' && getPlayer(move.value)?.name}
-                            {move.type === 'team' && formatTeamName(move.value, getTeam)}
-                            {move.type === 'number' && `#${move.value}`}
-                            {move.type === 'college' && move.value}
-                            {move.type.includes('game_end') && <span className="text-brand-pink font-bold uppercase">{move.value}</span>}
-                            {move.type === 'reverse_success' && <span className="text-brand-blue italic">Reversed</span>}
-                            {move.type === 'challenge_initiated' && <span className="text-yellow-500 font-bold">CHALLENGE</span>}
-                        </div>
-                    </div>
-                 );
-            })}
-            {history.length === 0 && <div className="text-center text-slate-700 italic py-4 text-xs">Game started...</div>}
-        </div>
-    </div>
-);
-
 // --- Main Component ---
 
 const OnlineGameBoard = () => {
   const { gameId } = useParams();
   const navigate = useNavigate();
-  const { players: allPlayersData, teamsList, collegesList, getTeam, searchPlayersByName, searchTeams, getPlayer } = useGame(); 
+  const { players: allPlayersData, teamsList, collegesList, getTeam, searchPlayersByName, searchTeams, getPlayer, popularityData } = useGame(); 
   
   // Logic States
   const [gameData, setGameData] = useState(null);
@@ -152,6 +236,9 @@ const OnlineGameBoard = () => {
   const [finalSelectedValue, setFinalSelectedValue] = useState(''); 
   const [selectedAttributeType, setSelectedAttributeType] = useState('number'); 
   const [suggestions, setSuggestions] = useState([]);
+
+  // Rarity State
+  const [rarityCache, setRarityCache] = useState({});
 
   // Challenge States
   const [showConfirmGiveUp, setShowConfirmGiveUp] = useState(false);
@@ -227,6 +314,49 @@ const OnlineGameBoard = () => {
     }, 500);
     return () => clearInterval(timerRef.current);
   }, [gameData, isMyTurn]);
+
+  // Fetch Rarity Logic
+  useEffect(() => {
+    if (!gameData?.history) return;
+    
+    const fetchMissingRarity = async () => {
+        const moves = gameData.history.filter(m => 
+            ['player', 'number', 'team', 'college'].includes(m.type)
+        );
+        
+        // Identify missing keys to fetch
+        const missingMoves = moves.filter(m => rarityCache[`${m.type}_${m.value}`] === undefined);
+        
+        if (missingMoves.length === 0) return;
+
+        const newUpdates = {};
+        
+        await Promise.all(missingMoves.map(async (move) => {
+            const key = `${move.type}_${move.value}`;
+            // Prevent duplicate fetches if already processing (though local var handles this batch)
+            if (newUpdates[key] !== undefined) return;
+
+            const safeVal = String(move.value).replace(/\//g, '_');
+            const docId = `${move.type}_${safeVal}`;
+            try {
+                const snap = await getDoc(doc(db, "rarity", docId));
+                if (snap.exists()) {
+                    // Support both 'score' (new system) and 'rarity' (legacy if any)
+                    newUpdates[key] = snap.data().score ?? snap.data().rarity ?? 100;
+                } else {
+                    newUpdates[key] = 100; // Default to 100 for new entries
+                }
+            } catch (e) {
+                console.error("Rarity fetch error", e);
+                newUpdates[key] = 100; // Fail safe
+            }
+        }));
+        
+        setRarityCache(prev => ({ ...prev, ...newUpdates }));
+    };
+    
+    fetchMissingRarity();
+  }, [gameData?.history]);
 
   // Reset inputs on turn change
   useEffect(() => {
@@ -312,8 +442,14 @@ const OnlineGameBoard = () => {
               const deadline = new Date(); deadline.setMinutes(deadline.getMinutes() + 1);
               await updateDoc(gameRef, { ...result.update, turnDeadline: deadline });
               
-              // Track submission stats
-              if(gameData.nextInputType === 'player') trackSubmission(answer, 'player');
+              // Track submission stats (rarity)
+              if (gameData.nextInputType === 'player') {
+                  // Player submitted
+                  updateRarity(answer, 'player');
+              } else if (gameData.nextInputType === 'attribute') {
+                  // Attribute submitted
+                  updateRarity(answer, selectedAttributeType);
+              }
               
               // Update Stats if Game Over
               if (result.update.status === 'finished' && result.update.winner) {
@@ -473,23 +609,29 @@ const OnlineGameBoard = () => {
           allPlayersData.forEach(p => {
               const arr = p[attrType + 's'];
               if (arr && Array.isArray(arr) && arr.some(v => String(v).toLowerCase() === attrValue)) {
-                  possibleAnswers.push(p.name);
+                  possibleAnswers.push({ label: p.name, frequency: p.frequency || 0 });
               }
           });
       } else if (gameData.nextInputType === 'attribute' && gameData.lastPlayerId) {
           const p = getPlayer(gameData.lastPlayerId);
           if (p) {
               missedCondition = `Attributes for ${p.name}`;
-              if (p.teams) p.teams.forEach(t => possibleAnswers.push(`${formatTeamName(t, getTeam)}`));
-              if (p.numbers) p.numbers.forEach(n => possibleAnswers.push(`#${n}`));
-              if (p.colleges) p.colleges.forEach(c => possibleAnswers.push(`${c}`));
+              if (p.teams) p.teams.forEach(t => {
+                  const team = getTeam(t);
+                  possibleAnswers.push({ 
+                      label: formatTeamName(t, getTeam), 
+                      frequency: team?.frequency || 0 
+                  });
+              });
+              if (p.numbers) p.numbers.forEach(n => possibleAnswers.push({ label: `#${n}`, frequency: 0 }));
+              if (p.colleges) p.colleges.forEach(c => possibleAnswers.push({ label: `${c}`, frequency: 0 }));
           }
       }
       
-      // Sort and limit
-      possibleAnswers.sort();
-      const displayAnswers = possibleAnswers.slice(0, 20);
-      const remaining = possibleAnswers.length - 20;
+      // Sort by frequency (descending)
+      possibleAnswers.sort((a, b) => b.frequency - a.frequency);
+      const displayAnswers = possibleAnswers.slice(0, 10).map(a => a.label);
+      const remaining = possibleAnswers.length - 10;
 
       return (
           <div className="h-screen bg-dark-bg text-white font-sans overflow-hidden flex flex-col">
@@ -502,34 +644,48 @@ const OnlineGameBoard = () => {
 
               <div className="flex-grow overflow-y-auto custom-scrollbar relative">
                   <div className="min-h-full flex flex-col p-6 items-center pb-20">
-                      <ArcadeCard className="max-w-2xl w-full text-center mb-8" glow={iWon ? 'blue' : 'pink'}>
-                          <h1 className={`font-heading text-6xl mb-2 ${iWon ? 'text-brand-blue text-glow-blue' : 'text-brand-pink text-glow-pink'}`}>
+                      <div className="max-w-2xl w-full text-center mb-5">
+                          <h1 className={`font-heading text-2xl mb-2 ${iWon ? 'text-brand-blue text-glow-blue' : 'text-brand-pink text-glow-pink'}`}>
                               {iWon ? 'VICTORY' : 'DEFEAT'}
                           </h1>
-                          <p className="text-slate-400 mb-8 text-xl">
+                          <p className="text-slate-400 mb-3 text-xs">
                               {gameData.history[gameData.history.length-1]?.value || "Game Over"}
                           </p>
                           
-                          <div className="grid grid-cols-2 gap-4 mb-8">
+                          <div className="grid grid-cols-2 gap-4 mb-3">
                               <div className="bg-slate-900/50 p-4 rounded-xl border border-slate-700">
                                   <div className="text-xs text-slate-500 uppercase">Moves</div>
-                                  <div className="font-heading text-3xl text-white">{gameData.history.length}</div>
+                                  <div className="font-heading text-xl text-white">{gameData.history.length}</div>
                               </div>
                               <div className="bg-slate-900/50 p-4 rounded-xl border border-slate-700">
                                   <div className="text-xs text-slate-500 uppercase">Rating</div>
-                                  <div className="font-heading text-3xl text-white">{userProfile?.stats?.eloRating?.slice(-1)[0] || 1000}</div>
+                                  <div className="flex items-center justify-center gap-2">
+                                      <div className="font-heading text-xl text-white">
+                                          {userProfile?.stats?.eloRating?.slice(-1)[0] || 1000}
+                                      </div>
+                                      {(userProfile?.stats?.eloRating?.length > 1) && (
+                                          <div className={`text-xs font-bold ${
+                                              userProfile.stats.eloRating.slice(-1)[0] - userProfile.stats.eloRating.slice(-2)[0] >= 0 
+                                              ? 'text-green-400' 
+                                              : 'text-red-400'
+                                          }`}>
+                                              {userProfile.stats.eloRating.slice(-1)[0] - userProfile.stats.eloRating.slice(-2)[0] >= 0 ? '+' : ''}
+                                              {userProfile.stats.eloRating.slice(-1)[0] - userProfile.stats.eloRating.slice(-2)[0]}
+                                          </div>
+                                      )}
+                                  </div>
                               </div>
                           </div>
 
                           {/* Possible Answers Section */}
                           {possibleAnswers.length > 0 && (
                               <div className="bg-slate-900/50 p-4 rounded-xl border border-slate-700 text-left max-h-60 overflow-y-auto custom-scrollbar">
-                                  <h4 className="text-xs text-slate-500 uppercase mb-2 sticky top-0 bg-slate-900/90 py-1">
+                                  <h4 className="text-xs text-slate-500 uppercase mb-2 sticky top-0  py-1">
                                       Possible Answers ({possibleAnswers.length})
                                   </h4>
                                   <div className="flex flex-wrap gap-2">
                                       {displayAnswers.map((ans, i) => (
-                                          <span key={i} className="bg-slate-800 text-slate-300 px-2 py-1 rounded text-xs border border-slate-700">
+                                          <span key={i} className="bg-slate-800 text-slate-300 px-2 py-1 rounded text-[8px] border border-slate-700">
                                               {ans}
                                           </span>
                                       ))}
@@ -539,17 +695,15 @@ const OnlineGameBoard = () => {
                                   </div>
                               </div>
                           )}
-                          
-                          <div className="mt-6">
-                              <ArcadeButton onClick={() => navigate('/')} className="w-full">RETURN HOME</ArcadeButton>
-                          </div>
-                      </ArcadeCard>
+                      </div>
 
                       {/* Log Section (In Flow) */}
-                      <div className="w-full max-w-md opacity-60 hover:opacity-100 transition-opacity duration-300">
-                         <div className="bg-slate-900/30 border border-slate-800/50 rounded-xl h-64 overflow-hidden">
-                             <GameLog history={gameData.history} myRole={myRole} getPlayer={getPlayer} getTeam={getTeam} className="h-full" />
-                         </div>
+                      <div className="w-full max-w-4xl ">
+                         <RarityHistory history={gameData.history} rarityCache={rarityCache} getPlayer={getPlayer} getTeam={getTeam} allPlayersData={allPlayersData} popularityData={popularityData} myRole={myRole} />
+                      </div>
+
+                      <div className="mt-6 w-full max-w-2xl">
+                          <ArcadeButton onClick={() => navigate('/')} className="w-full">RETURN HOME</ArcadeButton>
                       </div>
                   </div>
               </div>
@@ -595,13 +749,13 @@ const OnlineGameBoard = () => {
           <div className="min-h-full flex flex-col p-6 max-w-4xl mx-auto w-full">
               
               {/* Player Cards */}
-              <div className="grid grid-cols-2 gap-4 mb-8 w-full">
+              <div className="grid grid-cols-2 gap-4 mb-3 w-full">
                  <PlayerCard player={gameData.players.A} isTurn={gameData.turn === 'A'} isMe={myRole === 'A'} timer={timeLeft} />
                  <PlayerCard player={gameData.players.B} isTurn={gameData.turn === 'B'} isMe={myRole === 'B'} timer={timeLeft} />
               </div>
 
               {/* Main Game Stage */}
-              <div className="flex flex-col justify-center items-center w-full space-y-8 mb-12 min-h-[300px]">
+              <div className="flex flex-col justify-center items-center w-full space-y-3 min-h-[200px]">
          
                  {error && (
                     <div className="bg-red-500 text-white px-6 py-2 rounded-full shadow-lg animate-bounce-short z-50 font-bold flex items-center mb-4">
@@ -611,32 +765,33 @@ const OnlineGameBoard = () => {
                  )}
 
                  {/* Prompt Display */}
-                 <div className="text-center space-y-4">
+                 <div className="text-center space-y-4 mt-3">
             {gameData.challengeStatus === 'pending' ? (
                         <div className="animate-pulse-slow">
-                            <h2 className="font-heading text-6xl text-brand-pink text-glow-pink mb-2">CHALLENGE ACTIVE</h2>
-                            <p className="text-2xl text-slate-300">{gameData.challengedPlayer === myRole ? "PROVE YOUR ANSWER" : "OPPONENT RESPONDING..."}</p>
+                            <h2 className="font-heading text-xl text-brand-pink text-glow-pink mb-2">CHALLENGE ACTIVE</h2>
+                            <p className="text-md text-slate-300">{gameData.challengedPlayer === myRole ? promptText : "OPPONENT RESPONDING..."}</p>
                 </div>
             ) : (
                 <>
-                            <h2 className="font-heading text-4xl md:text-6xl leading-tight text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-400 drop-shadow-2xl px-4">
+                            <h2 className="font-heading text-lg md:text-lg leading-tight text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-400 drop-shadow-2xl px-4">
                         {promptText}
                     </h2>
                         </>
                     )}
+
                  </div>
 
                  {/* Controls & Input Area */}
-                 <div className="w-full max-w-xl bg-card-bg/50 backdrop-blur-md border border-slate-700/50 p-6 rounded-2xl shadow-2xl relative">
+                 <div className="w-full max-w-xl relative z-50">
                     
                     {/* Turn Indicator Overlay (if not my turn) */}
                     {!isMyTurn && gameData.challengeStatus === 'none' && (
-                        <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-[2px] z-20 flex items-center justify-center rounded-2xl">
+                        <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-[2px] z-20 flex items-center justify-center rounded-2xl mt-3">
                             <div className="flex items-center space-x-3">
                                 <div className="w-3 h-3 bg-slate-500 rounded-full animate-bounce"></div>
                                 <div className="w-3 h-3 bg-slate-500 rounded-full animate-bounce delay-100"></div>
                                 <div className="w-3 h-3 bg-slate-500 rounded-full animate-bounce delay-200"></div>
-                                <span className="font-heading text-2xl text-slate-300 pl-2 tracking-widest">OPPONENT THINKING</span>
+                                <span className="font-heading text-md text-slate-300 pl-2 tracking-wide inline-block">OPPONENT THINKING</span>
                             </div>
                         </div>
                     )}
@@ -650,7 +805,7 @@ const OnlineGameBoard = () => {
                                 <button
                                     key={type}
                                             onClick={() => setSelectedAttributeType(type)}
-                                            className={`flex-1 py-2 rounded-lg font-heading text-lg transition-all ${selectedAttributeType === type ? 'bg-brand-blue text-white shadow-lg' : 'text-slate-400 hover:text-white'}`}
+                                            className={`flex-1 py-2 uppercase rounded-lg font-heading text-md transition-all ${selectedAttributeType === type ? 'bg-brand-blue text-white shadow-lg' : 'text-slate-400 hover:text-white'}`}
                                 >
                                             {type}
                                 </button>
@@ -658,32 +813,23 @@ const OnlineGameBoard = () => {
                         </div>
                     )}
                     
-                            {/* Input */}
+                    {/* Input */}
                     <AutocompleteInput 
                         inputValue={inputValue}
                         onInputChange={handleInputChange}
                         onSelect={handleAnswerSelect}
+                        onSubmit={handleSubmitAnswer}
                         suggestions={suggestions}
                         type={gameData.nextInputType === 'player' ? 'player' : selectedAttributeType}
                         displayAttribute="name"
                         valueAttribute="id"
-                                placeholder={gameData.nextInputType === 'player' ? "Type player name..." : "Type answer..."}
+                        placeholder={gameData.nextInputType === 'player' ? "Type player name..." : "Type answer..."}
                         disabled={isSubmitting}
-                                className="text-center text-2xl font-heading tracking-wide"
-                                autoFocus
+                        className="text-center text-xs font-heading tracking-wide"
+                        autoFocus
                     />
                     
-                            {/* Submit */}
-                            <ArcadeButton 
-                        onClick={handleSubmitAnswer}
-                        disabled={!inputValue || isSubmitting}
-                                className="w-full"
-                                size="lg"
-                            >
-                                SUBMIT MOVE
-                            </ArcadeButton>
-                            
-                            {/* Action Row (Challenge/Reverse) */}
+                    {/* Action Row (Challenge/Reverse) */}
                             {gameData.history.length > 0 && (
                                 <div className="flex justify-center gap-4 pt-2">
                                     <button onClick={() => setShowConfirmChallenge(true)} className="text-xs font-bold text-slate-500 hover:text-brand-pink uppercase tracking-wider transition-colors flex items-center">
@@ -700,9 +846,9 @@ const OnlineGameBoard = () => {
             ) : gameData.challengeStatus === 'pending' && gameData.challengedPlayer === myRole ? (
                         <div className="space-y-4 relative z-30 animate-scale-in">
                     {gameData.challengeType === 'player' && (
-                                <div className="flex p-1 bg-slate-900/80 rounded-xl border border-slate-700">
+                                <div className="flex p-1 text-[5px] bg-slate-900/80 rounded-xl border border-slate-700">
                              {['number', 'team', 'college'].map(type => (
-                                        <button key={type} onClick={() => setChallengeResponseAttributeType(type)} className={`flex-1 py-2 rounded-lg font-heading text-lg ${challengeResponseAttributeType === type ? 'bg-brand-pink text-white' : 'text-slate-400'}`}>{type}</button>
+                                        <button key={type} onClick={() => setChallengeResponseAttributeType(type)} className={`flex-1 py-2 uppercase rounded-lg font-heading text-xl ${challengeResponseAttributeType === type ? 'bg-brand-pink text-white' : 'text-slate-400'}`}>{type}</button>
                              ))}
                         </div>
                     )}
@@ -716,17 +862,15 @@ const OnlineGameBoard = () => {
                         placeholder="Enter proof..."
                                 className="text-center"
                             />
-                            <ArcadeButton onClick={handleChallengeResponse} variant="secondary" className="w-full" size="lg">PROVE IT</ArcadeButton>
+                            <ArcadeButton onClick={handleChallengeResponse} variant="secondary" className="w-full text-sm md:text-sm lg:text-lg" size="lg">PROVE IT</ArcadeButton>
                         </div>
                     ) : null}
                  </div>
               </div>
 
               {/* Log Section (Scrollable Area) */}
-              <div className="w-full max-w-md mx-auto mt-auto opacity-60 hover:opacity-100 transition-opacity duration-300 pb-8">
-                 <div className="bg-slate-900/30 border border-slate-800/50 rounded-xl h-48 overflow-hidden">
-                     <GameLog history={gameData.history} myRole={myRole} getPlayer={getPlayer} getTeam={getTeam} className="h-full" />
-                 </div>
+              <div className="w-full max-w-4xl mx-auto mt-auto pb-4">
+                 <RarityHistory history={gameData.history} rarityCache={rarityCache} getPlayer={getPlayer} getTeam={getTeam} allPlayersData={allPlayersData} popularityData={popularityData} myRole={myRole} />
               </div>
 
           </div>

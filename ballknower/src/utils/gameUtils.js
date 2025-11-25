@@ -1,6 +1,21 @@
 // Helper functions for game logic
 import { serverTimestamp, doc, updateDoc, getDoc, increment, setDoc } from 'firebase/firestore';
 import { db } from '../firebaseConfig';
+import { getImagesData } from '../services/api';
+
+export const getTeamLogoUrl = (teamId) => {
+  const imagesData = getImagesData();
+  if (!teamId || !imagesData[teamId]) return null;
+
+  return imagesData[teamId].logo_url || null;
+};
+
+export const getCollegeLogoUrl = (collegeName) => {
+  const imagesData = getImagesData();
+  if (!collegeName || !imagesData[collegeName]) return null;
+
+  return imagesData[collegeName].logo_url || null;
+};
 
 /**
  * Calculates the new ELO rating based on the opponent's rating and the game result
@@ -714,40 +729,42 @@ const isTurnLimitReached = (history, turnLimit = 30) => {
 };
 
 /**
- * Tracks submissions and answers in the Firestore tracking collection
- * @param {string} playerId - The ID of the player to track
- * @param {string} attributeValue - The attribute value to track (player name, team, number, college)
+ * Updates the rarity collection when a value is selected in a game.
+ * Increments frequency or creates document if it doesn't exist.
+ * @param {string} value - The value to track (player ID, team ID, number, college name)
+ * @param {string} type - The type of value ('player', 'team', 'number', 'college')
  */
-export const trackSubmission = async (playerId, attributeValue) => {
-  if (!playerId || !attributeValue) return;
+export const updateRarity = async (value, type) => {
+  if (!value || !type) return;
   
   try {
-    const trackingRef = doc(db, "tracking", playerId);
+    // Document ID format: type_value (sanitized)
+    const safeVal = String(value).replace(/\//g, '_');
+    const docId = `${type}_${safeVal}`;
+    const rarityRef = doc(db, "rarity", docId);
     
-    // Try to get existing document
-    const trackingDoc = await getDoc(trackingRef);
-    
-    if (trackingDoc.exists()) {
-      // Document exists, update the tracking map
-      const trackingData = trackingDoc.data();
-      const trackingMap = trackingData.tracking || {};
-      
-      // Update the count for this attribute
-      await updateDoc(trackingRef, {
-        [`tracking.${attributeValue}`]: increment(1)
+    // Try to update first (most common case)
+    try {
+      await updateDoc(rarityRef, {
+        frequency: increment(1)
       });
-    } else {
-      // Document doesn't exist, create a new one
-      await setDoc(trackingRef, {
-        tracking: {
-          [attributeValue]: 1
-        }
-      });
+    } catch (error) {
+      // If document doesn't exist, create it with initial values
+      if (error.code === 'not-found') {
+        await setDoc(rarityRef, {
+          value: value,
+          type: type,
+          frequency: 1,
+          rarity: 100 // Initialize rarity at 100 for new items
+        });
+      } else {
+        throw error; // Re-throw other errors
+      }
     }
     
   } catch (error) {
-    console.error("Error tracking submission:", error);
-    // Don't throw error, just log it - tracking shouldn't block game flow
+    console.error("Error updating rarity:", error);
+    // Don't block game flow
   }
 };
 

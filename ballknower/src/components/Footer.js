@@ -20,7 +20,7 @@ const Footer = ({ withTabBar = false }) => {
       <footer className={`mt-0 sm:mt-12 text-center text-slate-600 text-xs space-y-3 ${withTabBar ? 'mb-24' : 'mb-6'} sm:mb-8`}>
 
       {/* Explainer Button */}
-      <div className="mb-2">
+      <div className="mb-2 mt-5">
           <button 
             onClick={() => setShowRules(true)}
             className="text-slate-400 hover:text-white font-heading text-sm uppercase tracking-wider underline decoration-slate-600 underline-offset-4 hover:decoration-white transition-all"

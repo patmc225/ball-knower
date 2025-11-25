@@ -1,0 +1,2944 @@
+{
+  "nba_ATL": {
+    "id": "nba_ATL",
+    "name": "Atlanta Hawks",
+    "logo_url": "https://cdn.nba.com/logos/nba/1610612737/primary/L/logo.svg"
+  },
+  "nba_BOS": {
+    "id": "nba_BOS",
+    "name": "Boston Celtics",
+    "logo_url": "https://cdn.nba.com/logos/nba/1610612738/primary/L/logo.svg"
+  },
+  "nba_CHA": {
+    "id": "nba_CHA",
+    "name": "Charlotte Hornets",
+    "logo_url": "https://cdn.nba.com/logos/nba/1610612766/primary/L/logo.svg"
+  },
+  "nba_CHI": {
+    "id": "nba_CHI",
+    "name": "Chicago Bulls",
+    "logo_url": "https://cdn.nba.com/logos/nba/1610612741/primary/L/logo.svg"
+  },
+  "nba_CLE": {
+    "id": "nba_CLE",
+    "name": "Cleveland Cavaliers",
+    "logo_url": "https://cdn.nba.com/logos/nba/1610612739/primary/L/logo.svg"
+  },
+  "nba_DAL": {
+    "id": "nba_DAL",
+    "name": "Dallas Mavericks",
+    "logo_url": "https://cdn.nba.com/logos/nba/1610612742/primary/L/logo.svg"
+  },
+  "nba_DEN": {
+    "id": "nba_DEN",
+    "name": "Denver Nuggets",
+    "logo_url": "https://cdn.nba.com/logos/nba/1610612743/primary/L/logo.svg"
+  },
+  "nba_DET": {
+    "id": "nba_DET",
+    "name": "Detroit Pistons",
+    "logo_url": "https://cdn.nba.com/logos/nba/1610612765/primary/L/logo.svg"
+  },
+  "nba_GSW": {
+    "id": "nba_GSW",
+    "name": "Golden State Warriors",
+    "logo_url": "https://cdn.nba.com/logos/nba/1610612744/primary/L/logo.svg"
+  },
+  "nba_HOU": {
+    "id": "nba_HOU",
+    "name": "Houston Rockets",
+    "logo_url": "https://cdn.nba.com/logos/nba/1610612745/primary/L/logo.svg"
+  },
+  "nba_IND": {
+    "id": "nba_IND",
+    "name": "Indiana Pacers",
+    "logo_url": "https://cdn.nba.com/logos/nba/1610612754/primary/L/logo.svg"
+  },
+  "nba_LAC": {
+    "id": "nba_LAC",
+    "name": "Los Angeles Clippers",
+    "logo_url": "https://cdn.nba.com/logos/nba/1610612746/primary/L/logo.svg"
+  },
+  "nba_LAL": {
+    "id": "nba_LAL",
+    "name": "Los Angeles Lakers",
+    "logo_url": "https://cdn.nba.com/logos/nba/1610612747/primary/L/logo.svg"
+  },
+  "nba_MEM": {
+    "id": "nba_MEM",
+    "name": "Memphis Grizzlies",
+    "logo_url": "https://cdn.nba.com/logos/nba/1610612763/primary/L/logo.svg"
+  },
+  "nba_MIA": {
+    "id": "nba_MIA",
+    "name": "Miami Heat",
+    "logo_url": "https://cdn.nba.com/logos/nba/1610612748/primary/L/logo.svg"
+  },
+  "nba_MIL": {
+    "id": "nba_MIL",
+    "name": "Milwaukee Bucks",
+    "logo_url": "https://cdn.nba.com/logos/nba/1610612749/primary/L/logo.svg"
+  },
+  "nba_MIN": {
+    "id": "nba_MIN",
+    "name": "Minnesota Timberwolves",
+    "logo_url": "https://cdn.nba.com/logos/nba/1610612750/primary/L/logo.svg"
+  },
+  "nba_NJN": {
+    "id": "nba_NJN",
+    "name": "Brooklyn Nets",
+    "logo_url": "https://cdn.nba.com/logos/nba/1610612751/primary/L/logo.svg"
+  },
+  "nba_NOH": {
+    "id": "nba_NOH",
+    "name": "New Orleans Pelicans",
+    "logo_url": "https://cdn.nba.com/logos/nba/1610612740/primary/L/logo.svg"
+  },
+  "nba_NYK": {
+    "id": "nba_NYK",
+    "name": "New York Knicks",
+    "logo_url": "https://cdn.nba.com/logos/nba/1610612752/primary/L/logo.svg"
+  },
+  "nba_OKC": {
+    "id": "nba_OKC",
+    "name": "Oklahoma City Thunder",
+    "logo_url": "https://cdn.nba.com/logos/nba/1610612760/primary/L/logo.svg"
+  },
+  "nba_ORL": {
+    "id": "nba_ORL",
+    "name": "Orlando Magic",
+    "logo_url": "https://cdn.nba.com/logos/nba/1610612753/primary/L/logo.svg"
+  },
+  "nba_PHI": {
+    "id": "nba_PHI",
+    "name": "Philadelphia 76ers",
+    "logo_url": "https://cdn.nba.com/logos/nba/1610612755/primary/L/logo.svg"
+  },
+  "nba_PHO": {
+    "id": "nba_PHO",
+    "name": "Phoenix Suns",
+    "logo_url": "https://cdn.nba.com/logos/nba/1610612756/primary/L/logo.svg"
+  },
+  "nba_POR": {
+    "id": "nba_POR",
+    "name": "Portland Trail Blazers",
+    "logo_url": "https://cdn.nba.com/logos/nba/1610612757/primary/L/logo.svg"
+  },
+  "nba_SAC": {
+    "id": "nba_SAC",
+    "name": "Sacramento Kings",
+    "logo_url": "https://cdn.nba.com/logos/nba/1610612758/primary/L/logo.svg"
+  },
+  "nba_SAS": {
+    "id": "nba_SAS",
+    "name": "San Antonio Spurs",
+    "logo_url": "https://cdn.nba.com/logos/nba/1610612759/primary/L/logo.svg"
+  },
+  "nba_TOR": {
+    "id": "nba_TOR",
+    "name": "Toronto Raptors",
+    "logo_url": "https://cdn.nba.com/logos/nba/1610612761/primary/L/logo.svg"
+  },
+  "nba_UTA": {
+    "id": "nba_UTA",
+    "name": "Utah Jazz",
+    "logo_url": "https://cdn.nba.com/logos/nba/1610612762/primary/L/logo.svg"
+  },
+  "nba_WAS": {
+    "id": "nba_WAS",
+    "name": "Washington Wizards",
+    "logo_url": "https://cdn.nba.com/logos/nba/1610612764/primary/L/logo.svg"
+  },
+  "nfl_ATL": {
+    "id": "nfl_ATL",
+    "name": "Atlanta Falcons",
+    "logo_url": "https://static.www.nfl.com/image/private/f_auto/league/d8m7hzpsbrl6pnqht8op"
+  },
+  "nfl_BUF": {
+    "id": "nfl_BUF",
+    "name": "Buffalo Bills",
+    "logo_url": "https://static.www.nfl.com/image/private/f_auto/league/giphcy6ie9mxbnldntsf"
+  },
+  "nfl_CAR": {
+    "id": "nfl_CAR",
+    "name": "Carolina Panthers",
+    "logo_url": "https://static.www.nfl.com/image/private/f_auto/league/ervfzgrqdpnc7lh5gqwq"
+  },
+  "nfl_CHI": {
+    "id": "nfl_CHI",
+    "name": "Chicago Bears",
+    "logo_url": "https://static.www.nfl.com/image/private/f_auto/league/ijrplti0kmzsyoaikhv1"
+  },
+  "nfl_CIN": {
+    "id": "nfl_CIN",
+    "name": "Cincinnati Bengals",
+    "logo_url": "https://static.www.nfl.com/image/private/f_auto/league/okxpteoliyayufypqalq"
+  },
+  "nfl_CLE": {
+    "id": "nfl_CLE",
+    "name": "Cleveland Browns",
+    "logo_url": "https://static.www.nfl.com/image/upload/f_auto/league/bedyixmmjhszfcx5wv2l"
+  },
+  "nfl_CLT": {
+    "id": "nfl_CLT",
+    "name": "Indianapolis Colts",
+    "logo_url": "https://static.www.nfl.com/image/private/f_auto/league/ketwqeuschqzjsllbid5"
+  },
+  "nfl_CRD": {
+    "id": "nfl_CRD",
+    "name": "Arizona Cardinals",
+    "logo_url": "https://static.www.nfl.com/image/private/f_auto/league/u9fltoslqdsyao8cpm0k"
+  },
+  "nfl_DAL": {
+    "id": "nfl_DAL",
+    "name": "Dallas Cowboys",
+    "logo_url": "https://static.www.nfl.com/image/private/f_auto/league/ieid8hoygzdlmzo0tnf6"
+  },
+  "nfl_DEN": {
+    "id": "nfl_DEN",
+    "name": "Denver Broncos",
+    "logo_url": "https://static.www.nfl.com/image/private/f_auto/league/t0p7m5cjdjy18rnzzqbx"
+  },
+  "nfl_DET": {
+    "id": "nfl_DET",
+    "name": "Detroit Lions",
+    "logo_url": "https://static.www.nfl.com/image/private/f_auto/league/ocvxwnapdvwevupe4tpr"
+  },
+  "nfl_GNB": {
+    "id": "nfl_GNB",
+    "name": "Green Bay Packers",
+    "logo_url": "https://static.www.nfl.com/image/private/f_auto/league/gppfvr7n8gljgjaqux2x"
+  },
+  "nfl_HTX": {
+    "id": "nfl_HTX",
+    "name": "Houston Texans",
+    "logo_url": "https://static.www.nfl.com/image/upload/f_auto/league/u6camnphqvjc6mku6u3c"
+  },
+  "nfl_JAX": {
+    "id": "nfl_JAX",
+    "name": "Jacksonville Jaguars",
+    "logo_url": "https://static.www.nfl.com/image/private/f_auto/league/qycbib6ivrm9dqaexryk"
+  },
+  "nfl_KAN": {
+    "id": "nfl_KAN",
+    "name": "Kansas City Chiefs",
+    "logo_url": "https://static.www.nfl.com/image/private/f_auto/league/ujshjqvmnxce8m4obmvs"
+  },
+  "nfl_MIA": {
+    "id": "nfl_MIA",
+    "name": "Miami Dolphins",
+    "logo_url": "https://static.www.nfl.com/image/private/f_auto/league/lits6p8ycthy9to70bnt"
+  },
+  "nfl_MIN": {
+    "id": "nfl_MIN",
+    "name": "Minnesota Vikings",
+    "logo_url": "https://static.www.nfl.com/image/private/f_auto/league/teguylrnqqmfcwxvcmmz"
+  },
+  "nfl_NOR": {
+    "id": "nfl_NOR",
+    "name": "New Orleans Saints",
+    "logo_url": "https://static.www.nfl.com/image/private/f_auto/league/grhjkahghjkk17v43hdx"
+  },
+  "nfl_NWE": {
+    "id": "nfl_NWE",
+    "name": "New England Patriots",
+    "logo_url": "https://static.www.nfl.com/image/private/f_auto/league/moyfxx3dq5pio4aiftnc"
+  },
+  "nfl_NYG": {
+    "id": "nfl_NYG",
+    "name": "New York Giants",
+    "logo_url": "https://static.www.nfl.com/image/private/f_auto/league/t6mhdmgizi6qhndh8b9p"
+  },
+  "nfl_NYJ": {
+    "id": "nfl_NYJ",
+    "name": "New York Jets",
+    "logo_url": "https://static.www.nfl.com/image/upload/f_auto/league/vdqo4iiufmdrimkaxslj"
+  },
+  "nfl_OTI": {
+    "id": "nfl_OTI",
+    "name": "Tennessee Titans",
+    "logo_url": "https://static.www.nfl.com/image/private/f_auto/league/pln44vuzugjgipyidsre"
+  },
+  "nfl_PHI": {
+    "id": "nfl_PHI",
+    "name": "Philadelphia Eagles",
+    "logo_url": "https://static.www.nfl.com/image/private/f_auto/league/puhrqgj71gobgdkdo6uq"
+  },
+  "nfl_PIT": {
+    "id": "nfl_PIT",
+    "name": "Pittsburgh Steelers",
+    "logo_url": "https://static.www.nfl.com/image/private/f_auto/league/xujg9t3t4u5nmjgr54wx"
+  },
+  "nfl_RAI": {
+    "id": "nfl_RAI",
+    "name": "Las Vegas Raiders",
+    "logo_url": "https://static.www.nfl.com/image/private/f_auto/league/gzcojbzcyjgubgyb6xf2"
+  },
+  "nfl_RAM": {
+    "id": "nfl_RAM",
+    "name": "Los Angeles Rams",
+    "logo_url": "https://static.www.nfl.com/image/private/f_auto/league/ayvwcmluj2ohkdlbiegi"
+  },
+  "nfl_RAV": {
+    "id": "nfl_RAV",
+    "name": "Baltimore Ravens",
+    "logo_url": "https://static.www.nfl.com/image/private/f_auto/league/ucsdijmddsqcj1i9tddd"
+  },
+  "nfl_SDG": {
+    "id": "nfl_SDG",
+    "name": "Los Angeles Chargers",
+    "logo_url": "https://static.www.nfl.com/image/private/f_auto/league/dhfidtn8jrumakbogeu4"
+  },
+  "nfl_SEA": {
+    "id": "nfl_SEA",
+    "name": "Seattle Seahawks",
+    "logo_url": "https://static.www.nfl.com/image/private/f_auto/league/gcytzwpjdzbpwnwxincg"
+  },
+  "nfl_SFO": {
+    "id": "nfl_SFO",
+    "name": "San Francisco 49ers",
+    "logo_url": "https://static.www.nfl.com/image/private/f_auto/league/dxibuyxbk0b9ua5ih9hn"
+  },
+  "nfl_TAM": {
+    "id": "nfl_TAM",
+    "name": "Tampa Bay Buccaneers",
+    "logo_url": "https://static.www.nfl.com/image/private/f_auto/league/v8uqiualryypwqgvwcih"
+  },
+  "nfl_WAS": {
+    "id": "nfl_WAS",
+    "name": "Washington Commanders",
+    "logo_url": "https://static.www.nfl.com/image/private/f_auto/league/xymxwrxtyj9fhaemhdyd"
+  },
+  "Abilene Christian": {
+    "name": "Abilene Christian",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/abilene-christian.svg"
+  },
+  "Adams St.": {
+    "name": "Adams St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/adams-st.svg"
+  },
+  "Air Force": {
+    "name": "Air Force",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/air-force.svg"
+  },
+  "Akron": {
+    "name": "Akron",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/akron.svg"
+  },
+  "Alabama-Huntsville": {
+    "name": "Alabama-Huntsville",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/ala-huntsville.svg"
+  },
+  "Alabama": {
+    "name": "Alabama",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/alabama.svg"
+  },
+  "Alabama A&M": {
+    "name": "Alabama A&M",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/alabama-am.svg"
+  },
+  "Alabama St.": {
+    "name": "Alabama St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/alabama-st.svg"
+  },
+  "Albany (NY)": {
+    "name": "Albany (NY)",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/albany-ny.svg"
+  },
+  "Albany State (GA)": {
+    "name": "Albany State (GA)",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/albany-st-ga.svg"
+  },
+  "Albion": {
+    "name": "Albion",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/albion.svg"
+  },
+  "Albright": {
+    "name": "Albright",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/albright.svg"
+  },
+  "Alcorn St.": {
+    "name": "Alcorn St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/alcorn.svg"
+  },
+  "Alfred": {
+    "name": "Alfred",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/alfred.svg"
+  },
+  "Allegheny": {
+    "name": "Allegheny",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/allegheny.svg"
+  },
+  "Allen": {
+    "name": "Allen",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/allen.svg"
+  },
+  "Alma": {
+    "name": "Alma",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/alma.svg"
+  },
+  "American University": {
+    "name": "American University",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/american.svg"
+  },
+  "American International College": {
+    "name": "American International College",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/american-intl.svg"
+  },
+  "Amherst": {
+    "name": "Amherst",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/amherst.svg"
+  },
+  "Anderson (IN)": {
+    "name": "Anderson (IN)",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/anderson-in.svg"
+  },
+  "Appalachian St.": {
+    "name": "Appalachian St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/appalachian-st.svg"
+  },
+  "Arizona": {
+    "name": "Arizona",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/arizona.svg"
+  },
+  "Arizona St.": {
+    "name": "Arizona St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/arizona-st.svg"
+  },
+  "University of Arkansas-Fort Smith": {
+    "name": "University of Arkansas-Fort Smith",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/ark-fort-smith.svg"
+  },
+  "Arkansas-Monticello": {
+    "name": "Arkansas-Monticello",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/ark-monticello.svg"
+  },
+  "Arkansas": {
+    "name": "Arkansas",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/arkansas.svg"
+  },
+  "Arkansas St.": {
+    "name": "Arkansas St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/arkansas-st.svg"
+  },
+  "Arkansas Tech": {
+    "name": "Arkansas Tech",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/arkansas-tech.svg"
+  },
+  "Army": {
+    "name": "Army",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/army.svg"
+  },
+  "Ashland": {
+    "name": "Ashland",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/ashland.svg"
+  },
+  "Assumption": {
+    "name": "Assumption",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/assumption.svg"
+  },
+  "Auburn": {
+    "name": "Auburn",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/auburn.svg"
+  },
+  "Augsburg": {
+    "name": "Augsburg",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/augsburg.svg"
+  },
+  "Augustana (IL)": {
+    "name": "Augustana (IL)",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/augustana-il.svg"
+  },
+  "Augustana (SD)": {
+    "name": "Augustana (SD)",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/augustana-sd.svg"
+  },
+  "Aurora": {
+    "name": "Aurora",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/aurora.svg"
+  },
+  "Austin": {
+    "name": "Austin",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/austin.svg"
+  },
+  "Austin Peay St.": {
+    "name": "Austin Peay St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/austin-peay.svg"
+  },
+  "Averett University": {
+    "name": "Averett University",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/averett.svg"
+  },
+  "Azusa Pacific": {
+    "name": "Azusa Pacific",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/azusa-pacific.svg"
+  },
+  "Baldwin Wallace": {
+    "name": "Baldwin Wallace",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/baldwin-wallace.svg"
+  },
+  "Ball St.": {
+    "name": "Ball St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/ball-st.svg"
+  },
+  "Barton": {
+    "name": "Barton",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/barton.svg"
+  },
+  "Bates": {
+    "name": "Bates",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/bates.svg"
+  },
+  "Baylor": {
+    "name": "Baylor",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/baylor.svg"
+  },
+  "Belhaven": {
+    "name": "Belhaven",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/belhaven.svg"
+  },
+  "Belmont": {
+    "name": "Belmont",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/belmont.svg"
+  },
+  "Belmont Abbey College": {
+    "name": "Belmont Abbey College",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/belmont-abbey.svg"
+  },
+  "Beloit": {
+    "name": "Beloit",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/beloit.svg"
+  },
+  "Bemidji St.": {
+    "name": "Bemidji St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/bemidji-st.svg"
+  },
+  "Benedict College": {
+    "name": "Benedict College",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/benedict.svg"
+  },
+  "Benedictine": {
+    "name": "Benedictine",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/benedictine-il.svg"
+  },
+  "Berry": {
+    "name": "Berry",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/berry.svg"
+  },
+  "Bethany (WV)": {
+    "name": "Bethany (WV)",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/bethany-wv.svg"
+  },
+  "Bethune-Cookman": {
+    "name": "Bethune-Cookman",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/bethune-cookman.svg"
+  },
+  "Birmingham-Southern": {
+    "name": "Birmingham-Southern",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/birmingham-so.svg"
+  },
+  "Black Hills St.": {
+    "name": "Black Hills St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/black-hills-st.svg"
+  },
+  "Bloomsburg": {
+    "name": "Bloomsburg",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/bloomsburg.svg"
+  },
+  "Bluffton": {
+    "name": "Bluffton",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/bluffton.svg"
+  },
+  "Boise St.": {
+    "name": "Boise St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/boise-st.svg"
+  },
+  "Boston Col.": {
+    "name": "Boston Col.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/boston-college.svg"
+  },
+  "Boston Univ.": {
+    "name": "Boston Univ.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/boston-u.svg"
+  },
+  "Bowie St.": {
+    "name": "Bowie St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/bowie-st.svg"
+  },
+  "Bowling Green": {
+    "name": "Bowling Green",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/bowling-green.svg"
+  },
+  "Bradley": {
+    "name": "Bradley",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/bradley.svg"
+  },
+  "Brandeis": {
+    "name": "Brandeis",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/brandeis.svg"
+  },
+  "Bridgeport": {
+    "name": "Bridgeport",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/bridgeport.svg"
+  },
+  "Brooklyn": {
+    "name": "Brooklyn",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/brooklyn.svg"
+  },
+  "Brown": {
+    "name": "Brown",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/brown.svg"
+  },
+  "Bryant": {
+    "name": "Bryant",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/bryant.svg"
+  },
+  "Bucknell": {
+    "name": "Bucknell",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/bucknell.svg"
+  },
+  "Buena Vista": {
+    "name": "Buena Vista",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/buena-vista.svg"
+  },
+  "Buffalo": {
+    "name": "Buffalo",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/buffalo.svg"
+  },
+  "Buffalo State": {
+    "name": "Buffalo State",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/buffalo-st.svg"
+  },
+  "Butler": {
+    "name": "Butler",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/butler.svg"
+  },
+  "BYU": {
+    "name": "BYU",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/byu.svg"
+  },
+  "California Lutheran": {
+    "name": "California Lutheran",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/cal-lutheran.svg"
+  },
+  "Cal Poly": {
+    "name": "Cal Poly",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/cal-poly.svg"
+  },
+  "Cal Poly Pomona": {
+    "name": "Cal Poly Pomona",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/cal-poly-pomona.svg"
+  },
+  "Cal State Fullerton": {
+    "name": "Cal State Fullerton",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/cal-st-fullerton.svg"
+  },
+  "Cal State Northridge": {
+    "name": "Cal State Northridge",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/cal-st-northridge.svg"
+  },
+  "California": {
+    "name": "California",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/california.svg"
+  },
+  "California (PA)": {
+    "name": "California (PA)",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/california-pa.svg"
+  },
+  "Cameron": {
+    "name": "Cameron",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/cameron.svg"
+  },
+  "Campbell": {
+    "name": "Campbell",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/campbell.svg"
+  },
+  "Canisius": {
+    "name": "Canisius",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/canisius.svg"
+  },
+  "Carleton": {
+    "name": "Carleton",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/carleton.svg"
+  },
+  "Carnegie Mellon": {
+    "name": "Carnegie Mellon",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/carnegie-mellon.svg"
+  },
+  "Carroll (WI)": {
+    "name": "Carroll (WI)",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/carroll-wi.svg"
+  },
+  "Carson-Newman": {
+    "name": "Carson-Newman",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/carson-newman.svg"
+  },
+  "Carthage": {
+    "name": "Carthage",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/carthage.svg"
+  },
+  "Case Western Reserve": {
+    "name": "Case Western Reserve",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/case.svg"
+  },
+  "Catawba": {
+    "name": "Catawba",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/catawba.svg"
+  },
+  "Catholic": {
+    "name": "Catholic",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/catholic.svg"
+  },
+  "CCNY": {
+    "name": "CCNY",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/ccny.svg"
+  },
+  "Centenary (LA)": {
+    "name": "Centenary (LA)",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/centenary-la.svg"
+  },
+  "Central Arkansas": {
+    "name": "Central Arkansas",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/central-ark.svg"
+  },
+  "Central Connecticut St.": {
+    "name": "Central Connecticut St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/central-conn-st.svg"
+  },
+  "Central Michigan": {
+    "name": "Central Michigan",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/central-mich.svg"
+  },
+  "Central Oklahoma": {
+    "name": "Central Oklahoma",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/central-okla.svg"
+  },
+  "Central State (OH)": {
+    "name": "Central State (OH)",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/central-st-oh.svg"
+  },
+  "Central Washington": {
+    "name": "Central Washington",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/central-wash.svg"
+  },
+  "Centre": {
+    "name": "Centre",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/centre.svg"
+  },
+  "Chadron St.": {
+    "name": "Chadron St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/chadron-st.svg"
+  },
+  "Chapman": {
+    "name": "Chapman",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/chapman.svg"
+  },
+  "Charleston Southern": {
+    "name": "Charleston Southern",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/charleston-so.svg"
+  },
+  "University of Charleston": {
+    "name": "University of Charleston",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/charleston-wv.svg"
+  },
+  "Charlotte": {
+    "name": "Charlotte",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/charlotte.svg"
+  },
+  "Cheyney": {
+    "name": "Cheyney",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/cheyney.svg"
+  },
+  "Chicago": {
+    "name": "Chicago",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/chicago.svg"
+  },
+  "Chicago State": {
+    "name": "Chicago State",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/chicago-st.svg"
+  },
+  "Chowan": {
+    "name": "Chowan",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/chowan.svg"
+  },
+  "Christopher Newport University": {
+    "name": "Christopher Newport University",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/chris-newport.svg"
+  },
+  "Cincinnati": {
+    "name": "Cincinnati",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/cincinnati.svg"
+  },
+  "The Citadel": {
+    "name": "The Citadel",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/citadel.svg"
+  },
+  "Clarion": {
+    "name": "Clarion",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/clarion.svg"
+  },
+  "Clark Atlanta University": {
+    "name": "Clark Atlanta University",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/clark-atlanta.svg"
+  },
+  "Clarkson": {
+    "name": "Clarkson",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/clarkson.svg"
+  },
+  "Clemson": {
+    "name": "Clemson",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/clemson.svg"
+  },
+  "Cleveland State University": {
+    "name": "Cleveland State University",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/cleveland-st.svg"
+  },
+  "Coast Guard": {
+    "name": "Coast Guard",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/coast-guard.svg"
+  },
+  "Coastal Carolina": {
+    "name": "Coastal Carolina",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/coastal-caro.svg"
+  },
+  "Coe College": {
+    "name": "Coe College",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/coe.svg"
+  },
+  "College of Charleston": {
+    "name": "College of Charleston",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/col-of-charleston.svg"
+  },
+  "Colgate": {
+    "name": "Colgate",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/colgate.svg"
+  },
+  "Colorado": {
+    "name": "Colorado",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/colorado.svg"
+  },
+  "Colorado Col.": {
+    "name": "Colorado Col.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/colorado-col.svg"
+  },
+  "Colorado Mesa": {
+    "name": "Colorado Mesa",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/colorado-mesa.svg"
+  },
+  "Colorado St.": {
+    "name": "Colorado St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/colorado-st.svg"
+  },
+  "Columbia": {
+    "name": "Columbia",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/columbia.svg"
+  },
+  "UConn": {
+    "name": "UConn",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/uconn.svg"
+  },
+  "Coppin State University": {
+    "name": "Coppin State University",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/coppin-st.svg"
+  },
+  "Cornell": {
+    "name": "Cornell",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/cornell.svg"
+  },
+  "USC": {
+    "name": "USC",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/southern-california.svg"
+  },
+  "Creighton": {
+    "name": "Creighton",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/creighton.svg"
+  },
+  "Dartmouth": {
+    "name": "Dartmouth",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/dartmouth.svg"
+  },
+  "Davidson": {
+    "name": "Davidson",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/davidson.svg"
+  },
+  "Davis & Elkins": {
+    "name": "Davis & Elkins",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/davis-elkins.svg"
+  },
+  "Dayton": {
+    "name": "Dayton",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/dayton.svg"
+  },
+  "Delaware": {
+    "name": "Delaware",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/delaware.svg"
+  },
+  "Delaware St.": {
+    "name": "Delaware St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/delaware-st.svg"
+  },
+  "Delaware Valley": {
+    "name": "Delaware Valley",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/delaware-valley.svg"
+  },
+  "Delta St.": {
+    "name": "Delta St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/delta-st.svg"
+  },
+  "Denison": {
+    "name": "Denison",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/denison.svg"
+  },
+  "Denver": {
+    "name": "Denver",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/denver.svg"
+  },
+  "DePaul": {
+    "name": "DePaul",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/depaul.svg"
+  },
+  "DePauw": {
+    "name": "DePauw",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/depauw.svg"
+  },
+  "Detroit Mercy": {
+    "name": "Detroit Mercy",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/detroit.svg"
+  },
+  "Dickinson": {
+    "name": "Dickinson",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/dickinson.svg"
+  },
+  "University of the District of Columbia": {
+    "name": "University of the District of Columbia",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/dist-columbia.svg"
+  },
+  "Drake": {
+    "name": "Drake",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/drake.svg"
+  },
+  "Drexel": {
+    "name": "Drexel",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/drexel.svg"
+  },
+  "Dubuque": {
+    "name": "Dubuque",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/dubuque.svg"
+  },
+  "Duke": {
+    "name": "Duke",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/duke.svg"
+  },
+  "Duquesne": {
+    "name": "Duquesne",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/duquesne.svg"
+  },
+  "Earlham": {
+    "name": "Earlham",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/earlham.svg"
+  },
+  "East Carolina": {
+    "name": "East Carolina",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/east-carolina.svg"
+  },
+  "East Central (OK)": {
+    "name": "East Central (OK)",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/east-central.svg"
+  },
+  "East Stroudsburg": {
+    "name": "East Stroudsburg",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/east-stroudsburg.svg"
+  },
+  "East Tennessee St.": {
+    "name": "East Tennessee St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/east-tenn-st.svg"
+  },
+  "Eastern Illinois": {
+    "name": "Eastern Illinois",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/eastern-ill.svg"
+  },
+  "Eastern Kentucky": {
+    "name": "Eastern Kentucky",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/eastern-ky.svg"
+  },
+  "Eastern Michigan": {
+    "name": "Eastern Michigan",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/eastern-mich.svg"
+  },
+  "Eastern New Mexico": {
+    "name": "Eastern New Mexico",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/eastern-nm.svg"
+  },
+  "Eastern Oregon": {
+    "name": "Eastern Oregon",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/eastern-ore.svg"
+  },
+  "Eastern Washington": {
+    "name": "Eastern Washington",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/eastern-wash.svg"
+  },
+  "Edinboro": {
+    "name": "Edinboro",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/edinboro.svg"
+  },
+  "Edward Waters": {
+    "name": "Edward Waters",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/edward-waters.svg"
+  },
+  "Elizabeth City St.": {
+    "name": "Elizabeth City St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/elizabeth-city-st.svg"
+  },
+  "Elmhurst": {
+    "name": "Elmhurst",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/elmhurst.svg"
+  },
+  "Elon": {
+    "name": "Elon",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/elon.svg"
+  },
+  "Emporia St.": {
+    "name": "Emporia St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/emporia-st.svg"
+  },
+  "Evansville": {
+    "name": "Evansville",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/evansville.svg"
+  },
+  "Fairfield": {
+    "name": "Fairfield",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/fairfield.svg"
+  },
+  "Fairmont St.": {
+    "name": "Fairmont St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/fairmont-st.svg"
+  },
+  "Fayetteville St.": {
+    "name": "Fayetteville St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/fayetteville-st.svg"
+  },
+  "Ferris St.": {
+    "name": "Ferris St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/ferris-st.svg"
+  },
+  "Ferrum": {
+    "name": "Ferrum",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/ferrum.svg"
+  },
+  "Florida Gulf Coast": {
+    "name": "Florida Gulf Coast",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/fgcu.svg"
+  },
+  "Findlay": {
+    "name": "Findlay",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/findlay.svg"
+  },
+  "Fisk": {
+    "name": "Fisk",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/fisk.svg"
+  },
+  "Florida International": {
+    "name": "Florida International",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/fiu.svg"
+  },
+  "Florida Atlantic": {
+    "name": "Florida Atlantic",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/fla-atlantic.svg"
+  },
+  "Flagler": {
+    "name": "Flagler",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/flagler.svg"
+  },
+  "Florida": {
+    "name": "Florida",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/florida.svg"
+  },
+  "Florida A&M": {
+    "name": "Florida A&M",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/florida-am.svg"
+  },
+  "Florida St.": {
+    "name": "Florida St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/florida-st.svg"
+  },
+  "Florida Tech": {
+    "name": "Florida Tech",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/florida-tech.svg"
+  },
+  "Fordham": {
+    "name": "Fordham",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/fordham.svg"
+  },
+  "Fort Hays St.": {
+    "name": "Fort Hays St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/fort-hays-st.svg"
+  },
+  "Fort Lewis": {
+    "name": "Fort Lewis",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/fort-lewis.svg"
+  },
+  "Fort Valley St.": {
+    "name": "Fort Valley St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/fort-valley-st.svg"
+  },
+  "Framingham St.": {
+    "name": "Framingham St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/framingham-st.svg"
+  },
+  "Franklin (IN)": {
+    "name": "Franklin (IN)",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/franklin.svg"
+  },
+  "Fresno St.": {
+    "name": "Fresno St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/fresno-st.svg"
+  },
+  "Frostburg St.": {
+    "name": "Frostburg St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/frostburg-st.svg"
+  },
+  "Furman": {
+    "name": "Furman",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/furman.svg"
+  },
+  "Georgia Southern": {
+    "name": "Georgia Southern",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/ga-southern.svg"
+  },
+  "Gannon University": {
+    "name": "Gannon University",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/gannon.svg"
+  },
+  "Gardner-Webb": {
+    "name": "Gardner-Webb",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/gardner-webb.svg"
+  },
+  "Geneva": {
+    "name": "Geneva",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/geneva.svg"
+  },
+  "George Fox": {
+    "name": "George Fox",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/george-fox.svg"
+  },
+  "George Mason": {
+    "name": "George Mason",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/george-mason.svg"
+  },
+  "George Washington": {
+    "name": "George Washington",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/george-washington.svg"
+  },
+  "Georgetown": {
+    "name": "Georgetown",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/georgetown.svg"
+  },
+  "Georgia": {
+    "name": "Georgia",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/georgia.svg"
+  },
+  "Georgia St.": {
+    "name": "Georgia St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/georgia-st.svg"
+  },
+  "Georgia Tech": {
+    "name": "Georgia Tech",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/georgia-tech.svg"
+  },
+  "Gettysburg": {
+    "name": "Gettysburg",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/gettysburg.svg"
+  },
+  "Gonzaga": {
+    "name": "Gonzaga",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/gonzaga.svg"
+  },
+  "Grambling St.": {
+    "name": "Grambling St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/grambling.svg"
+  },
+  "Grand Canyon University": {
+    "name": "Grand Canyon University",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/grand-canyon.svg"
+  },
+  "Grand Valley St.": {
+    "name": "Grand Valley St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/grand-valley-st.svg"
+  },
+  "Green Bay": {
+    "name": "Green Bay",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/green-bay.svg"
+  },
+  "Greenville": {
+    "name": "Greenville",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/greenville.svg"
+  },
+  "Grinnell": {
+    "name": "Grinnell",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/grinnell.svg"
+  },
+  "Grove City": {
+    "name": "Grove City",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/grove-city.svg"
+  },
+  "Guilford": {
+    "name": "Guilford",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/guilford.svg"
+  },
+  "Gustavus Adolphus": {
+    "name": "Gustavus Adolphus",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/gust-adolphus.svg"
+  },
+  "Hamline": {
+    "name": "Hamline",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/hamline.svg"
+  },
+  "Hampden-Sydney": {
+    "name": "Hampden-Sydney",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/hampden-sydney.svg"
+  },
+  "Hampton": {
+    "name": "Hampton",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/hampton.svg"
+  },
+  "Hanover College": {
+    "name": "Hanover College",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/hanover.svg"
+  },
+  "Hardin-Simmons": {
+    "name": "Hardin-Simmons",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/hardin-simmons.svg"
+  },
+  "Harding": {
+    "name": "Harding",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/harding.svg"
+  },
+  "University of Hartford": {
+    "name": "University of Hartford",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/hartford.svg"
+  },
+  "Harvard": {
+    "name": "Harvard",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/harvard.svg"
+  },
+  "Hawaii": {
+    "name": "Hawaii",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/hawaii.svg"
+  },
+  "Heidelberg": {
+    "name": "Heidelberg",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/heidelberg.svg"
+  },
+  "Henderson St.": {
+    "name": "Henderson St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/henderson-st.svg"
+  },
+  "High Point University": {
+    "name": "High Point University",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/high-point.svg"
+  },
+  "Hillsdale": {
+    "name": "Hillsdale",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/hillsdale.svg"
+  },
+  "Hiram": {
+    "name": "Hiram",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/hiram.svg"
+  },
+  "Hobart": {
+    "name": "Hobart",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/hobart.svg"
+  },
+  "Hofstra": {
+    "name": "Hofstra",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/hofstra.svg"
+  },
+  "Holy Cross": {
+    "name": "Holy Cross",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/holy-cross.svg"
+  },
+  "Houston": {
+    "name": "Houston",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/houston.svg"
+  },
+  "Houston Christian": {
+    "name": "Houston Christian",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/houston-christian.svg"
+  },
+  "Howard": {
+    "name": "Howard",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/howard.svg"
+  },
+  "Howard Payne": {
+    "name": "Howard Payne",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/howard-payne.svg"
+  },
+  "Idaho": {
+    "name": "Idaho",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/idaho.svg"
+  },
+  "Idaho St.": {
+    "name": "Idaho St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/idaho-st.svg"
+  },
+  "Illinois Tech": {
+    "name": "Illinois Tech",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/iit.svg"
+  },
+  "Illinois Wesleyan": {
+    "name": "Illinois Wesleyan",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/ill-wesleyan.svg"
+  },
+  "Illinois": {
+    "name": "Illinois",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/illinois-col.svg"
+  },
+  "Illinois St.": {
+    "name": "Illinois St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/illinois-st.svg"
+  },
+  "Incarnate Word": {
+    "name": "Incarnate Word",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/incarnate-word.svg"
+  },
+  "Indiana": {
+    "name": "Indiana",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/indiana.svg"
+  },
+  "Indiana (PA)": {
+    "name": "Indiana (PA)",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/indiana-pa.svg"
+  },
+  "Indiana St.": {
+    "name": "Indiana St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/indiana-st.svg"
+  },
+  "Indianapolis": {
+    "name": "Indianapolis",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/indianapolis.svg"
+  },
+  "Iona": {
+    "name": "Iona",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/iona.svg"
+  },
+  "Iowa": {
+    "name": "Iowa",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/iowa.svg"
+  },
+  "Iowa St.": {
+    "name": "Iowa St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/iowa-st.svg"
+  },
+  "Iowa Wesleyan": {
+    "name": "Iowa Wesleyan",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/iowa-wesleyan.svg"
+  },
+  "Ithaca": {
+    "name": "Ithaca",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/ithaca.svg"
+  },
+  "Jackson St.": {
+    "name": "Jackson St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/jackson-st.svg"
+  },
+  "Jacksonville": {
+    "name": "Jacksonville",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/jacksonville.svg"
+  },
+  "Jacksonville St.": {
+    "name": "Jacksonville St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/jacksonville-st.svg"
+  },
+  "James Madison": {
+    "name": "James Madison",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/james-madison.svg"
+  },
+  "John Carroll": {
+    "name": "John Carroll",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/john-carroll.svg"
+  },
+  "Johnson C. Smith": {
+    "name": "Johnson C. Smith",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/johnson-c-smith.svg"
+  },
+  "Kalamazoo": {
+    "name": "Kalamazoo",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/kalamazoo.svg"
+  },
+  "Kansas": {
+    "name": "Kansas",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/kansas.svg"
+  },
+  "Kansas St.": {
+    "name": "Kansas St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/kansas-st.svg"
+  },
+  "Kennesaw St.": {
+    "name": "Kennesaw St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/kennesaw-st.svg"
+  },
+  "Kent St.": {
+    "name": "Kent St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/kent-st.svg"
+  },
+  "Kentucky": {
+    "name": "Kentucky",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/kentucky.svg"
+  },
+  "Kentucky St.": {
+    "name": "Kentucky St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/kentucky-st.svg"
+  },
+  "Kenyon": {
+    "name": "Kenyon",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/kenyon.svg"
+  },
+  "King's College": {
+    "name": "King's College",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/kings-pa.svg"
+  },
+  "Knox": {
+    "name": "Knox",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/knox.svg"
+  },
+  "Kentucky Wesleyan": {
+    "name": "Kentucky Wesleyan",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/ky-wesleyan.svg"
+  },
+  "La Salle": {
+    "name": "La Salle",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/la-salle.svg"
+  },
+  "La Verne": {
+    "name": "La Verne",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/la-verne.svg"
+  },
+  "Lafayette": {
+    "name": "Lafayette",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/lafayette.svg"
+  },
+  "Lake Forest": {
+    "name": "Lake Forest",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/lake-forest.svg"
+  },
+  "Lakeland": {
+    "name": "Lakeland",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/lakeland.svg"
+  },
+  "Lamar": {
+    "name": "Lamar",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/lamar.svg"
+  },
+  "Lambuth": {
+    "name": "Lambuth",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/lambuth.svg"
+  },
+  "Lane": {
+    "name": "Lane",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/lane.svg"
+  },
+  "Langston": {
+    "name": "Langston",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/langston.svg"
+  },
+  "Lawrence": {
+    "name": "Lawrence",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/lawrence.svg"
+  },
+  "Lebanon Valley": {
+    "name": "Lebanon Valley",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/lebanon-valley.svg"
+  },
+  "Lehigh": {
+    "name": "Lehigh",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/lehigh.svg"
+  },
+  "LeMoyne-Owen College": {
+    "name": "LeMoyne-Owen College",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/lemoyne-owen.svg"
+  },
+  "Lenoir-Rhyne": {
+    "name": "Lenoir-Rhyne",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/lenoir-rhyne.svg"
+  },
+  "Lewis & Clark": {
+    "name": "Lewis & Clark",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/lewis-clark.svg"
+  },
+  "Liberty": {
+    "name": "Liberty",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/liberty.svg"
+  },
+  "Limestone": {
+    "name": "Limestone",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/limestone.svg"
+  },
+  "Lincoln Memorial": {
+    "name": "Lincoln Memorial",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/lincoln-memorial.svg"
+  },
+  "Lincoln (MO)": {
+    "name": "Lincoln (MO)",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/lincoln-mo.svg"
+  },
+  "Lindenwood": {
+    "name": "Lindenwood",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/lindenwood-mo.svg"
+  },
+  "Linfield": {
+    "name": "Linfield",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/linfield.svg"
+  },
+  "Lipscomb": {
+    "name": "Lipscomb",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/lipscomb.svg"
+  },
+  "Livingstone": {
+    "name": "Livingstone",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/livingstone.svg"
+  },
+  "Lock Haven": {
+    "name": "Lock Haven",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/lock-haven.svg"
+  },
+  "Long Beach St.": {
+    "name": "Long Beach St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/long-beach-st.svg"
+  },
+  "Long Island": {
+    "name": "Long Island",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/long-island.svg"
+  },
+  "Longwood University": {
+    "name": "Longwood University",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/longwood.svg"
+  },
+  "Loras": {
+    "name": "Loras",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/loras.svg"
+  },
+  "Louisiana College": {
+    "name": "Louisiana College",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/louisiana-col.svg"
+  },
+  "Louisiana Tech": {
+    "name": "Louisiana Tech",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/louisiana-tech.svg"
+  },
+  "Louisville": {
+    "name": "Louisville",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/louisville.svg"
+  },
+  "Loyola Chicago": {
+    "name": "Loyola Chicago",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/loyola-chicago.svg"
+  },
+  "Loyola Marymount": {
+    "name": "Loyola Marymount",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/loyola-marymount.svg"
+  },
+  "LSU": {
+    "name": "LSU",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/lsu.svg"
+  },
+  "Luther": {
+    "name": "Luther",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/luther.svg"
+  },
+  "Macalester": {
+    "name": "Macalester",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/macalester.svg"
+  },
+  "MacMurray": {
+    "name": "MacMurray",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/macmurray.svg"
+  },
+  "Maine": {
+    "name": "Maine",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/maine.svg"
+  },
+  "Malone": {
+    "name": "Malone",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/malone.svg"
+  },
+  "Manchester": {
+    "name": "Manchester",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/manchester.svg"
+  },
+  "Manhattan": {
+    "name": "Manhattan",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/manhattan.svg"
+  },
+  "Marian": {
+    "name": "Marian",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/marian-wi.svg"
+  },
+  "Marietta": {
+    "name": "Marietta",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/marietta.svg"
+  },
+  "Marist": {
+    "name": "Marist",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/marist.svg"
+  },
+  "Marquette": {
+    "name": "Marquette",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/marquette.svg"
+  },
+  "Mars Hill": {
+    "name": "Mars Hill",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/mars-hill.svg"
+  },
+  "Marshall": {
+    "name": "Marshall",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/marshall.svg"
+  },
+  "Mary Hardin-Baylor": {
+    "name": "Mary Hardin-Baylor",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/mary-hardin-baylor.svg"
+  },
+  "Maryland": {
+    "name": "Maryland",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/maryland.svg"
+  },
+  "UMass": {
+    "name": "UMass",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/massachusetts.svg"
+  },
+  "McKendree University": {
+    "name": "McKendree University",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/mckendree.svg"
+  },
+  "McMurry": {
+    "name": "McMurry",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/mcmurry.svg"
+  },
+  "McNeese St.": {
+    "name": "McNeese St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/mcneese-st.svg"
+  },
+  "Memphis": {
+    "name": "Memphis",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/memphis.svg"
+  },
+  "Menlo": {
+    "name": "Menlo",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/menlo.svg"
+  },
+  "Mercer": {
+    "name": "Mercer",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/mercer.svg"
+  },
+  "Merchant Marine": {
+    "name": "Merchant Marine",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/merchant-marine.svg"
+  },
+  "Mercyhurst": {
+    "name": "Mercyhurst",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/mercyhurst.svg"
+  },
+  "Miami (OH)": {
+    "name": "Miami (OH)",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/miami-oh.svg"
+  },
+  "Miami (FL)": {
+    "name": "Miami (FL)",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/miami-fl.svg"
+  },
+  "Michigan": {
+    "name": "Michigan",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/michigan.svg"
+  },
+  "Michigan St.": {
+    "name": "Michigan St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/michigan-st.svg"
+  },
+  "Michigan Tech": {
+    "name": "Michigan Tech",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/michigan-tech.svg"
+  },
+  "Middlebury": {
+    "name": "Middlebury",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/middlebury.svg"
+  },
+  "Midwestern St.": {
+    "name": "Midwestern St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/midwestern-st.svg"
+  },
+  "Miles": {
+    "name": "Miles",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/miles.svg"
+  },
+  "Millersville": {
+    "name": "Millersville",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/millersville.svg"
+  },
+  "Millikin": {
+    "name": "Millikin",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/millikin.svg"
+  },
+  "Millsaps": {
+    "name": "Millsaps",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/millsaps.svg"
+  },
+  "Minnesota-Crookston": {
+    "name": "Minnesota-Crookston",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/minn-crookston.svg"
+  },
+  "Minnesota-Duluth": {
+    "name": "Minnesota-Duluth",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/minn-duluth.svg"
+  },
+  "Minnesota": {
+    "name": "Minnesota",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/minnesota.svg"
+  },
+  "Minot St.": {
+    "name": "Minot St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/minot-st.svg"
+  },
+  "Mississippi Col.": {
+    "name": "Mississippi Col.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/mississippi-col.svg"
+  },
+  "Mississippi St.": {
+    "name": "Mississippi St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/mississippi-st.svg"
+  },
+  "Miss. Valley St.": {
+    "name": "Miss. Valley St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/mississippi-val.svg"
+  },
+  "Missouri": {
+    "name": "Missouri",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/missouri.svg"
+  },
+  "Missouri S&T": {
+    "name": "Missouri S&T",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/missouri-snt.svg"
+  },
+  "Missouri State": {
+    "name": "Missouri State",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/missouri-st.svg"
+  },
+  "Missouri Western St.": {
+    "name": "Missouri Western St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/mo-western-st.svg"
+  },
+  "Molloy": {
+    "name": "Molloy",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/molloy.svg"
+  },
+  "Monmouth": {
+    "name": "Monmouth",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/monmouth.svg"
+  },
+  "Monmouth (IL)": {
+    "name": "Monmouth (IL)",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/monmouth-il.svg"
+  },
+  "Montana": {
+    "name": "Montana",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/montana.svg"
+  },
+  "Montana St.": {
+    "name": "Montana St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/montana-st.svg"
+  },
+  "Montclair St.": {
+    "name": "Montclair St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/montclair-st.svg"
+  },
+  "University of Montevallo": {
+    "name": "University of Montevallo",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/montevallo.svg"
+  },
+  "Moravian": {
+    "name": "Moravian",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/moravian.svg"
+  },
+  "Morehead St.": {
+    "name": "Morehead St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/morehead-st.svg"
+  },
+  "Morehouse": {
+    "name": "Morehouse",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/morehouse.svg"
+  },
+  "Morgan St.": {
+    "name": "Morgan St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/morgan-st.svg"
+  },
+  "Morningside": {
+    "name": "Morningside",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/morningside.svg"
+  },
+  "Morris Brown": {
+    "name": "Morris Brown",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/morris-brown.svg"
+  },
+  "Mount Union": {
+    "name": "Mount Union",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/mount-union.svg"
+  },
+  "Mount St. Mary's": {
+    "name": "Mount St. Mary's",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/mt-st-marys.svg"
+  },
+  "Muhlenberg": {
+    "name": "Muhlenberg",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/muhlenberg.svg"
+  },
+  "Murray St.": {
+    "name": "Murray St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/murray-st.svg"
+  },
+  "Muskingum": {
+    "name": "Muskingum",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/muskingum.svg"
+  },
+  "Navy": {
+    "name": "Navy",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/navy.svg"
+  },
+  "North Carolina A&T": {
+    "name": "North Carolina A&T",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/nc-at.svg"
+  },
+  "NC Central": {
+    "name": "NC Central",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/nc-central.svg"
+  },
+  "Nebraska-Kearney": {
+    "name": "Nebraska-Kearney",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/neb-kearney.svg"
+  },
+  "Nebraska-Omaha": {
+    "name": "Nebraska-Omaha",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/neb-omaha.svg"
+  },
+  "Nebraska Wesleyan": {
+    "name": "Nebraska Wesleyan",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/neb-wesleyan.svg"
+  },
+  "Nebraska": {
+    "name": "Nebraska",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/nebraska.svg"
+  },
+  "Nevada": {
+    "name": "Nevada",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/nevada.svg"
+  },
+  "New Hampshire": {
+    "name": "New Hampshire",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/new-hampshire.svg"
+  },
+  "New Haven": {
+    "name": "New Haven",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/new-haven.svg"
+  },
+  "New Mexico": {
+    "name": "New Mexico",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/new-mexico.svg"
+  },
+  "New Mexico St.": {
+    "name": "New Mexico St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/new-mexico-st.svg"
+  },
+  "New Orleans": {
+    "name": "New Orleans",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/new-orleans.svg"
+  },
+  "Newberry": {
+    "name": "Newberry",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/newberry.svg"
+  },
+  "Niagara": {
+    "name": "Niagara",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/niagara.svg"
+  },
+  "Nicholls St.": {
+    "name": "Nicholls St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/nicholls-st.svg"
+  },
+  "New Mexico Highlands University": {
+    "name": "New Mexico Highlands University",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/nm-highlands.svg"
+  },
+  "Norfolk St.": {
+    "name": "Norfolk St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/norfolk-st.svg"
+  },
+  "North Alabama": {
+    "name": "North Alabama",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/north-ala.svg"
+  },
+  "North Carolina": {
+    "name": "North Carolina",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/north-carolina.svg"
+  },
+  "NC State": {
+    "name": "NC State",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/north-carolina-st.svg"
+  },
+  "North Central": {
+    "name": "North Central",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/north-central-mn.svg"
+  },
+  "North Dakota": {
+    "name": "North Dakota",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/north-dakota.svg"
+  },
+  "North Dakota St.": {
+    "name": "North Dakota St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/north-dakota-st.svg"
+  },
+  "North Greenville": {
+    "name": "North Greenville",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/north-greenville.svg"
+  },
+  "North Park": {
+    "name": "North Park",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/north-park.svg"
+  },
+  "North Texas": {
+    "name": "North Texas",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/north-texas.svg"
+  },
+  "Northeastern": {
+    "name": "Northeastern",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/northeastern.svg"
+  },
+  "NE State (OK)": {
+    "name": "NE State (OK)",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/northeastern-st.svg"
+  },
+  "Northern Arizona": {
+    "name": "Northern Arizona",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/northern-ariz.svg"
+  },
+  "Northern Colorado": {
+    "name": "Northern Colorado",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/northern-colo.svg"
+  },
+  "Northern Illinois": {
+    "name": "Northern Illinois",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/northern-ill.svg"
+  },
+  "Northern Michigan": {
+    "name": "Northern Michigan",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/northern-mich.svg"
+  },
+  "NW Missouri St.": {
+    "name": "NW Missouri St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/northwest-mo-st.svg"
+  },
+  "Northwestern": {
+    "name": "Northwestern",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/northwestern.svg"
+  },
+  "Northwestern State University": {
+    "name": "Northwestern State University",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/northwestern-st.svg"
+  },
+  "Norwich": {
+    "name": "Norwich",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/norwich.svg"
+  },
+  "Notre Dame": {
+    "name": "Notre Dame",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/notre-dame.svg"
+  },
+  "Notre Dame (OH)": {
+    "name": "Notre Dame (OH)",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/notre-dame-oh.svg"
+  },
+  "Oakland": {
+    "name": "Oakland",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/oakland.svg"
+  },
+  "Oberlin": {
+    "name": "Oberlin",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/oberlin.svg"
+  },
+  "Occidental": {
+    "name": "Occidental",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/occidental.svg"
+  },
+  "Oglethorpe": {
+    "name": "Oglethorpe",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/oglethorpe.svg"
+  },
+  "Ohio": {
+    "name": "Ohio",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/ohio.svg"
+  },
+  "Ohio Dominican": {
+    "name": "Ohio Dominican",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/ohio-dominican.svg"
+  },
+  "Ohio Northern": {
+    "name": "Ohio Northern",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/ohio-northern.svg"
+  },
+  "Ohio St.": {
+    "name": "Ohio St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/ohio-st.svg"
+  },
+  "Ohio Wesleyan": {
+    "name": "Ohio Wesleyan",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/ohio-wesleyan.svg"
+  },
+  "Oklahoma Baptist": {
+    "name": "Oklahoma Baptist",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/okla-baptist.svg"
+  },
+  "Oklahoma": {
+    "name": "Oklahoma",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/oklahoma.svg"
+  },
+  "Oklahoma St.": {
+    "name": "Oklahoma St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/oklahoma-st.svg"
+  },
+  "Old Dominion": {
+    "name": "Old Dominion",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/old-dominion.svg"
+  },
+  "Ole Miss": {
+    "name": "Ole Miss",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/ole-miss.svg"
+  },
+  "Olivet": {
+    "name": "Olivet",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/olivet.svg"
+  },
+  "Oral Roberts": {
+    "name": "Oral Roberts",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/oral-roberts.svg"
+  },
+  "Oregon": {
+    "name": "Oregon",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/oregon.svg"
+  },
+  "Oregon St.": {
+    "name": "Oregon St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/oregon-st.svg"
+  },
+  "Otterbein": {
+    "name": "Otterbein",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/otterbein.svg"
+  },
+  "Ouachita Baptist": {
+    "name": "Ouachita Baptist",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/ouachita-baptist.svg"
+  },
+  "Pacific": {
+    "name": "Pacific",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/pacific.svg"
+  },
+  "Pacific Lutheran": {
+    "name": "Pacific Lutheran",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/pacific-lutheran.svg"
+  },
+  "Pacific (OR)": {
+    "name": "Pacific (OR)",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/pacific-or.svg"
+  },
+  "Penn": {
+    "name": "Penn",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/penn.svg"
+  },
+  "Penn St.": {
+    "name": "Penn St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/penn-st.svg"
+  },
+  "Pepperdine": {
+    "name": "Pepperdine",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/pepperdine.svg"
+  },
+  "Pfeiffer University": {
+    "name": "Pfeiffer University",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/pfeiffer.svg"
+  },
+  "Pittsburgh-Johnstown": {
+    "name": "Pittsburgh-Johnstown",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/pitt-johnstown.svg"
+  },
+  "Pitt": {
+    "name": "Pitt",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/pittsburgh.svg"
+  },
+  "Plymouth St.": {
+    "name": "Plymouth St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/plymouth-st.svg"
+  },
+  "Portland": {
+    "name": "Portland",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/portland.svg"
+  },
+  "Portland St.": {
+    "name": "Portland St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/portland-st.svg"
+  },
+  "Prairie View A&M": {
+    "name": "Prairie View A&M",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/prairie-view.svg"
+  },
+  "Presbyterian": {
+    "name": "Presbyterian",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/presbyterian.svg"
+  },
+  "Princeton": {
+    "name": "Princeton",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/princeton.svg"
+  },
+  "Principia": {
+    "name": "Principia",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/principia.svg"
+  },
+  "Providence": {
+    "name": "Providence",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/providence.svg"
+  },
+  "Puget Sound": {
+    "name": "Puget Sound",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/puget-sound.svg"
+  },
+  "Purdue": {
+    "name": "Purdue",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/purdue.svg"
+  },
+  "Queens College": {
+    "name": "Queens College",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/queens-ny.svg"
+  },
+  "Radford": {
+    "name": "Radford",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/radford.svg"
+  },
+  "Randolph-Macon": {
+    "name": "Randolph-Macon",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/randolph-macon.svg"
+  },
+  "Redlands": {
+    "name": "Redlands",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/redlands.svg"
+  },
+  "Regis": {
+    "name": "Regis",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/regis-ma.svg"
+  },
+  "Rensselaer Polytechnic Institute": {
+    "name": "Rensselaer Polytechnic Institute",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/rensselaer.svg"
+  },
+  "Rhode Island": {
+    "name": "Rhode Island",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/rhode-island-col.svg"
+  },
+  "Rhodes": {
+    "name": "Rhodes",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/rhodes.svg"
+  },
+  "Rice": {
+    "name": "Rice",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/rice.svg"
+  },
+  "Richmond": {
+    "name": "Richmond",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/richmond.svg"
+  },
+  "Rider": {
+    "name": "Rider",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/rider.svg"
+  },
+  "Ripon": {
+    "name": "Ripon",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/ripon.svg"
+  },
+  "Robert Morris": {
+    "name": "Robert Morris",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/robert-morris.svg"
+  },
+  "Rochester": {
+    "name": "Rochester",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/rochester-ny.svg"
+  },
+  "Rockhurst University": {
+    "name": "Rockhurst University",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/rockhurst.svg"
+  },
+  "Rowan": {
+    "name": "Rowan",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/rowan.svg"
+  },
+  "Rust": {
+    "name": "Rust",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/rust.svg"
+  },
+  "Rutgers": {
+    "name": "Rutgers",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/rutgers.svg"
+  },
+  "Rutgers-Camden": {
+    "name": "Rutgers-Camden",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/rutgers-camden.svg"
+  },
+  "Sacramento St.": {
+    "name": "Sacramento St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/sacramento-st.svg"
+  },
+  "Sacred Heart": {
+    "name": "Sacred Heart",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/sacred-heart.svg"
+  },
+  "St. Joseph's (PA)": {
+    "name": "St. Joseph's (PA)",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/saint-josephs.svg"
+  },
+  "St. Leo": {
+    "name": "St. Leo",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/saint-leo.svg"
+  },
+  "St. Louis": {
+    "name": "St. Louis",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/saint-louis.svg"
+  },
+  "St. Vincent": {
+    "name": "St. Vincent",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/saint-vincent.svg"
+  },
+  "Salem": {
+    "name": "Salem",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/salem-intl.svg"
+  },
+  "Salisbury": {
+    "name": "Salisbury",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/salisbury.svg"
+  },
+  "Sam Houston St.": {
+    "name": "Sam Houston St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/sam-houston-st.svg"
+  },
+  "Samford": {
+    "name": "Samford",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/samford.svg"
+  },
+  "San Diego": {
+    "name": "San Diego",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/san-diego.svg"
+  },
+  "San Diego St.": {
+    "name": "San Diego St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/san-diego-st.svg"
+  },
+  "San Francisco": {
+    "name": "San Francisco",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/san-francisco.svg"
+  },
+  "San Jose St.": {
+    "name": "San Jose St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/san-jose-st.svg"
+  },
+  "Santa Clara": {
+    "name": "Santa Clara",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/santa-clara.svg"
+  },
+  "Savannah St.": {
+    "name": "Savannah St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/savannah-st.svg"
+  },
+  "Scranton": {
+    "name": "Scranton",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/scranton.svg"
+  },
+  "Seattle": {
+    "name": "Seattle",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/seattle.svg"
+  },
+  "Seattle Pacific University": {
+    "name": "Seattle Pacific University",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/seattle-pacific.svg"
+  },
+  "Seton Hall": {
+    "name": "Seton Hall",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/seton-hall.svg"
+  },
+  "Shaw": {
+    "name": "Shaw",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/shaw.svg"
+  },
+  "Shepherd": {
+    "name": "Shepherd",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/shepherd.svg"
+  },
+  "Shippensburg": {
+    "name": "Shippensburg",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/shippensburg.svg"
+  },
+  "Shorter University": {
+    "name": "Shorter University",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/shorter.svg"
+  },
+  "Siena College": {
+    "name": "Siena College",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/siena.svg"
+  },
+  "Simon Fraser": {
+    "name": "Simon Fraser",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/simon-fraser.svg"
+  },
+  "Simpson": {
+    "name": "Simpson",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/simpson.svg"
+  },
+  "Sioux Falls": {
+    "name": "Sioux Falls",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/sioux-falls.svg"
+  },
+  "Slippery Rock": {
+    "name": "Slippery Rock",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/slippery-rock.svg"
+  },
+  "SMU": {
+    "name": "SMU",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/smu.svg"
+  },
+  "Sonoma St.": {
+    "name": "Sonoma St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/sonoma-st.svg"
+  },
+  "South Alabama": {
+    "name": "South Alabama",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/south-ala.svg"
+  },
+  "South Carolina": {
+    "name": "South Carolina",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/south-carolina.svg"
+  },
+  "South Carolina St.": {
+    "name": "South Carolina St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/south-carolina-st.svg"
+  },
+  "South Dakota": {
+    "name": "South Dakota",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/south-dakota.svg"
+  },
+  "South Dakota St.": {
+    "name": "South Dakota St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/south-dakota-st.svg"
+  },
+  "South Florida": {
+    "name": "South Florida",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/south-fla.svg"
+  },
+  "Southeastern Louisiana": {
+    "name": "Southeastern Louisiana",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/southeastern-la.svg"
+  },
+  "Southern Arkansas": {
+    "name": "Southern Arkansas",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/southern-ark.svg"
+  },
+  "Southern Connecticut St.": {
+    "name": "Southern Connecticut St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/southern-conn-st.svg"
+  },
+  "Southern Illinois": {
+    "name": "Southern Illinois",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/southern-ill.svg"
+  },
+  "Southern": {
+    "name": "Southern",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/southern-u.svg"
+  },
+  "Southern Utah": {
+    "name": "Southern Utah",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/southern-utah.svg"
+  },
+  "Southwestern (TX)": {
+    "name": "Southwestern (TX)",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/southwestern-tx.svg"
+  },
+  "Spring Hill": {
+    "name": "Spring Hill",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/spring-hill.svg"
+  },
+  "Springfield": {
+    "name": "Springfield",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/springfield.svg"
+  },
+  "St. Anselm": {
+    "name": "St. Anselm",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/st-anselm.svg"
+  },
+  "St. Augustine's": {
+    "name": "St. Augustine's",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/st-augustines.svg"
+  },
+  "St. Bonaventure": {
+    "name": "St. Bonaventure",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/st-bonaventure.svg"
+  },
+  "St. Edward's": {
+    "name": "St. Edward's",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/st-edwards.svg"
+  },
+  "St. Francis (PA)": {
+    "name": "St. Francis (PA)",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/st-francis-pa.svg"
+  },
+  "St. John's (NY)": {
+    "name": "St. John's (NY)",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/st-johns-ny.svg"
+  },
+  "St. Joseph's (IN)": {
+    "name": "St. Joseph's (IN)",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/st-josephs-in.svg"
+  },
+  "St. Lawrence": {
+    "name": "St. Lawrence",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/st-lawrence.svg"
+  },
+  "St. Mary's (CA)": {
+    "name": "St. Mary's (CA)",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/st-marys-ca.svg"
+  },
+  "St. Mary's (TX)": {
+    "name": "St. Mary's (TX)",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/st-marys-tx.svg"
+  },
+  "St. Norbert": {
+    "name": "St. Norbert",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/st-norbert.svg"
+  },
+  "St. Olaf": {
+    "name": "St. Olaf",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/st-olaf.svg"
+  },
+  "St. Paul's": {
+    "name": "St. Paul's",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/st-pauls.svg"
+  },
+  "St. Thomas": {
+    "name": "St. Thomas",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/st-thomas-fl.svg"
+  },
+  "Stanford": {
+    "name": "Stanford",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/stanford.svg"
+  },
+  "Stephen F. Austin": {
+    "name": "Stephen F. Austin",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/stephen-f-austin.svg"
+  },
+  "Stetson": {
+    "name": "Stetson",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/stetson.svg"
+  },
+  "Stillman": {
+    "name": "Stillman",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/stillman.svg"
+  },
+  "Stony Brook": {
+    "name": "Stony Brook",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/stony-brook.svg"
+  },
+  "Sul Ross St.": {
+    "name": "Sul Ross St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/sul-ross-st.svg"
+  },
+  "Swarthmore": {
+    "name": "Swarthmore",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/swarthmore.svg"
+  },
+  "Syracuse": {
+    "name": "Syracuse",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/syracuse.svg"
+  },
+  "Tampa": {
+    "name": "Tampa",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/tampa.svg"
+  },
+  "Tarleton St.": {
+    "name": "Tarleton St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/tarleton-st.svg"
+  },
+  "TCU": {
+    "name": "TCU",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/tcu.svg"
+  },
+  "Temple": {
+    "name": "Temple",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/temple.svg"
+  },
+  "Tennessee": {
+    "name": "Tennessee",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/tennessee.svg"
+  },
+  "Tennessee St.": {
+    "name": "Tennessee St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/tennessee-st.svg"
+  },
+  "Tennessee Tech": {
+    "name": "Tennessee Tech",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/tennessee-tech.svg"
+  },
+  "Texas A&M-Kingsville": {
+    "name": "Texas A&M-Kingsville",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/tex-am-kingsville.svg"
+  },
+  "Texas": {
+    "name": "Texas",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/texas.svg"
+  },
+  "Texas A&M": {
+    "name": "Texas A&M",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/texas-am.svg"
+  },
+  "Texas Southern": {
+    "name": "Texas Southern",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/texas-southern.svg"
+  },
+  "Texas St.": {
+    "name": "Texas St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/texas-st.svg"
+  },
+  "Texas Tech": {
+    "name": "Texas Tech",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/texas-tech.svg"
+  },
+  "Texas Wesleyan University": {
+    "name": "Texas Wesleyan University",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/texas-wesleyan.svg"
+  },
+  "Thiel": {
+    "name": "Thiel",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/thiel.svg"
+  },
+  "Tiffin": {
+    "name": "Tiffin",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/tiffin.svg"
+  },
+  "Toledo": {
+    "name": "Toledo",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/toledo.svg"
+  },
+  "Towson": {
+    "name": "Towson",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/towson.svg"
+  },
+  "Trinity (CT)": {
+    "name": "Trinity (CT)",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/trinity-ct.svg"
+  },
+  "Trinity (TX)": {
+    "name": "Trinity (TX)",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/trinity-tx.svg"
+  },
+  "Troy": {
+    "name": "Troy",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/troy.svg"
+  },
+  "Truman St.": {
+    "name": "Truman St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/truman.svg"
+  },
+  "Tufts": {
+    "name": "Tufts",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/tufts.svg"
+  },
+  "Tulane": {
+    "name": "Tulane",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/tulane.svg"
+  },
+  "Tulsa": {
+    "name": "Tulsa",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/tulsa.svg"
+  },
+  "Tusculum": {
+    "name": "Tusculum",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/tusculum.svg"
+  },
+  "Tuskegee": {
+    "name": "Tuskegee",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/tuskegee.svg"
+  },
+  "UAB": {
+    "name": "UAB",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/uab.svg"
+  },
+  "Little Rock": {
+    "name": "Little Rock",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/ualr.svg"
+  },
+  "UC Davis": {
+    "name": "UC Davis",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/uc-davis.svg"
+  },
+  "UC Irvine": {
+    "name": "UC Irvine",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/uc-irvine.svg"
+  },
+  "UC Riverside": {
+    "name": "UC Riverside",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/uc-riverside.svg"
+  },
+  "UC Santa Barbara": {
+    "name": "UC Santa Barbara",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/uc-santa-barbara.svg"
+  },
+  "Central Florida": {
+    "name": "Central Florida",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/ucf.svg"
+  },
+  "UCLA": {
+    "name": "UCLA",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/ucla.svg"
+  },
+  "Missouri-Kansas City": {
+    "name": "Missouri-Kansas City",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/umkc.svg"
+  },
+  "UNC Wilmington": {
+    "name": "UNC Wilmington",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/unc-wilmington.svg"
+  },
+  "Northern Iowa": {
+    "name": "Northern Iowa",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/uni.svg"
+  },
+  "Union (NY)": {
+    "name": "Union (NY)",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/union-ny.svg"
+  },
+  "UNLV": {
+    "name": "UNLV",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/unlv.svg"
+  },
+  "Upper Iowa": {
+    "name": "Upper Iowa",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/upper-iowa.svg"
+  },
+  "Urbana": {
+    "name": "Urbana",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/urbana.svg"
+  },
+  "Ursinus": {
+    "name": "Ursinus",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/ursinus.svg"
+  },
+  "UT Martin": {
+    "name": "UT Martin",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/ut-martin.svg"
+  },
+  "Utah": {
+    "name": "Utah",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/utah.svg"
+  },
+  "Utah St.": {
+    "name": "Utah St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/utah-st.svg"
+  },
+  "Utah Valley": {
+    "name": "Utah Valley",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/utah-valley.svg"
+  },
+  "University of Texas Rio Grande Valley": {
+    "name": "University of Texas Rio Grande Valley",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/utrgv.svg"
+  },
+  "Valdosta St.": {
+    "name": "Valdosta St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/valdosta-st.svg"
+  },
+  "Valparaiso": {
+    "name": "Valparaiso",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/valparaiso.svg"
+  },
+  "Vanderbilt": {
+    "name": "Vanderbilt",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/vanderbilt.svg"
+  },
+  "VCU": {
+    "name": "VCU",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/vcu.svg"
+  },
+  "University of Vermont": {
+    "name": "University of Vermont",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/vermont.svg"
+  },
+  "Villanova": {
+    "name": "Villanova",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/villanova.svg"
+  },
+  "Virginia": {
+    "name": "Virginia",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/virginia.svg"
+  },
+  "Virginia St.": {
+    "name": "Virginia St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/virginia-st.svg"
+  },
+  "Virginia Tech": {
+    "name": "Virginia Tech",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/virginia-tech.svg"
+  },
+  "Virginia Union": {
+    "name": "Virginia Union",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/virginia-union.svg"
+  },
+  "VMI": {
+    "name": "VMI",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/vmi.svg"
+  },
+  "Wabash": {
+    "name": "Wabash",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/wabash.svg"
+  },
+  "Wagner": {
+    "name": "Wagner",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/wagner.svg"
+  },
+  "Wake Forest": {
+    "name": "Wake Forest",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/wake-forest.svg"
+  },
+  "Walsh University": {
+    "name": "Walsh University",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/walsh.svg"
+  },
+  "Washburn": {
+    "name": "Washburn",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/washburn.svg"
+  },
+  "Washington": {
+    "name": "Washington",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/washington.svg"
+  },
+  "Washington St.": {
+    "name": "Washington St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/washington.svg"
+  },
+  "Wayne State (MI)": {
+    "name": "Wayne State (MI)",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/wayne-st-mi.svg"
+  },
+  "Waynesburg": {
+    "name": "Waynesburg",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/waynesburg.svg"
+  },
+  "Weber St.": {
+    "name": "Weber St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/weber-st.svg"
+  },
+  "Wesley": {
+    "name": "Wesley",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/wesley.svg"
+  },
+  "Wesleyan": {
+    "name": "Wesleyan",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/wesleyan-ga.svg"
+  },
+  "West Alabama": {
+    "name": "West Alabama",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/west-ala.svg"
+  },
+  "West Chester": {
+    "name": "West Chester",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/west-chester.svg"
+  },
+  "University of West Florida": {
+    "name": "University of West Florida",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/west-florida.svg"
+  },
+  "West Georgia": {
+    "name": "West Georgia",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/west-ga.svg"
+  },
+  "West Texas A&M": {
+    "name": "West Texas A&M",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/west-tex-am.svg"
+  },
+  "West Virginia Wesleyan": {
+    "name": "West Virginia Wesleyan",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/west-va-wesleyan.svg"
+  },
+  "West Virginia": {
+    "name": "West Virginia",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/west-virginia.svg"
+  },
+  "West Virginia St.": {
+    "name": "West Virginia St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/west-virginia-st.svg"
+  },
+  "Western Carolina": {
+    "name": "Western Carolina",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/western-caro.svg"
+  },
+  "Western Illinois": {
+    "name": "Western Illinois",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/western-ill.svg"
+  },
+  "Western Kentucky": {
+    "name": "Western Kentucky",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/western-ky.svg"
+  },
+  "Western Michigan": {
+    "name": "Western Michigan",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/western-mich.svg"
+  },
+  "Western New Mexico": {
+    "name": "Western New Mexico",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/western-nm.svg"
+  },
+  "Western Oregon": {
+    "name": "Western Oregon",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/western-ore.svg"
+  },
+  "Western Washington": {
+    "name": "Western Washington",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/western-wash.svg"
+  },
+  "Westminster (MO)": {
+    "name": "Westminster (MO)",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/westminster-mo.svg"
+  },
+  "Westminster (PA)": {
+    "name": "Westminster (PA)",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/westminster-pa.svg"
+  },
+  "Westminster (UT)": {
+    "name": "Westminster (UT)",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/westminster-ut.svg"
+  },
+  "Whittier": {
+    "name": "Whittier",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/whittier.svg"
+  },
+  "Whitworth": {
+    "name": "Whitworth",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/whitworth.svg"
+  },
+  "Wichita St.": {
+    "name": "Wichita St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/wichita-st.svg"
+  },
+  "Widener": {
+    "name": "Widener",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/widener.svg"
+  },
+  "Willamette": {
+    "name": "Willamette",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/willamette.svg"
+  },
+  "William Jewell": {
+    "name": "William Jewell",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/william-jewell.svg"
+  },
+  "William & Mary": {
+    "name": "William & Mary",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/william-mary.svg"
+  },
+  "William Penn": {
+    "name": "William Penn",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/william-penn.svg"
+  },
+  "Williams": {
+    "name": "Williams",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/williams.svg"
+  },
+  "Wilmington": {
+    "name": "Wilmington",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/wilmington-oh.svg"
+  },
+  "Wingate": {
+    "name": "Wingate",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/wingate.svg"
+  },
+  "Winona St.": {
+    "name": "Winona St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/winona-st.svg"
+  },
+  "Winston-Salem St.": {
+    "name": "Winston-Salem St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/winston-salem.svg"
+  },
+  "Winthrop University": {
+    "name": "Winthrop University",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/winthrop.svg"
+  },
+  "Wisconsin-Eau Claire": {
+    "name": "Wisconsin-Eau Claire",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/wis-eau-claire.svg"
+  },
+  "Wisconsin-Oshkosh": {
+    "name": "Wisconsin-Oshkosh",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/wis-oshkosh.svg"
+  },
+  "Wisconsin-Platteville": {
+    "name": "Wisconsin-Platteville",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/wis-platteville.svg"
+  },
+  "Wisconsin-River Falls": {
+    "name": "Wisconsin-River Falls",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/wis-river-falls.svg"
+  },
+  "Wisconsin-Stout": {
+    "name": "Wisconsin-Stout",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/wis-stout.svg"
+  },
+  "Wisconsin-Superior": {
+    "name": "Wisconsin-Superior",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/wis-superior.svg"
+  },
+  "Wisconsin-Whitewater": {
+    "name": "Wisconsin-Whitewater",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/wis-whitewater.svg"
+  },
+  "Wisconsin": {
+    "name": "Wisconsin",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/wisconsin.svg"
+  },
+  "Wittenberg": {
+    "name": "Wittenberg",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/wittenberg.svg"
+  },
+  "William Paterson": {
+    "name": "William Paterson",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/wm-paterson.svg"
+  },
+  "Wofford": {
+    "name": "Wofford",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/wofford.svg"
+  },
+  "College of Wooster": {
+    "name": "College of Wooster",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/wooster.svg"
+  },
+  "Worcester St.": {
+    "name": "Worcester St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/worcester-st.svg"
+  },
+  "Wright State University": {
+    "name": "Wright State University",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/wright-st.svg"
+  },
+  "Wyoming": {
+    "name": "Wyoming",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/wyoming.svg"
+  },
+  "Xavier": {
+    "name": "Xavier",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/xavier.svg"
+  },
+  "Yale": {
+    "name": "Yale",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/yale.svg"
+  },
+  "Youngstown St.": {
+    "name": "Youngstown St.",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/youngstown-st.svg"
+  }
+}

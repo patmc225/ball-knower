@@ -5,7 +5,8 @@ import { ensureAnonymousUser } from '../firebaseConfig';
 import { doc, getDoc, updateDoc, increment, serverTimestamp } from 'firebase/firestore';
 import { db } from '../firebaseConfig';
 import AutocompleteInput from './AutocompleteInput';
-import { ArcadeButton, ArcadeCard } from './ArcadeUI';
+import { ArcadeCard } from './ArcadeUI';
+import { updateRarity, getTeamLogoUrl, getCollegeLogoUrl } from '../utils/gameUtils'; 
 
 // Helper function to get current date in "Month Day, Year" format (Eastern Time)
 const getCurrentDate = () => {
@@ -208,6 +209,9 @@ const DailyGame = () => {
         return;
     }
     
+    // Update Rarity (Fire and forget)
+    updateRarity(val, type);
+    
     // Display Value
     let display = val;
     if (type === 'player') display = getPlayer(val)?.name || val;
@@ -272,8 +276,23 @@ const DailyGame = () => {
       <div className="w-full max-w-2xl mb-6 sm:mb-8">
         <ArcadeCard className="relative overflow-hidden border-brand-pink/30" glow="pink">
              <div className="flex flex-row items-center justify-between text-center gap-2 sm:gap-8 relative z-10">
-                 <div className="flex-1 min-w-0">
+                 <div className="flex-1 min-w-0 flex flex-col items-center">
                      <div className="text-[9px] sm:text-xs text-slate-500 uppercase tracking-widest mb-0.5">START</div>
+                     {startElement?.type === 'team' && (
+                        <div className="w-8 h-8 sm:w-12 sm:h-12 mb-1 flex items-center justify-center rounded-full overflow-hidden p-0.5">
+                            <img src={getTeamLogoUrl(startElement.id)} alt="" className="w-full h-full object-contain" />
+                        </div>
+                     )}
+                     {startElement?.type === 'college' && (
+                        <div className="w-8 h-8 sm:w-12 sm:h-12 mb-1 flex items-center justify-center rounded-full overflow-hidden p-0.5">
+                            {getCollegeLogoUrl(startElement.value || startElement.id) ? (
+                                <img src={getCollegeLogoUrl(startElement.value || startElement.id)} alt="" className="w-full h-full object-contain" onError={(e) => {e.target.style.display='none'; e.target.nextSibling.style.display='block'}} />
+                            ) : null}
+                            <svg style={{display: getCollegeLogoUrl(startElement.value || startElement.id) ? 'none' : 'block'}} width="800px" height="800px" viewBox="0 0 15 15" className="w-1/2 h-1/2 text-slate-500" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                                 <path d="M7.5,1L0,4.5l2,0.9v1.7C1.4,7.3,1,7.9,1,8.5s0.4,1.2,1,1.4V10l-0.9,2.1&#xA; C0.8,13,1,14,2.5,14s1.7-1,1.4-1.9L3,10c0.6-0.3,1-0.8,1-1.5S3.6,7.3,3,7.1V5.9L7.5,8L15,4.5L7.5,1z M11.9,7.5l-4.5,2L5,8.4v0.1&#xA; c0,0.7-0.3,1.3-0.8,1.8l0.6,1.4v0.1C4.9,12.2,5,12.6,4.9,13c0.7,0.3,1.5,0.5,2.5,0.5c3.3,0,4.5-2,4.5-3L11.9,7.5L11.9,7.5z"/>
+                            </svg>
+                        </div>
+                     )}
                      <div className="font-heading text-lg sm:text-3xl text-white truncate px-1">{startElement?.name}</div>
                  </div>
                  
@@ -282,8 +301,23 @@ const DailyGame = () => {
                     <div className="font-heading text-base sm:text-xl text-neon-green whitespace-nowrap">{dailyData?.shortestPath || '?'}</div>
                  </div>
 
-                 <div className="flex-1 min-w-0">
+                 <div className="flex-1 min-w-0 flex flex-col items-center">
                      <div className="text-[9px] sm:text-xs text-slate-500 uppercase tracking-widest mb-0.5">TARGET</div>
+                     {endElement?.type === 'team' && (
+                        <div className="w-8 h-8 sm:w-12 sm:h-12 mb-1 flex items-center justify-center rounded-full overflow-hidden p-0.5">
+                            <img src={getTeamLogoUrl(endElement.id)} alt="" className="w-full h-full object-contain" />
+                        </div>
+                     )}
+                     {endElement?.type === 'college' && (
+                        <div className="w-8 h-8 sm:w-12 sm:h-12 mb-1 flex items-center justify-center rounded-full overflow-hidden p-0.5">
+                            {getCollegeLogoUrl(endElement.id) ? (
+                                <img src={getCollegeLogoUrl(endElement.id)} alt="" className="w-full h-full object-contain" onError={(e) => {e.target.style.display='none'; e.target.nextSibling.style.display='block'}} />
+                            ) : null}
+                            <svg style={{display: getCollegeLogoUrl(endElement.id) ? 'none' : 'block'}} width="800px" height="800px" viewBox="0 0 15 15" className="w-1/2 h-1/2 text-brand-pink/70" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                                 <path d="M7.5,1L0,4.5l2,0.9v1.7C1.4,7.3,1,7.9,1,8.5s0.4,1.2,1,1.4V10l-0.9,2.1&#xA; C0.8,13,1,14,2.5,14s1.7-1,1.4-1.9L3,10c0.6-0.3,1-0.8,1-1.5S3.6,7.3,3,7.1V5.9L7.5,8L15,4.5L7.5,1z M11.9,7.5l-4.5,2L5,8.4v0.1&#xA; c0,0.7-0.3,1.3-0.8,1.8l0.6,1.4v0.1C4.9,12.2,5,12.6,4.9,13c0.7,0.3,1.5,0.5,2.5,0.5c3.3,0,4.5-2,4.5-3L11.9,7.5L11.9,7.5z"/>
+                            </svg>
+                        </div>
+                     )}
                      <div className="font-heading text-lg sm:text-3xl text-brand-pink text-glow-pink truncate px-1">{endElement?.name}</div>
                  </div>
              </div>
@@ -294,13 +328,13 @@ const DailyGame = () => {
       <div className="w-full max-w-xl flex-grow flex flex-col">
 
           {/* Input Area - Moved to Top */}
-          <div className="bg-card-bg border border-slate-700 rounded-2xl p-4 shadow-2xl relative z-20 mb-6">
+          <div className="w-full max-w-xl relative z-50 mb-6">
               <div className="text-center mb-3">
                   <div className="text-xs text-slate-400 uppercase tracking-widest mb-1">Move {moveCount + 1}</div>
                   <h2 className="font-heading text-lg sm:text-xl text-white">
                       {nextInputType === 'player' ? 
                         `Name a player who matches...` : 
-                        `How does ${getPlayer(lastPlayerId)?.name.split(' ')[0]} connect?`
+                        `How does ${getPlayer(lastPlayerId)?.name} connect?`
                       }
                   </h2>
               </div>
@@ -311,7 +345,7 @@ const DailyGame = () => {
                   {nextInputType === 'attribute' && (
                        <div className="flex p-1 bg-slate-900/80 rounded-xl border border-slate-700">
                            {['number', 'team', 'college'].map(type => (
-                               <button key={type} onClick={() => setSelectedAttributeType(type)} className={`flex-1 py-1.5 rounded-lg font-heading text-sm sm:text-sm transition-all ${selectedAttributeType === type ? 'bg-brand-pink text-white shadow-lg' : 'text-slate-400 hover:text-white'}`}>{type}</button>
+                               <button key={type} onClick={() => setSelectedAttributeType(type)} className={`flex-1 py-1.5 uppercase rounded-lg font-heading text-sm sm:text-sm transition-all ${selectedAttributeType === type ? 'bg-brand-pink text-white shadow-lg' : 'text-slate-400 hover:text-white'}`}>{type}</button>
                            ))}
                        </div>
                   )}
@@ -320,6 +354,7 @@ const DailyGame = () => {
                        inputValue={inputValue}
                        onInputChange={handleInputChange}
                        onSelect={handleAnswerSelect}
+                       onSubmit={handleSubmit}
                        suggestions={suggestions}
                        type={nextInputType === 'player' ? 'player' : selectedAttributeType}
                        displayAttribute="name" valueAttribute="id"
@@ -328,10 +363,6 @@ const DailyGame = () => {
                        className="text-center font-heading text-base text-sm sm:text-md"
                        autoFocus
                   />
-                  
-                  <ArcadeButton onClick={handleSubmit} disabled={!inputValue || isSubmitting} className="w-full text-base" variant="secondary" size="md">
-                      SUBMIT
-                  </ArcadeButton>
               </div>
           </div>
           
@@ -349,7 +380,36 @@ const DailyGame = () => {
               {gameHistory.map((move, i) => (
                   <React.Fragment key={i}>
                     <div className="flex items-center justify-center animate-scale-in">
-                        <div className={`px-4 py-2 sm:px-6 sm:py-3 rounded-xl border text-sm sm:text-lg font-bold shadow-lg ${move.type === 'player' ? 'bg-slate-800 border-brand-blue text-white' : 'bg-slate-900 border-slate-700 text-brand-pink'}`}>
+                        <div className={`px-4 py-2 sm:px-6 sm:py-3 rounded-xl border text-sm sm:text-lg font-bold shadow-lg flex items-center gap-3 ${move.type === 'player' ? 'bg-slate-800 border-brand-blue text-white' : 'bg-slate-900 border-slate-700 text-brand-pink'}`}>
+                            {move.type === 'player' && (
+                                <div className="w-8 h-8 rounded-full overflow-hidden">
+                                    <img 
+                                        src={
+                                            getPlayer(move.value)?.league === 'NFL' 
+                                            ? `https://www.pro-football-reference.com/req/20230307/images/headshots/${move.value}.jpg`
+                                            : `https://www.basketball-reference.com/req/202106291/images/headshots/${move.value}.jpg`
+                                        }
+                                        alt=""
+                                        className="w-full h-full object-cover"
+                                        onError={(e) => { e.target.style.display = 'none'; }}
+                                    />
+                                </div>
+                            )}
+                            {move.type === 'team' && (
+                                <div className="w-8 h-8 rounded-full overflow-hidden p-0.5 flex items-center justify-center">
+                                    <img src={getTeamLogoUrl(move.value)} alt="" className="w-full h-full object-contain" />
+                                </div>
+                            )}
+                            {move.type === 'college' && (
+                                <div className="w-8 h-8 rounded-full overflow-hidden p-0.5 flex items-center justify-center">
+                                    {getCollegeLogoUrl(move.value) ? (
+                                        <img src={getCollegeLogoUrl(move.value)} alt="" className="w-full h-full object-contain" onError={(e) => {e.target.style.display='none'; e.target.nextSibling.style.display='block'}} />
+                                    ) : null}
+                                    <svg style={{display: getCollegeLogoUrl(move.value) ? 'none' : 'block'}} width="800px" height="800px" viewBox="0 0 15 15" className="w-1/2 h-1/2 text-slate-400" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                                        <path d="M7.5,1L0,4.5l2,0.9v1.7C1.4,7.3,1,7.9,1,8.5s0.4,1.2,1,1.4V10l-0.9,2.1&#xA; C0.8,13,1,14,2.5,14s1.7-1,1.4-1.9L3,10c0.6-0.3,1-0.8,1-1.5S3.6,7.3,3,7.1V5.9L7.5,8L15,4.5L7.5,1z M11.9,7.5l-4.5,2L5,8.4v0.1&#xA; c0,0.7-0.3,1.3-0.8,1.8l0.6,1.4v0.1C4.9,12.2,5,12.6,4.9,13c0.7,0.3,1.5,0.5,2.5,0.5c3.3,0,4.5-2,4.5-3L11.9,7.5L11.9,7.5z"/>
+                                    </svg>
+                                </div>
+                            )}
                             {move.display}
                         </div>
                     </div>

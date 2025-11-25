@@ -2,9 +2,12 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { GameProvider } from './context/GameContext';
 import Home from './pages/Home';
+import Collection from './pages/Collection';
 import OnlineGameBoard from './components/OnlineGameBoard';
 import GameOver from './pages/GameOver';
 import Profile from './pages/Profile';
+import EditAccount from './pages/EditAccount';
+import Leaderboard from './pages/Leaderboard';
 import DailyGame from './components/DailyGame';
 import DailyResult from './pages/DailyResult';
 import PastDailyChallenges from './pages/PastDailyChallenges';
@@ -29,11 +32,6 @@ const AnalyticsTracker = () => {
   return null;
 };
 
-// Placeholder removed
-// const OnlineGameBoardPlaceholder = () => (
-//   <div>Loading Online Game Board... Component needs to be created!</div>
-// );
-
 // Route wrapper with analytics tracking
 const AppRoutes = () => {
   return (
@@ -41,9 +39,14 @@ const AppRoutes = () => {
       <AnalyticsTracker />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/collection" element={<Collection />} />
+        <Route path="/collection/:userId" element={<Collection />} />
         <Route path="/game/:gameId" element={<OnlineGameBoard />} />
         <Route path="/game-over" element={<GameOver />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/profile/:userId" element={<Profile />} />
+        <Route path="/edit-account" element={<EditAccount />} />
+        <Route path="/leaderboard" element={<Leaderboard />} />
         <Route path="/daily" element={<DailyGame />} />
         <Route path="/daily-result" element={<DailyResult />} />
         <Route path="/past-daily-challenges" element={<PastDailyChallenges />} />

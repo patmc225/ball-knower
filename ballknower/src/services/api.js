@@ -1,5 +1,7 @@
 // API service for data operations
 // For MVP, we'll use local storage to persist data
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../firebaseConfig';
 
 // Helper function to load data from local storage or use default
 export const loadData = (key, defaultValue) => {
@@ -34,6 +36,7 @@ let popularityData = {};
 let internalTeamsData = {}; // Store teams keyed by ID
 let internalCollegesList = [];
 let teams = [];
+let imagesData = {};
 
 // Function to load and initialize all data
 export const initializeData = async () => {
@@ -41,16 +44,60 @@ export const initializeData = async () => {
     // Get the base URL for assets (uses PUBLIC_URL environment variable set by CRA)
     const baseUrl = process.env.PUBLIC_URL || '';
     
+    // 1. Load Rarity Data (Frequency)
+    const rarityMap = {};
+    try {
+        const raritySnapshot = await getDocs(collection(db, "rarity"));
+        raritySnapshot.forEach(doc => {
+            const data = doc.data();
+            // Key format in updateRarity is usually type_value (sanitized)
+            // However, data usually contains 'value' and 'type' fields as well.
+            if (data.type && data.value) {
+                // Construct key to match how we'll look it up (raw ID/value)
+                // Note: updateRarity uses safeVal for doc ID, but stores raw value in 'value' field.
+                // We will look up using the raw value from our data.
+                const key = `${data.type}_${data.value}`; 
+                rarityMap[key] = data.frequency || 0;
+            }
+        });
+    } catch (e) {
+        console.error("Error loading rarity data:", e);
+        // Continue loading other data even if this fails
+    }
+
     // Load Players (New File and Format)
     const playersRes = await fetch(`${baseUrl}/backend/players_new.json`);
     if (!playersRes.ok) throw new Error(`HTTP error loading players! status: ${playersRes.status}`);
     const playersData = await playersRes.json();
-    players = Object.values(playersData); // Convert object to array
+    
+    // Convert object to array and map frequency
+    players = Object.values(playersData).map(p => ({
+        ...p,
+        frequency: rarityMap[`player_${p.id}`] || 0
+    }));
+    
     // Load Teams
     const teamsRes = await fetch(`${baseUrl}/backend/teams.json`);
     if (!teamsRes.ok) throw new Error(`HTTP error loading teams! status: ${teamsRes.status}`);
     internalTeamsData = await teamsRes.json(); // Keep as object keyed by ID
-    teams = Object.values(internalTeamsData);
+    
+    // Map frequency to teams array and update internalTeamsData
+    teams = Object.values(internalTeamsData).map(t => ({
+        ...t,
+        frequency: rarityMap[`team_${t.id}`] || 0
+    }));
+    
+    // Update internal dictionary with frequency for getTeamById if needed
+    teams.forEach(t => {
+        if (internalTeamsData[t.id]) {
+            internalTeamsData[t.id].frequency = t.frequency;
+        }
+    });
+
+    // Load Images
+    const imagesRes = await fetch(`${baseUrl}/backend/images.json`);
+    if (!imagesRes.ok) throw new Error(`HTTP error loading images! status: ${imagesRes.status}`);
+    imagesData = await imagesRes.json();
 
     // Extract colleges (Teams are now loaded directly)
     const allColleges = new Set();
@@ -63,7 +110,14 @@ export const initializeData = async () => {
         });
       }
     });
-    internalCollegesList = Array.from(allColleges).sort();
+    
+    // Sort colleges by frequency (descending), then alphabetical
+    internalCollegesList = Array.from(allColleges).sort((a, b) => {
+        const freqA = rarityMap[`college_${a}`] || 0;
+        const freqB = rarityMap[`college_${b}`] || 0;
+        if (freqB !== freqA) return freqB - freqA; // Higher frequency first
+        return a.localeCompare(b);
+    });
 
     return { success: true };
 
@@ -84,11 +138,12 @@ export const getPopularityData = () => popularityData;
 export const getTeams = () => Object.values(internalTeamsData); // Return array of team objects if needed
 export const getTeamById = (id) => internalTeamsData[id] || null; // Function to get team by ID
 export const getColleges = () => internalCollegesList;
+export const getImagesData = () => imagesData;
 
 // Search function (adapts based on attribute)
 export const searchPlayers = (attribute, query) => {
   const lowerCaseQuery = query.toLowerCase();
-  return players.filter(player => {
+  const results = players.filter(player => {
     if (attribute === 'name') {
       if(player.name === undefined) {
         console.log(player);
@@ -103,16 +158,26 @@ export const searchPlayers = (attribute, query) => {
       );
     }
     return false;
-  }).slice(0, 10); // Limit results
+  });
+  
+  // Sort by frequency (descending) then by name (for stability)
+  return results.sort((a, b) => {
+      const diff = (b.frequency || 0) - (a.frequency || 0);
+      if (diff !== 0) return diff;
+      return 0; // Keep original order or sort by name if needed
+  }).slice(0, 10);
 };
 
 // Search function (adapts based on attribute)
 export const searchTeams = (query) => {
   const lowerCaseQuery = query.toLowerCase();
-  return teams.filter(team => {
+  const results = teams.filter(team => {
     let full_name = team.name;
     return full_name.toLowerCase().includes(lowerCaseQuery);
-  }).slice(0, 10); // Limit results
+  });
+  
+  // Sort by frequency (descending)
+  return results.sort((a, b) => (b.frequency || 0) - (a.frequency || 0)).slice(0, 10);
 };
 
 // Create a new game

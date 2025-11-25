@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { useGame } from '../context/GameContext';
 import { collection, query, orderBy, getDocs } from 'firebase/firestore';
 import { db } from '../firebaseConfig';
-import Footer from '../components/Footer';
 
 const PastDailyChallenges = () => {
   const navigate = useNavigate();
@@ -186,7 +185,6 @@ const PastDailyChallenges = () => {
         )}
       </div>
       </div>
-      <Footer />
     </div>
   );
 };

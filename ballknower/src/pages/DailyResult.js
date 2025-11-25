@@ -4,7 +4,6 @@ import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../firebaseConfig';
 import { useGame } from '../context/GameContext';
 import { ArcadeButton, ArcadeCard } from '../components/ArcadeUI';
-import Footer from '../components/Footer';
 
 const DailyResult = () => {
   const navigate = useNavigate();
@@ -224,7 +223,6 @@ const DailyResult = () => {
      
       </div>
       </div>
-      <Footer />
     </div>
   );
 };

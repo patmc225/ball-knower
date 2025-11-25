@@ -3,7 +3,6 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { doc, getDoc } from 'firebase/firestore';
 import { db, auth } from '../firebaseConfig';
 import { useGame } from '../context/GameContext';
-import Footer from '../components/Footer';
 
 const GameOver = () => {
   const navigate = useNavigate();
@@ -1036,7 +1035,6 @@ const GameOver = () => {
           </button>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

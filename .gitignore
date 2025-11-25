@@ -65,3 +65,4 @@ scraper/players_db_nba.json
 *.cache
 .cache/
 
+image-scraper/
