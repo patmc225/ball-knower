@@ -125,15 +125,16 @@ const RarityHistory = ({ history, rarityCache, getPlayer, getTeam, allPlayersDat
                      
                      return (
                         <div key={i} className="snap-center">
-                            <RarityCard 
-                                type={move.type} 
-                                value={move.value} 
-                                rarityScore={score} 
+                            <RarityCard
+                                type={move.type}
+                                value={move.value}
+                                rarityScore={score}
                                 playerData={playerData}
                                 getTeam={getTeam}
                                 isMe={isMe}
                                 allPlayersData={allPlayersData}
                                 popularityData={popularityData}
+                                disableFlipping={true}
                             />
                         </div>
                      );

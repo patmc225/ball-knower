@@ -16,7 +16,7 @@ export const formatTeamName = (teamId, getTeam) => {
     return team ? team.name : teamId || 'Unknown Team';
 };
 
-const RarityCard = ({ type, value, rarityScore, playerData, getTeam, isMe, count, clickable = false, onToggleShowcase, isShowcased, isSelectionMode, allPlayersData, popularityData }) => {
+const RarityCard = ({ type, value, rarityScore, playerData, getTeam, isMe, count, clickable = false, onToggleShowcase, isShowcased, isSelectionMode, allPlayersData, popularityData, disableFlipping = false }) => {
     const [isFlipped, setIsFlipped] = useState(false);
     const [fallbackYear, setFallbackYear] = useState(null);
     const { class: rarityClass, bg, numberColor } = getRarityClass(rarityScore || 100);
@@ -113,8 +113,8 @@ const RarityCard = ({ type, value, rarityScore, playerData, getTeam, isMe, count
 
     return (
         <div
-            className={`flex flex-col items-center relative ${clickable || (type !== 'player' && allPlayersData) ? 'cursor-pointer group' : ''}`}
-            onClick={handleCardClick}
+            className={`flex flex-col items-center relative ${!disableFlipping && (clickable || (type !== 'player' && allPlayersData)) ? 'cursor-pointer group' : ''}`}
+            onClick={!disableFlipping ? handleCardClick : undefined}
         >
             <div
                 className={`flex-none w-40 h-60 relative transition-all duration-500 ${clickable ? 'group-hover:scale-105' : 'hover:scale-105'}`}
