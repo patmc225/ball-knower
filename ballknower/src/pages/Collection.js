@@ -311,7 +311,7 @@ const Collection = () => {
             </div>
             
             <div className="flex-grow relative min-h-[50vh]">
-                {isLoading ? (
+                {isLoading || !players?.length ? (
                     <div className="absolute inset-0 flex items-center justify-center">
                         <div className="w-12 h-12 border-4 border-brand-blue border-t-transparent rounded-full animate-spin"></div>
                     </div>
@@ -323,7 +323,7 @@ const Collection = () => {
                                     type={item.type}
                                     value={item.value}
                                     count={item.count}
-                                    rarityScore={rarityCache[`${item.type}_${item.value}`]}
+                                    rarityScore={rarityCache[`${item.type}_${item.value}`] || 100}
                                     playerData={item.type === 'player' ? getPlayer(item.value) : null}
                                     getTeam={getTeam}
                                     clickable={true}

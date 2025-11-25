@@ -289,21 +289,6 @@ const DailyGame = () => {
              <div className="flex flex-row items-center justify-between text-center gap-2 sm:gap-8 relative z-10">
                  <div className="flex-1 min-w-0 flex flex-col items-center">
                      <div className="text-[9px] sm:text-xs text-slate-500 uppercase tracking-widest mb-0.5">START</div>
-                     {startElement?.type === 'team' && (
-                        <div className="w-8 h-8 sm:w-12 sm:h-12 mb-1 flex items-center justify-center rounded-full overflow-hidden p-0.5">
-                            <img src={getTeamLogoUrl(startElement.id)} alt="" className="w-full h-full object-contain" />
-                        </div>
-                     )}
-                     {startElement?.type === 'college' && (
-                        <div className="w-8 h-8 sm:w-12 sm:h-12 mb-1 flex items-center justify-center rounded-full overflow-hidden p-0.5">
-                            {getCollegeLogoUrl(startElement.value || startElement.id) ? (
-                                <img src={getCollegeLogoUrl(startElement.value || startElement.id)} alt="" className="w-full h-full object-contain" onError={(e) => {e.target.style.display='none'; e.target.nextSibling.style.display='block'}} />
-                            ) : null}
-                            <svg style={{display: getCollegeLogoUrl(startElement.value || startElement.id) ? 'none' : 'block'}} width="800px" height="800px" viewBox="0 0 15 15" className="w-1/2 h-1/2 text-slate-500" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
-                                 <path d="M7.5,1L0,4.5l2,0.9v1.7C1.4,7.3,1,7.9,1,8.5s0.4,1.2,1,1.4V10l-0.9,2.1&#xA; C0.8,13,1,14,2.5,14s1.7-1,1.4-1.9L3,10c0.6-0.3,1-0.8,1-1.5S3.6,7.3,3,7.1V5.9L7.5,8L15,4.5L7.5,1z M11.9,7.5l-4.5,2L5,8.4v0.1&#xA; c0,0.7-0.3,1.3-0.8,1.8l0.6,1.4v0.1C4.9,12.2,5,12.6,4.9,13c0.7,0.3,1.5,0.5,2.5,0.5c3.3,0,4.5-2,4.5-3L11.9,7.5L11.9,7.5z"/>
-                            </svg>
-                        </div>
-                     )}
                      <div className="font-heading text-lg sm:text-3xl text-white truncate px-1">{startElement?.name}</div>
                  </div>
                  
@@ -314,21 +299,6 @@ const DailyGame = () => {
 
                  <div className="flex-1 min-w-0 flex flex-col items-center">
                      <div className="text-[9px] sm:text-xs text-slate-500 uppercase tracking-widest mb-0.5">TARGET</div>
-                     {endElement?.type === 'team' && (
-                        <div className="w-8 h-8 sm:w-12 sm:h-12 mb-1 flex items-center justify-center rounded-full overflow-hidden p-0.5">
-                            <img src={getTeamLogoUrl(endElement.id)} alt="" className="w-full h-full object-contain" />
-                        </div>
-                     )}
-                     {endElement?.type === 'college' && (
-                        <div className="w-8 h-8 sm:w-12 sm:h-12 mb-1 flex items-center justify-center rounded-full overflow-hidden p-0.5">
-                            {getCollegeLogoUrl(endElement.id) ? (
-                                <img src={getCollegeLogoUrl(endElement.id)} alt="" className="w-full h-full object-contain" onError={(e) => {e.target.style.display='none'; e.target.nextSibling.style.display='block'}} />
-                            ) : null}
-                            <svg style={{display: getCollegeLogoUrl(endElement.id) ? 'none' : 'block'}} width="800px" height="800px" viewBox="0 0 15 15" className="w-1/2 h-1/2 text-brand-pink/70" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
-                                 <path d="M7.5,1L0,4.5l2,0.9v1.7C1.4,7.3,1,7.9,1,8.5s0.4,1.2,1,1.4V10l-0.9,2.1&#xA; C0.8,13,1,14,2.5,14s1.7-1,1.4-1.9L3,10c0.6-0.3,1-0.8,1-1.5S3.6,7.3,3,7.1V5.9L7.5,8L15,4.5L7.5,1z M11.9,7.5l-4.5,2L5,8.4v0.1&#xA; c0,0.7-0.3,1.3-0.8,1.8l0.6,1.4v0.1C4.9,12.2,5,12.6,4.9,13c0.7,0.3,1.5,0.5,2.5,0.5c3.3,0,4.5-2,4.5-3L11.9,7.5L11.9,7.5z"/>
-                            </svg>
-                        </div>
-                     )}
                      <div className="font-heading text-lg sm:text-3xl text-brand-pink text-glow-pink truncate px-1">{endElement?.name}</div>
                  </div>
              </div>

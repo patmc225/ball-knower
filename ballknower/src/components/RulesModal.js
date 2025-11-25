@@ -21,7 +21,7 @@ const RulesModal = ({ onClose }) => (
       </div>
       <div className="p-4 overflow-y-auto space-y-6 custom-scrollbar">
         <section>
-            <h3 className="text-xl font-heading text-slate-300 mb-2">How to Play</h3>
+            <h3 className="text-xl font-heading text-brand-blue mb-2">Competitive</h3>
             <ul className="list-disc pl-5 space-y-3 text-slate-400 text-sm">
               <li>Take turns naming NFL/NBA players and their connections (Team, Number, College).</li>
               <li>Player 1 starts with <span className="text-white font-bold">ANY</span> player.</li>
@@ -46,10 +46,10 @@ const RulesModal = ({ onClose }) => (
             </div>
         </section>
         <section>
-            <h3 className="text-xl font-heading text-slate-300 mb-2">Rarity Scores</h3>
-            <p className="text-slate-400 text-sm mb-3">Every player, team, college, and jersey number has a rarity score (60-100) that corresponds to how many users have played it. Rarity scores are updated daily.</p>
+            <h3 className="text-xl font-heading text-slate-300 mb-2">Cards</h3>
+            <p className="text-slate-400 text-sm mb-3">Each correct answer in Competive mode awards you a card. These cards have rarity scores (60-100) depending on how often they're played. Rarity scores are updated daily.</p>
             <ul className="list-disc pl-5 space-y-2 text-slate-400 text-sm">
-              <li><span className="text-slate-200 font-bold">Galaxy (100)</span> (First and only player to play it)</li>
+              <li><span className="text-slate-200 font-bold">Galaxy (100)</span> (First and only use to play it)</li>
               <li><span className="text-yellow-400 font-bold">Legendary (95-99)</span></li>
               <li><span className="text-purple-400 font-bold">Epic (90-94)</span></li>
               <li><span className="text-blue-400 font-bold">Rare (80-89)</span></li>

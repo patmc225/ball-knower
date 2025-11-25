@@ -276,40 +276,17 @@ const Profile = () => {
     <div className="min-h-screen bg-dark-bg text-arcade-text font-sans pb-4">
       <div className="max-w-4xl mx-auto px-6 sm:px-8 pt-4 sm:pt-8">
 
-      {isMyProfile && <Header activeTab="profile" activeUsersCount={activeUsersCount} />}
+      {isMyProfile && <Header
+        activeTab="profile"
+        activeUsersCount={activeUsersCount}
+        showUsernameSection={true}
+        profileUser={profileUser}
+        currentUser={currentUser}
+        onSettingsClick={() => navigate('/edit-account')}
+      />}
 
-      {/* Username Section */}
-      {isMyProfile ? (
-        <div className="flex items-center justify-between mb-6">
-            <div className="flex items-center gap-3">
-                <div className="w-8 h-8 bg-slate-700 rounded-full flex items-center justify-center">
-                    <svg className="w-5 h-5 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                    </svg>
-                </div>
-                <div>
-                    <h1 className="font-heading text-xl text-white">{profileUser.displayName || 'Anonymous'}</h1>
-                    {isMyProfile && currentUser?.isAnonymous && (
-                        <p className="text-xs text-yellow-500/80">Temporary account - may not save</p>
-                    )}
-                </div>
-            </div>
-
-            {isMyProfile && (
-                <button
-                    onClick={() => navigate('/edit-account')}
-                    className="p-2 bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white rounded-lg transition-colors border border-slate-600"
-                    title="Settings"
-                >
-                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                </button>
-            )}
-        </div>
-      ) : (
-        /* Public Profile Header */
+      {/* Public Profile Header */}
+      {!isMyProfile && (
         <div className="flex items-center gap-4 mb-8 border-b border-slate-800 pb-6">
             <button
                 onClick={() => navigate('/leaderboard')}
@@ -320,11 +297,9 @@ const Profile = () => {
                 </svg>
             </button>
             <div className="flex items-center gap-3">
-                <div className="w-8 h-8 bg-slate-700 rounded-full flex items-center justify-center">
-                    <svg className="w-5 h-5 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                    </svg>
-                </div>
+                <svg className="w-5 h-5 text-slate-300" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                </svg>
                 <h1 className="font-heading text-2xl text-white">{profileUser.displayName || 'Anonymous'}</h1>
             </div>
         </div>

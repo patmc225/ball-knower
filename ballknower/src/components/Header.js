@@ -1,6 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
+// User Icon Component
+const UserIcon = () => (
+  <svg className="-mr-1 w-5 h-5 text-slate-300" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+  </svg>
+);
+
+// Settings Icon Component
+const SettingsIcon = () => (
+  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+  </svg>
+);
+
 // Icon Components for Navigation
 const PlayIcon = () => (
   <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -15,7 +30,14 @@ const ProfileIcon = () => (
   </svg>
 );
 
-const Header = ({ activeTab = 'play', activeUsersCount = 0 }) => {
+const Header = ({
+  activeTab = 'play',
+  activeUsersCount = 0,
+  showUsernameSection = false,
+  profileUser = null,
+  currentUser = null,
+  onSettingsClick = null
+}) => {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -56,10 +78,33 @@ const Header = ({ activeTab = 'play', activeUsersCount = 0 }) => {
                   })}
                </nav>
 
-               <div className="flex items-center space-x-1 sm:space-x-2 bg-slate-800/50 px-3 py-1.5 rounded-full border border-slate-700">
+               {showUsernameSection && profileUser ? (
+                 <div className="bg-card-bg p-2 rounded-xl border border-slate-700">
+                   <div className="flex items-center gap-2">
+                     
+                     <div>
+                       <h1 className="font-heading text-sm text-white">{profileUser.displayName || 'Anonymous'}</h1>
+                       {currentUser?.isAnonymous && (
+                         <p className="-mt-1 text-[8px] text-yellow-500/80">Temporary account</p>
+                       )}
+                     </div>
+                     {onSettingsClick && (
+                       <button
+                         onClick={onSettingsClick}
+                         className="p-1 bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white rounded-lg transition-colors border border-slate-600 ml-auto"
+                         title="Settings"
+                       >
+                         <SettingsIcon />
+                       </button>
+                     )}
+                   </div>
+                 </div>
+               ) : (
+                 <div className="flex items-center space-x-1 sm:space-x-2 bg-slate-800/50 px-3 py-1.5 rounded-full border border-slate-700">
                    <div className={`w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full ${activeUsersCount > 0 ? 'bg-neon-green animate-pulse' : 'bg-slate-500'}`}></div>
                    <span className="text-[0.65rem] sm:text-xs font-medium text-slate-300 whitespace-nowrap">{activeUsersCount} ONLINE</span>
-               </div>
+                 </div>
+               )}
             </div>
          </div>
       </header>
