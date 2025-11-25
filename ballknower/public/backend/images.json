@@ -1291,7 +1291,7 @@
   },
   "Illinois": {
     "name": "Illinois",
-    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/illinois-col.svg"
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/illinois.svg"
   },
   "Illinois St.": {
     "name": "Illinois St.",
@@ -1525,6 +1525,14 @@
     "name": "Louisiana Tech",
     "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/louisiana-tech.svg"
   },
+  "Louisiana-Monroe": {
+    "name": "Louisiana-Monroe",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/la-monroe.svg"
+  },
+  "Louisiana": {
+    "name": "Louisiana",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/la-lafayette.svg"
+  },
   "Louisville": {
     "name": "Louisville",
     "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/louisville.svg"
@@ -1536,6 +1544,10 @@
   "Loyola Marymount": {
     "name": "Loyola Marymount",
     "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/loyola-marymount.svg"
+  },
+  "Loyola (MD)": {
+    "name": "Loyola (MD)",
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/loyola-maryland.svg"
   },
   "LSU": {
     "name": "LSU",
@@ -2135,7 +2147,7 @@
   },
   "Rhode Island": {
     "name": "Rhode Island",
-    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/rhode-island-col.svg"
+    "logo_url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/rhode-island.svg"
   },
   "Rhodes": {
     "name": "Rhodes",
