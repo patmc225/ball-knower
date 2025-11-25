@@ -17,8 +17,19 @@ const AutocompleteInput = ({
 }) => {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(-1);
+  const [fallbackYears, setFallbackYears] = useState({});
   const inputRef = useRef(null);
   const suggestionsRef = useRef(null);
+
+  // Helper function to get image URL for a specific year
+  const getImageUrlForYear = (playerId, league, year) => {
+      if (league === 'NFL') {
+          return `https://www.pro-football-reference.com/req/20230307/images/headshots/${playerId}_${year}.jpg`;
+      } else if (league === 'NBA') {
+          return `https://www.basketball-reference.com/req/202106291/images/headshots/${playerId}_${year}.jpg`;
+      }
+      return null;
+  };
 
   const handleInputChangeInternal = (e) => {
     onInputChange(e.target.value);
@@ -96,7 +107,7 @@ const AutocompleteInput = ({
         onBlur={() => setTimeout(() => setShowSuggestions(false), 150)}
         placeholder={placeholder}
         disabled={disabled}
-        className={`w-full pl-12 ${onSubmit ? 'pr-12' : 'pr-4'} py-4 bg-slate-800 border-2 border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-brand-blue focus:shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all font-sans text-lg ${
+        className={`w-full pl-12 ${onSubmit ? 'pr-12' : 'pr-4'} py-4 bg-slate-800 border-2 border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-brand-blue focus:shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all font-sans text-lg -webkit-text-size-adjust: 100%; -webkit-appearance: none; ${
           disabled ? 'opacity-50 cursor-not-allowed' : ''
         } ${className}`}
         autoComplete="off"
@@ -135,10 +146,15 @@ const AutocompleteInput = ({
                   playerLeagueYears = years;
                   
                   if (item['id']) {
+                      const currentFallbackYear = fallbackYears[item['id']];
                       if (item['league'] === 'NFL') {
-                          imageUrl = `https://www.pro-football-reference.com/req/20230307/images/headshots/${item['id']}.jpg`;
+                          imageUrl = currentFallbackYear ?
+                            getImageUrlForYear(item['id'], 'NFL', currentFallbackYear) :
+                            `https://www.pro-football-reference.com/req/20230307/images/headshots/${item['id']}.jpg`;
                       } else if (item['league'] === 'NBA') {
-                          imageUrl = `https://www.basketball-reference.com/req/202106291/images/headshots/${item['id']}.jpg`;
+                          imageUrl = currentFallbackYear ?
+                            getImageUrlForYear(item['id'], 'NBA', currentFallbackYear) :
+                            `https://www.basketball-reference.com/req/202106291/images/headshots/${item['id']}.jpg`;
                       }
                   }
                 }
@@ -167,7 +183,17 @@ const AutocompleteInput = ({
                                   src={imageUrl} 
                                   alt="" 
                                   className={type === 'team' || type === 'college' ? "w-full h-full object-contain" : "w-full h-full object-cover"}
-                                  onError={(e) => { e.target.style.display = 'none'; if(e.target.nextSibling) e.target.nextSibling.style.display = 'block'; }} 
+                                  onError={(e) => {
+                                      const currentYear = fallbackYears[item['id']] || (item['end_year'] || new Date().getFullYear());
+                                      const startYear = item['start_year'] || currentYear;
+
+                                      if (currentYear > startYear && (item['league'] === 'NFL' || item['league'] === 'NBA')) {
+                                          setFallbackYears(prev => ({ ...prev, [item['id']]: currentYear - 1 }));
+                                      } else {
+                                          e.target.style.display = 'none';
+                                          if(e.target.nextSibling) e.target.nextSibling.style.display = 'block';
+                                      }
+                                  }} 
                               />
                           ) : null}
                            {isCollege && (

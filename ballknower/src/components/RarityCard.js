@@ -18,23 +18,38 @@ export const formatTeamName = (teamId, getTeam) => {
 
 const RarityCard = ({ type, value, rarityScore, playerData, getTeam, isMe, count, clickable = false, onToggleShowcase, isShowcased, isSelectionMode, allPlayersData, popularityData }) => {
     const [isFlipped, setIsFlipped] = useState(false);
+    const [fallbackYear, setFallbackYear] = useState(null);
     const { class: rarityClass, bg, numberColor } = getRarityClass(rarityScore || 100);
-    
+
     let displayName = value;
     let subtext = "";
     let imageUrl = null;
     let srUrl = "";
 
+    // Helper function to get image URL for a specific year
+    const getImageUrlForYear = (playerId, league, year) => {
+        if (league === 'NFL') {
+            return `https://www.pro-football-reference.com/req/20230307/images/headshots/${playerId}_${year}.jpg`;
+        } else if (league === 'NBA') {
+            return `https://www.basketball-reference.com/req/202106291/images/headshots/${playerId}_${year}.jpg`;
+        }
+        return null;
+    };
+
     if (type === 'player' && playerData) {
         displayName = playerData.name;
         const leagueLogo = playerData.league === 'NBA' ? 'nba.png' : (playerData.league === 'NFL' ? 'nfl.png' : null);
-        
+
         if (playerData.id) {
             if (playerData.league === 'NFL') {
-                imageUrl = `https://www.pro-football-reference.com/req/20230307/images/headshots/${playerData.id}.jpg`;
+                imageUrl = fallbackYear
+                    ? getImageUrlForYear(playerData.id, 'NFL', fallbackYear)
+                    : `https://www.pro-football-reference.com/req/20230307/images/headshots/${playerData.id}.jpg`;
                 srUrl = `https://www.pro-football-reference.com/players/${playerData.id.charAt(0)}/${playerData.id}.htm`;
             } else if (playerData.league === 'NBA') {
-                imageUrl = `https://www.basketball-reference.com/req/202106291/images/headshots/${playerData.id}.jpg`;
+                imageUrl = fallbackYear
+                    ? getImageUrlForYear(playerData.id, 'NBA', fallbackYear)
+                    : `https://www.basketball-reference.com/req/202106291/images/headshots/${playerData.id}.jpg`;
                 srUrl = `https://www.basketball-reference.com/players/${playerData.id.charAt(0)}/${playerData.id}.html`;
             }
         }
@@ -97,23 +112,21 @@ const RarityCard = ({ type, value, rarityScore, playerData, getTeam, isMe, count
     const { topPlayers, totalCount } = type !== 'player' ? getCardStats() : { topPlayers: [], totalCount: 0 };
 
     return (
-        <div 
-            className={`flex flex-col items-center relative ${clickable || (type !== 'player' && allPlayersData) ? 'cursor-pointer group' : ''}`} 
-            style={{ perspective: '1000px' }}
+        <div
+            className={`flex flex-col items-center relative ${clickable || (type !== 'player' && allPlayersData) ? 'cursor-pointer group' : ''}`}
             onClick={handleCardClick}
         >
-            <div 
+            <div
                 className={`flex-none w-40 h-60 relative transition-all duration-500 ${clickable ? 'group-hover:scale-105' : 'hover:scale-105'}`}
-                style={{ 
-                    transformStyle: 'preserve-3d',
-                    transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)'
-                }}
             >
                 
                 {/* Front of Card */}
-                <div 
-                    className={`absolute inset-0 rounded-xl p-3 flex flex-col relative overflow-hidden shadow-xl ${bg} border-2`}
-                    style={{ backfaceVisibility: 'hidden' }}
+                <div
+                    className={`absolute inset-0 rounded-xl p-3 flex flex-col relative overflow-hidden shadow-xl ${bg} border-2 transition-opacity duration-500`}
+                    style={{
+                        opacity: isFlipped ? 0 : 1,
+                        pointerEvents: isFlipped ? 'none' : 'auto'
+                    }}
                 >
                      {/* Galaxy Effect Overlay */}
                      {rarityClass === 'GALAXY' && (
@@ -183,11 +196,21 @@ const RarityCard = ({ type, value, rarityScore, playerData, getTeam, isMe, count
                          ) : (
                              <div className={`w-24 h-24 rounded-full bg-white border-2 border-black/20 flex items-center justify-center overflow-hidden backdrop-blur-sm shadow-inner relative`}>
                                  {imageUrl ? (
-                                     <img 
-                                         src={imageUrl} 
-                                         alt={displayName} 
+                                     <img
+                                         src={imageUrl}
+                                         alt={displayName}
                                          className="w-3/4 h-auto object-contain"
-                                         onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'block'; }} 
+                                         onError={(e) => {
+                                             const currentYear = fallbackYear || (playerData?.end_year || new Date().getFullYear());
+                                             const startYear = playerData?.start_year || currentYear;
+
+                                             if (currentYear > startYear) {
+                                                 setFallbackYear(currentYear - 1);
+                                             } else {
+                                                 e.target.style.display = 'none';
+                                                 e.target.nextSibling.style.display = 'block';
+                                             }
+                                         }}
                                      />
                                  ) : null}
                                  <div className="translate-y-1/4 w-full h-full flex items-center justify-center text-white/20" style={{ display: imageUrl ? 'none' : 'flex' }}>
@@ -224,11 +247,11 @@ const RarityCard = ({ type, value, rarityScore, playerData, getTeam, isMe, count
 
                 {/* Back of Card */}
                 {(clickable || (type !== 'player' && allPlayersData)) && (
-                    <div 
-                        className={`absolute inset-0 rounded-xl p-3 flex flex-col bg-slate-900 border-2 border-slate-600 shadow-xl overflow-hidden`}
-                        style={{ 
-                            backfaceVisibility: 'hidden',
-                            transform: 'rotateY(180deg)'
+                    <div
+                        className={`absolute inset-0 rounded-xl p-3 flex flex-col bg-slate-900 border-2 border-slate-600 shadow-xl overflow-hidden transition-opacity duration-500`}
+                        style={{
+                            opacity: isFlipped ? 1 : 0,
+                            pointerEvents: isFlipped ? 'auto' : 'none'
                         }}
                     >
                         <div className="font-heading text-white text-sm text-center mb-2 border-b border-slate-700 pb-1">{displayName}</div>

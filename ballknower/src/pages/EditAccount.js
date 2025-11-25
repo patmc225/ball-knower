@@ -239,7 +239,7 @@ const EditAccount = () => {
                     onChange={(e) => setSignInEmail(e.target.value)}
                     placeholder="Enter email"
                     required
-                    className="w-full bg-slate-900 border border-slate-700 rounded-lg p-3 text-white placeholder-slate-600 focus:outline-none focus:border-brand-blue transition-colors"
+                    className="w-full bg-slate-900 border border-slate-700 rounded-lg p-3 text-white placeholder-slate-600 focus:outline-none focus:border-brand-blue transition-colors text-base -webkit-text-size-adjust: 100%; -webkit-appearance: none;"
                 />
               </div>
               <div>
@@ -250,7 +250,7 @@ const EditAccount = () => {
                     onChange={(e) => setSignInPassword(e.target.value)}
                     placeholder="Enter password"
                     required
-                    className="w-full bg-slate-900 border border-slate-700 rounded-lg p-3 text-white placeholder-slate-600 focus:outline-none focus:border-brand-blue transition-colors"
+                    className="w-full bg-slate-900 border border-slate-700 rounded-lg p-3 text-white placeholder-slate-600 focus:outline-none focus:border-brand-blue transition-colors text-base -webkit-text-size-adjust: 100%; -webkit-appearance: none;"
                 />
               </div>
               <ArcadeButton
@@ -372,7 +372,7 @@ const EditAccount = () => {
                     type="text"
                     value={newUsername}
                     onChange={handleUsernameChange}
-                    className={`w-full text-xs bg-slate-900 border rounded-lg p-3 text-white placeholder-slate-600 focus:outline-none transition-colors text-xl font-bold ${
+                    className={`w-full text-base bg-slate-900 border rounded-lg p-3 text-white placeholder-slate-600 focus:outline-none transition-colors text-xl font-bold -webkit-text-size-adjust: 100%; -webkit-appearance: none; ${
                       !usernameAvailable ? 'border-red-500 focus:border-red-500' : 'border-slate-700 focus:border-brand-blue'
                     }`}
                     placeholder="Enter username"

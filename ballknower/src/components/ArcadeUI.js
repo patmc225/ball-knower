@@ -84,7 +84,7 @@ export const ArcadeInput = ({
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        className={`w-full bg-input-bg border-2 border-slate-600 rounded-xl px-4 py-3 text-white placeholder-slate-400 focus:outline-none focus:border-brand-blue focus:shadow-neon-blue transition-all font-sans text-lg ${className}`}
+        className={`w-full bg-input-bg border-2 border-slate-600 rounded-xl px-4 py-3 text-white placeholder-slate-400 focus:outline-none focus:border-brand-blue focus:shadow-neon-blue transition-all font-sans text-lg -webkit-text-size-adjust: 100%; -webkit-appearance: none; ${className}`}
         {...props}
       />
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-brand-blue group-focus-within:w-[90%] transition-all duration-300" />

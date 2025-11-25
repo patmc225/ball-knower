@@ -57,11 +57,11 @@ const Home = () => {
         console.error("Error initializing user:", error);
       }
     };
-
+    
     initUser();
     fetchWaitingPlayersCount();
     startWaitingPlayersCounter();
-
+    
     return () => {
       if (waitingPlayersTimerRef.current) clearInterval(waitingPlayersTimerRef.current);
       if (presenceTimerRef.current) clearInterval(presenceTimerRef.current);

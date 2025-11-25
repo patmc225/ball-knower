@@ -51,6 +51,17 @@ const DailyGame = () => {
   const [suggestions, setSuggestions] = useState([]);
   const [selectedAttributeType, setSelectedAttributeType] = useState('number');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [fallbackYears, setFallbackYears] = useState({});
+
+  // Helper function to get image URL for a specific year
+  const getImageUrlForYear = (playerId, league, year) => {
+      if (league === 'NFL') {
+          return `https://www.pro-football-reference.com/req/20230307/images/headshots/${playerId}_${year}.jpg`;
+      } else if (league === 'NBA') {
+          return `https://www.basketball-reference.com/req/202106291/images/headshots/${playerId}_${year}.jpg`;
+      }
+      return null;
+  };
   
   // Load the daily challenge when component mounts
   useEffect(() => {
@@ -383,15 +394,35 @@ const DailyGame = () => {
                         <div className={`px-4 py-2 sm:px-6 sm:py-3 rounded-xl border text-sm sm:text-lg font-bold shadow-lg flex items-center gap-3 ${move.type === 'player' ? 'bg-slate-800 border-brand-blue text-white' : 'bg-slate-900 border-slate-700 text-brand-pink'}`}>
                             {move.type === 'player' && (
                                 <div className="w-8 h-8 rounded-full overflow-hidden">
-                                    <img 
+                                    <img
                                         src={
-                                            getPlayer(move.value)?.league === 'NFL' 
-                                            ? `https://www.pro-football-reference.com/req/20230307/images/headshots/${move.value}.jpg`
-                                            : `https://www.basketball-reference.com/req/202106291/images/headshots/${move.value}.jpg`
+                                            (() => {
+                                                const player = getPlayer(move.value);
+                                                const currentFallbackYear = fallbackYears[move.value];
+                                                if (player?.league === 'NFL') {
+                                                    return currentFallbackYear ?
+                                                        getImageUrlForYear(move.value, 'NFL', currentFallbackYear) :
+                                                        `https://www.pro-football-reference.com/req/20230307/images/headshots/${move.value}.jpg`;
+                                                } else {
+                                                    return currentFallbackYear ?
+                                                        getImageUrlForYear(move.value, 'NBA', currentFallbackYear) :
+                                                        `https://www.basketball-reference.com/req/202106291/images/headshots/${move.value}.jpg`;
+                                                }
+                                            })()
                                         }
                                         alt=""
                                         className="w-full h-full object-cover"
-                                        onError={(e) => { e.target.style.display = 'none'; }}
+                                        onError={(e) => {
+                                            const player = getPlayer(move.value);
+                                            const currentYear = fallbackYears[move.value] || (player?.end_year || new Date().getFullYear());
+                                            const startYear = player?.start_year || currentYear;
+
+                                            if (currentYear > startYear) {
+                                                setFallbackYears(prev => ({ ...prev, [move.value]: currentYear - 1 }));
+                                            } else {
+                                                e.target.style.display = 'none';
+                                            }
+                                        }}
                                     />
                                 </div>
                             )}
